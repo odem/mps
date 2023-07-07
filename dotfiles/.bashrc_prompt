@@ -1,0 +1,31 @@
+#!/bin/bash
+# Construct Prompt
+PS1="\
+\$(RET=\$? ; if [[ \$RET -gt 0 ]]; then\
+    printf \"\\${CPref}\\${BIRed}\\${CSuf}[\$RET]\"; else \
+    printf \"\\${CPref}\\${BIGreen}\\${CSuf}[\$RET]\"; fi) \
+\$(if [[ \$DISTRO == "Arch" ]]; then \
+    printf \"\\${CPref}\\${BIRed}\\${CSuf} \"; \
+elif [[ \$DISTRO == "Debian" ]]; then \
+    printf \"\\${CPref}\\${BIRed}\\${CSuf} \"; fi)\
+\$(if [[ \$USER == "root" ]]; then \
+    printf \"\\${CPref}\\${BIRed}\\${CSuf}\"; else\
+    printf \"\\${CPref}\\${BGreen}\\${CSuf}\"; fi)\
+\u\
+\001${BIRed}\002@\
+\001${BGreen}\002\h\
+\001${BIWhite}\002:\
+\001${BIBlue}\002\W\
+\$(if [[ \$USER == "root" ]]; then \
+    printf \"\\${CPref}\\${BIRed}\\${CSuf}\"; else\
+    printf \"\\${CPref}\\${BIGreen}\\${CSuf}\"; fi)\
+ \
+\001${Color_Off}\002 "
+# Check color prompt
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+    export PS1=$PS1
+else
+    export PS1='[\$?] \u@\h:\W\$ '
+fi
+unset color_prompt force_color_prompt
+

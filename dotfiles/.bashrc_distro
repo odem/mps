@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Test Distribution
+export DISTRO=notset
+if [ ! "$(which lsb_release)" = "" ]; then
+    export DISTRO=$(lsb_release -is)
+else
+    echo "No lsb-release found!"
+    echo ""
+    sleep 3
+    if [ ! "$(which apt)" = "" ]; then
+        sudo apt install lsb-release
+        export DISTRO=$(lsb_release -is)
+    elif [ ! "$(which pacman)" = "" ]; then
+        sudo pacman -S lsb-release
+        export DISTRO=$(lsb_release -is)
+    fi
+fi
+

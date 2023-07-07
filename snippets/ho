@@ -1,0 +1,4 @@
+#!/bin/bash
+SAYING=$(fortune)
+cowsay "$SAYING"
+echo ""

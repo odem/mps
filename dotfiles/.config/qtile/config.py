@@ -27,11 +27,16 @@
 ###############################################################################
 # Deault imports
 ###############################################################################
-from libqtile import bar, layout, widget
+from libqtile import bar, layout, widget, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile import hook
+from libqtile.log_utils import logger
+from libqtile.command.client import CommandClient
+from libqtile import qtile
+from typing import Callable
+
 import subprocess
 import os
 
@@ -47,8 +52,19 @@ terminal = "kitty"
 home = os.path.expanduser('~')
 autostart_init = f"{home}/mps/snippets/autostart.sh"
 rofilaunch = f"{home}/mps/snippets/rofi-boot-launcher.sh"
+rofiwindows = "rofi -show window"
 rofipower = f"{home}/mps/snippets/rofi-boot-powermenu.sh"
 sysmon = "gnome-system-monitor"
+calendar = "gnome-calendar"
+wp1 = f"{home}/.config/images/wallpaper/wormhole.jpg"
+wp2 = f"{home}/.config/images/wallpaper/moon.jpg"
+wp3 = f"{home}/.config/images/wallpaper/mountains.jpg"
+wp4 = f"{home}/.config/images/wallpaper/spaceship.jpg"
+wp5 = f"{home}/.config/images/wallpaper/mainframe.jpg"
+wp6 = f"{home}/.config/images/wallpaper/backyard.jpg"
+wp7 = f"{home}/.config/images/wallpaper/city.jpg"
+wp8 = f"{home}/.config/images/wallpaper/vorschlag.jpg"
+wp9 = f"{home}/.config/images/wallpaper/anon-fuckyou.jpg"
 
 
 ###############################################################################
@@ -57,6 +73,34 @@ sysmon = "gnome-system-monitor"
 @hook.subscribe.startup_once
 def autostart():
     subprocess.call([autostart_init])
+    # qtile.screens[0].set_wallpaper(wp3)
+
+
+###############################################################################
+# Groupchange
+###############################################################################
+@hook.subscribe.setgroup
+def currentgroup_changed():
+    group = str(qtile.current_group.name)
+    sc = qtile.current_screen
+    if group == "1":
+        sc.set_wallpaper(wp1, mode="fill")
+    elif group == "2":
+        sc.set_wallpaper(wp2, mode="fill")
+    elif group == "3":
+        sc.set_wallpaper(wp3, mode="fill")
+    elif group == "4":
+        sc.set_wallpaper(wp4, mode="fill")
+    elif group == "5":
+        sc.set_wallpaper(wp5, mode="fill")
+    elif group == "6":
+        sc.set_wallpaper(wp6, mode="fill")
+    elif group == "7":
+        sc.set_wallpaper(wp7, mode="fill")
+    elif group == "8":
+        sc.set_wallpaper(wp8, mode="fill")
+    elif group == "9":
+        sc.set_wallpaper(wp9, mode="fill")
 
 
 ###############################################################################
@@ -256,10 +300,18 @@ keys = [
     Key([mod], "x", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     # Spawn commands
+    Key([alt], "Tab", lazy.spawn(rofiwindows), desc="Launcher widget"),
     Key([mod], "d", lazy.spawn(rofilaunch), desc="Launcher widget"),
     Key([mod], "a", lazy.spawn(autostart_init), desc="Invoke autostart"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    # Gui tools
+    Key([mod], "u", lazy.spawn(calendar), desc="Calendar Popup"),
+    # Key(
+    #     [mod],
+    #     "u",
+    #     lazy.screen.set_wallpaper(wp2),
+    #     desc="Default wallpaper",
+    # ),
+    # # Gui tools
     Key([alt], "F1", lazy.spawn("firefox"), desc="Browser"),
     Key([alt], "F2", lazy.spawn("thunderbird"), desc="Email"),
     Key([alt], "F3", lazy.spawn("thunar"), desc="FileManager"),
@@ -383,6 +435,7 @@ def normalizeWindowTitle(text):
 
 
 screens = [
+    # Primary Screen
     Screen(
         top=bar.Bar(
             [
@@ -486,6 +539,127 @@ screens = [
                     execute='kitty --title Update --hold sudo apt update && sudo apt upgrade',
                 ),
                 widget.Systray(),
+                widget.Clock(
+                    font="JetBrainsMono Nerd Font",
+                    fontsize=12,
+                    mouse_callbacks={
+                        'Button1': lazy.spawn('gsimplecal'),
+                    },
+                    format="%Y-%m-%d %a %H:%M:%S",
+                ),
+                # widget.Clock(format="%Y-%m-%d %a %H:%M:%S"),
+            ],
+            24,
+            border_color=barBorderColor,
+            border_width=barBorderWidth,
+            background=barColor,
+            margin=marginBar,
+            opacity=opacityBar,
+        ),
+    ),
+    # Secondary Screen
+    Screen(
+        top=bar.Bar(
+            [
+                widget.Sep(),
+                widget.Spacer(),
+                widget.WindowName(width=bar.CALCULATED),
+                widget.Spacer(),
+                widget.Sep(),
+                widget.WidgetBox(
+                    text_open='[n]',
+                    text_closed='[N]',
+                    start_opened=True,
+                    close_button_location='right',
+                    widgets=[
+                        widget.Net(),
+                    ],
+                ),
+            ],
+            20,
+            border_color=barBorderColor,
+            border_width=barBorderWidth,
+            background=barColor,
+            margin=marginBar,
+            opacity=opacityBar,
+        ),
+        bottom=bar.Bar(
+            [
+                widget.CurrentLayoutIcon(
+                    scale=0.6, fontsize=8, background=darkGray
+                ),
+                widget.WindowCount(),
+                widget.GroupBox(
+                    hide_unused=True,
+                    disable_drag=True,
+                    rounded=False,
+                    active=fontWhite,
+                    inactive=fontYellow,
+                    urgent_text=lightRed,
+                    font='JetBrainsMono Nerd Font',
+                    fontsize=14,
+                    highlight_method='block',
+                    # highlight_color=[lightRed],
+                    urgent_alert_method='line',
+                    this_current_screen_border=darkGray,
+                    padding=5,
+                ),
+                widget.Spacer(),
+                widget.WidgetBox(
+                    text_open='[t]',
+                    text_closed='[T]',
+                    close_button_location='right',
+                    widgets=[
+                        widget.Sep(),
+                        widget.TaskList(
+                            parse_text=normalizeWindowTitle,
+                            margin_x=5,
+                            title_width_method='uniform',
+                            padding=1,
+                            margin=1,
+                            markup=True,
+                        ),
+                    ],
+                ),
+                widget.WidgetBox(
+                    text_open='[g]',
+                    text_closed='[G]',
+                    close_button_location='right',
+                    widgets=[
+                        widget.CPU(format='CPU:{load_percent}%'),
+                        widget.CPUGraph(type='line', line_width=1),
+                        widget.DF(
+                            visible_on_warn=False,
+                            format='Disk {p}: {uf}{m}/{s}{m}',
+                        ),
+                        widget.HDDBusyGraph(
+                            path='/', type='line', line_width=1
+                        ),
+                        widget.Memory(
+                            measure_mem='M',
+                            format="RAM: {MemUsed:.0f}{ms}/{MemTotal:.0f}{ms}",
+                        ),
+                        widget.MemoryGraph(type='line', line_width=1),
+                        # widget.TextBox(fmt="NET: "),
+                        widget.Net(prefix='M', format='NET: {up:} {down:}'),
+                        widget.NetGraph(type='line', line_width=1),
+                    ],
+                ),
+                widget.WidgetBox(
+                    text_open='[c]',
+                    text_closed='[C]',
+                    close_button_location='right',
+                    widgets=[widget.Clipboard(timeout=0)],
+                ),
+                widget.CheckUpdates(
+                    distro='Debian',
+                    markup=True,
+                    colour_have_updates='ff0000',
+                    colour_no_updates='00ff00',
+                    display_format='({updates})',
+                    no_update_string='(0)',
+                    execute='kitty --title Update --hold sudo apt update && sudo apt upgrade',
+                ),
                 widget.Clock(format="%Y-%m-%d %a %H:%M:%S"),
             ],
             24,

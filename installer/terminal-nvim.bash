@@ -2,7 +2,7 @@
 # --- Packages ----------------------------------------------------------------
 REQUIRED="git make gcc wget bzip2 curl build-essential lldb libncurses-dev"
 TOOLS="yarn ruby npm fzf fd-find ripgrep shellcheck xclip xsel"
-PYTHON_BASE="python3-full python3-venv pip"
+PYTHON_BASE="python3 python3-venv python3-pip"
 PYTHON_EXTRAS="black flake8 pylint mypy python3-neovim python3-pynvim"
 IFS=', ' read -r -a ALL <<< "$REQUIRED $TOOLS $PYTHON_BASE $PYTHON_EXTRAS"
 IFS=', ' read -r -a CARGO <<< "fd-find tree-sitter-cli"
@@ -34,11 +34,11 @@ while getopts "a:u:p:" o; do
 done
 # --- Core functions ----------------------------------------------------------
 function do_install() {
-    # if [[ "$(which nvim)" != "" ]] ; then
-    #     return 0
-    # fi
+    if [[ "$(which nvim)" != "" ]] ; then
+        return 0
+    fi
     # # === packages ===
-    sudo -E apt --yes install curl wget #"${ALL[@]}"
+    sudo -E apt --yes install "${ALL[@]}"
     # === Python ===
     mkdir -p ~/mps/venv
     cd ~/mps/venv/ || exit 1

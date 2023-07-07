@@ -9,10 +9,11 @@
 COMPOSITOR=picom
 NETMON=nm-applet
 VOLMON=volumeicon
-SCRATCHTERM=tilda 
+SCRATCHTERM=tilda
 SYSMON=gnome-system-monitor
 POLKIT=lxpolkit
-ALL="$COMPOSITOR $NETMON $VOLMON $SCRATCHTERM $SYSMON $POLKIT"
+BIRDTRAY=birdtray
+ALL="$COMPOSITOR $NETMON $VOLMON $SCRATCHTERM $SYSMON $POLKIT $BIRDTRAY"
 for comp in $ALL
 do
     killall $comp

@@ -1,7 +1,6 @@
 #!/bin/bash
 # --- Read opt ----------------------------------------------------------------
 MPS_USER=dummy
-MPS_PASS=dummy
 while (( "$#" )); do
     case "$1" in
         "-u")

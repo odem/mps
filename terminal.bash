@@ -16,12 +16,14 @@ while (( "$#" )); do
 done
 # terminal
 sudo -u "$MPS_USER" ./installer/terminal-essentials.bash
+sudo -u "$MPS_USER" ./installer/terminal-homedir.bash
 sudo -u "$MPS_USER" ./installer/terminal-fonts.bash
 sudo -u "$MPS_USER" ./installer/terminal-vim.bash
 sudo -u "$MPS_USER" ./installer/terminal-nvim.bash
 
 # terminal config as root as well
 sudo -u "root" ./installer/terminal-essentials.bash -a configure
+sudo -u "root" ./installer/terminal-homedir.bash -a configure
 sudo -u "root" ./installer/terminal-fonts.bash -a configure
 sudo -u "root" ./installer/terminal-vim.bash -a configure
 sudo -u "root" ./installer/terminal-nvim.bash -a configure

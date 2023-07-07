@@ -21,5 +21,3 @@ while (( "$#" )); do
 done
 ./installer/bootstrap-user.bash -u "$MPS_USER" -p "$MPS_PASS"
 
-sudo -u "$MPS_USER" ./installer/bootstrap-homedir.bash
-sudo -u "root" ./installer/bootstrap-homedir.bash -a configure

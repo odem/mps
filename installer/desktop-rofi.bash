@@ -37,18 +37,24 @@ function do_install {
     # === rofi ===
     sudo rm -rf $MPS_FOLDER_REPO
     sudo mkdir -p $MPS_FOLDER_REPO
-    sudo git clone $MPS_ROFI_URL $MPS_FOLDER_REPO
-    cd $MPS_FOLDER_REPO || exit 1
-    sudo git submodule update --init
-    sudo autoreconf -i
-    cd - || exit 1
 
-    sudo mkdir -p $MPS_FOLDER_REPO/build
-    cd $MPS_FOLDER_REPO/build || exit 1
-    sudo ../configure --prefix=/usr/
-    sudo make
-    sudo make install
-    cd - || exit 1
+    if [[ ! -d "$MPS_FOLDER_REPO" ]] ; then
+        sudo git clone $MPS_ROFI_URL $MPS_FOLDER_REPO
+        cd $MPS_FOLDER_REPO || exit 1
+        sudo git submodule update --init
+        sudo autoreconf -i
+        cd - || exit 1
+    fi
+
+    ROFI=$(which rofi)
+    if [[ "$ROFI" != "" ]] ; then
+        sudo mkdir -p $MPS_FOLDER_REPO/build
+        cd $MPS_FOLDER_REPO/build || exit 1
+        sudo ../configure --prefix=/usr/
+        sudo make
+        sudo make install
+        cd - || exit 1
+    fi
 }
 function do_uninstall {
     # === packages ===

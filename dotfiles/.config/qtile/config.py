@@ -56,6 +56,8 @@ rofiwindows = "rofi -show window"
 rofipower = f"{home}/mps/snippets/rofi-boot-powermenu.sh"
 sysmon = "gnome-system-monitor"
 calendar = "gnome-calendar"
+keepasslauncher = f"keepass2 {home}/mps/secrets/Database.kdbx"
+
 wp1 = f"{home}/.config/images/wallpaper/wormhole.jpg"
 wp2 = f"{home}/.config/images/wallpaper/moon.jpg"
 wp3 = f"{home}/.config/images/wallpaper/mountains.jpg"
@@ -305,6 +307,7 @@ keys = [
     Key([mod], "a", lazy.spawn(autostart_init), desc="Invoke autostart"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "u", lazy.spawn(calendar), desc="Calendar Popup"),
+    Key([mod], "p", lazy.spawn(keepasslauncher), desc="Keepass"),
     # Key(
     #     [mod],
     #     "u",

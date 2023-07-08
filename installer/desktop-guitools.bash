@@ -1,6 +1,6 @@
 #!/bin/bash
 # --- Packages ----------------------------------------------------------------
-OFFICE="firefox-esr thunderbird birdtray gsimplecal evince"
+OFFICE="firefox-esr thunderbird birdtray gsimplecal evince keepass2 gparted"
 MMEDIA="vlc thunar-media-tags-plugin"
 THUNAR="thunar thunar-data thunar-volman thunar-gtkhash file-roller "
 THUNAREXTRA="thunar-vcs-plugin thunar-archive-plugin"

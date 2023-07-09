@@ -35,7 +35,7 @@ function do_install() {
     sudo -E apt --yes install "${ALL[@]}"
     sudo update-alternatives --set x-terminal-emulator /usr/bin/kitty
     sudo chsh -s /bin/bash "$USER"
-    sudo service dbus restart
+    sudo service dbus enable
 }
 function do_uninstall() {
     # === packages ===

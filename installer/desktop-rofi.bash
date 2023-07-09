@@ -36,9 +36,9 @@ function do_install {
     sudo -E apt --yes install "${ALL[@]}"
     # === rofi ===
     sudo rm -rf $MPS_FOLDER_REPO
-    sudo mkdir -p $MPS_FOLDER_REPO
 
     if [[ ! -d "$MPS_FOLDER_REPO" ]] ; then
+        sudo mkdir -p $MPS_FOLDER_REPO
         sudo git clone $MPS_ROFI_URL $MPS_FOLDER_REPO
         cd $MPS_FOLDER_REPO || exit 1
         sudo git submodule update --init
@@ -47,7 +47,7 @@ function do_install {
     fi
 
     ROFI=$(which rofi)
-    if [[ "$ROFI" != "" ]] ; then
+    if [[ "$ROFI" == "" ]] ; then
         sudo mkdir -p $MPS_FOLDER_REPO/build
         cd $MPS_FOLDER_REPO/build || exit 1
         sudo ../configure --prefix=/usr/

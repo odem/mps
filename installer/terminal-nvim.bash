@@ -87,6 +87,7 @@ function do_uninstall() {
 function do_configure() {
     mkdir -p ~/.config/nvim
     # === nvim config ===
+    cp dotfiles/.NERDTreeBookmarks ~/.config/
     cp -r dotfiles/.config/nvim -t ~/.config/
     mkdir -p ~/mps/secrets
     echo '#!/bin/bash' > ~/mps/secrets/chatgpt-token.bash
@@ -94,7 +95,6 @@ function do_configure() {
     chmod +x ~/mps/secrets/chatgpt-token.bash
     sudo chown "$USER":"$USER" -R ~/.config
     sudo chmod u+w -R ~/.config
-    #bash -c "nvim '+Lazy! sync' '+sleep 30' +qall"
 }
 # --- Execute task ------------------------------------------------------------
 export DEBIAN_FRONTEND=noninteractive

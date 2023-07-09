@@ -1,8 +1,8 @@
-nvim ~/.config/nvim
-jb ~
+.config ~/.config
+docs ~/mps/docs
 mps ~/mps
+nvim ~/.config/nvim
 repo ~/mps/repo
 scratch ~/mps/scratch
-disks ~/mps/disks
-design-daas ~/mps/repo/github/nuromedia/design-daas
+wsp ~/mps/wsp
 

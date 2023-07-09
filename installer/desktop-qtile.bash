@@ -7,6 +7,7 @@ X11="x11vnc tigervnc-standalone-server"
 IFS=', ' read -r -a ALL <<< "$PYTHON $PANGO $X11 $DESKTOP"
 IFS=', ' read -r -a QTILEPIP <<< "xcffib cairocffi"
 # --- Folders -----------------------------------------------------------------
+QTILE_FOLDER=/opt/mps/tools/qtile
 MPS_QTILE_CFG=dotfiles/.config/qtile
 QTILEURL=https://github.com/qtile/qtile
 # --- Prepare Environment -----------------------------------------------------
@@ -34,9 +35,10 @@ function do_install {
     pip3 install --no-cache-dir "${QTILEPIP[@]}" --break-system-packages
     pip install psutil --break-system-packages
     sudo chown "$USER":"$USER" ~
-    mkdir -p ~/mps/repo/github
-    git clone $QTILEURL ~/mps/repo/github/qtile
-    cd ~/mps/repo/github/qtile || exit 1
+    sudo mkdir -p $QTILE_FOLDER
+    sudo chown "$USER":"$USER" $QTILE_FOLDER
+    git clone $QTILEURL $QTILE_FOLDER
+    cd $QTILE_FOLDER || exit 1
     pip3 install . --break-system-packages
     cd - || exit 1
 }
@@ -52,12 +54,19 @@ function do_configure {
     #sudo cp $MPS_QTILE_CFG/.xsessionrc ~/.xsessionrc
     #sudo cp $MPS_QTILE_CFG/.xinitrc ~/.xinitrc
     sudo mkdir -p /usr/share/xsessions
+    sudo cp -r dotfiles/.local ~
+    sudo cp -r dotfiles/.config/dconf ~/.config
+    sudo cp -r dotfiles/.config/KeePass ~/.config
+    sudo cp -r dotfiles/.config/Thunar ~/.config
+    sudo cp -r dotfiles/.config/gtk-2.0 ~/.config
+    sudo cp -r dotfiles/.config/gtk-3.0 ~/.config
+    sudo cp -r dotfiles/.config/xfce4 ~/.config
     sudo cp $MPS_QTILE_CFG/qtile.desktop /usr/share/xsessions/qtile.desktop
     sudo sed "s/dummy/$USER/g" -i /usr/share/xsessions/qtile.desktop
     mkdir -p ~/.config/qtile
     sudo cp $MPS_QTILE_CFG/config.py ~/.config/qtile/config.py
     #sudo chown "$USER":"$USER" ~/.xsessionrc
-    sudo chown "$USER":"$USER" ~/.config/qtile/config.py
+    sudo chown "$USER":"$USER" -R ~
 }
 function listall {
     echo "${ALL[@]}"

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>kitty</icon>
+	<name>Terminal öffnen</name>
+	<submenu></submenu>
+	<unique-id>1688922114776697-1</unique-id>
+	<command>kitty --directory %f --title %f</command>
+	<description>Terminal öffnen</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>nvim</icon>
+	<name>Nvim</name>
+	<submenu></submenu>
+	<unique-id>1688922515930654-2</unique-id>
+	<command>kitty --title  %f --directory %f nvim %f</command>
+	<description>Open with Neovim</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<other-files/>
+	<text-files/>
+</action>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>term</name>
+	<submenu></submenu>
+	<unique-id>1688923154618545-3</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+</actions>

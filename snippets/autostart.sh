@@ -17,6 +17,9 @@ xset r rate 250 50 &
 setxkbmap de &
 #feh --bg-scale ~/.config/images/wallpaper.jpg &
 
+# dconf settings
+dconf load / < ~/.config/dconf/config.ini
+
 # Tray apps and daemons
 COMPOSITOR=picom
 NETMON=nm-applet
@@ -24,8 +27,8 @@ VOLMON=volumeicon
 SCRATCHTERM=tilda
 SYSMON=gnome-system-monitor
 POLKIT=lxpolkit
-MAILTRY=birdtry
-ALL="$COMPOSITOR $NETMON $VOLMON $SCRATCHTERM $SYSMON $POLKIT $BIRDTRAY"
+MAILTRAY=birdtray
+ALL="$COMPOSITOR $NETMON $VOLMON $SCRATCHTERM $SYSMON $POLKIT $MAILTRAY"
 for comp in $ALL
 do
     $comp &

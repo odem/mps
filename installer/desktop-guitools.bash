@@ -1,11 +1,12 @@
 #!/bin/bash
 # --- Packages ----------------------------------------------------------------
 OFFICE="firefox-esr thunderbird birdtray gsimplecal evince keepass2 gparted"
+GVFS="gvfs gvfs-backends gvfs-fuse"
 MMEDIA="vlc thunar-media-tags-plugin"
 THUNAR="thunar thunar-data thunar-volman thunar-gtkhash file-roller "
 THUNAREXTRA="thunar-vcs-plugin thunar-archive-plugin"
 XFCE="xfce4-goodies xfce4-places-plugin"
-IFS=', ' read -r -a ALL <<< "$OFFICE $MMEDIA $THUNAR $THUNAREXTRA $XFCE"
+IFS=', ' read -r -a ALL <<< "$OFFICE $MMEDIA $THUNAR $THUNAREXTRA $XFCE $GVFS"
 # --- Prepare Environment -----------------------------------------------------
 ACTION=all
 export DEBIAN_FRONTEND=noninteractive

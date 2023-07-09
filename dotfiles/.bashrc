@@ -37,6 +37,9 @@ export SHELL=/bin/bash
 export DISPLAY=:0
 export XDG_CONFIG_HOME=$HOME/.config
 export SYSTEMD_PAGER="cat"
+export LC_ALL=de_DE.UTF-8
+export LC_LANG=de_DE.UTF-8
+export LANGUAGE=de_DE.UTF-8
 #--- Tokens -------------------------------------------------------------------
 ASKSCRIPT=~/mps/secrets/chatgpt-token.bash
 [[ -f $ASKSCRIPT ]] && source $ASKSCRIPT

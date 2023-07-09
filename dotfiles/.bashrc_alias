@@ -44,11 +44,16 @@ alias dia="docker images -a"
 alias ns='sudo netstat -tulpano'
 alias v='nvim'
 # mps
-alias repo="cd ~/mps/repo"
+alias mps="cd ~/mps"
 alias disks="cd ~/mps/disks"
 alias docs="cd ~/mps/docs"
+alias iso="cd ~/mps/iso"
+alias repo="cd ~/mps/repo"
 alias scratch="cd ~/mps/scratch"
+alias secrets="cd ~/mps/secrets"
 alias snippets="cd ~/mps/snippets"
+alias tools="cd ~/mps/tools"
+alias venv="cd ~/mps/venv"
 alias vm="cd ~/mps/vm"
 alias wsp="cd ~/mps/wsp"
 # More fancy aliases

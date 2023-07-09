@@ -6,10 +6,6 @@ autocmd({ 'BufRead', 'BufNewFile' }, {
 	command = ":set filetype=tex"
 })
 autocmd('FileType', {
-	pattern = { 'tex', 'latex', 'markdown' },
-	command = ":setlocal spell spelllang=en_us"
-})
-autocmd('FileType', {
 	pattern = { 'make', "Makefile" },
 	command = ":set noexpandtab shiftwidth=4 softtabstop=0"
 })

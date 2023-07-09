@@ -150,9 +150,9 @@ groups = [
     Group("1", layout="monadtall", label="1  "),
     Group(
         "2",
-        layout="treetab",
+        layout="max",
         label="2  ",
-        matches=[Match(wm_class=["thunar", "Gnome-system-monitor"])],
+        matches=[Match(wm_class=["thunar"])],
     ),
     Group(
         "3",
@@ -162,16 +162,11 @@ groups = [
     ),
     Group(
         "4",
-        layout="columns",
+        layout="treetab",
         label="4  ",
-        matches=[Match(wm_class=["eclipse"])],
+        matches=[Match(wm_class=["Gnome-system-monitor"])],
     ),
-    Group(
-        "5",
-        layout="matrix",
-        label="5  ",
-        matches=[Match(wm_class=["TigerVNC Viewer"])],
-    ),
+    Group("5", layout="monadtall", label="5  "),
     Group("6", layout="max", label="6  "),
     Group(
         "7",
@@ -180,7 +175,7 @@ groups = [
         matches=[Match(wm_class=["thunderbird-default", "mumble", "zoom"])],
     ),
     Group("8", layout="max", label="8  "),
-    Group("9", layout="max", label="9  ", matches=[Match(wm_class=["Gmpc"])]),
+    Group("9", layout="max", label="9  "),
 ]
 ###############################################################################
 # Keys
@@ -315,10 +310,34 @@ keys = [
     #     desc="Default wallpaper",
     # ),
     # # Gui tools
-    Key([alt], "F1", lazy.spawn("firefox"), desc="Browser"),
-    Key([alt], "F2", lazy.spawn("thunderbird"), desc="Email"),
-    Key([alt], "F3", lazy.spawn("thunar"), desc="FileManager"),
-    Key([alt], "F4", lazy.spawn("pavucontrol"), desc="SoundControl"),
+    Key(
+        [alt],
+        "F1",
+        lazy.spawn("firefox"),
+        lazy.group["3"].toscreen(),
+        desc="Browser",
+    ),
+    Key(
+        [alt],
+        "F2",
+        lazy.spawn("thunderbird"),
+        lazy.group["7"].toscreen(),
+        desc="Email",
+    ),
+    Key(
+        [alt],
+        "F3",
+        lazy.spawn("thunar"),
+        lazy.group["2"].toscreen(),
+        desc="FileManager",
+    ),
+    Key(
+        [alt],
+        "F4",
+        lazy.spawn("pavucontrol"),
+        lazy.group["9"].toscreen(),
+        desc="SoundControl",
+    ),
     # Move between groups
     Key([alt], "Left", lazy.screen.prev_group(), desc="Move prev group"),
     Key([alt], "Right", lazy.screen.next_group(), desc="Move next group"),
@@ -516,14 +535,33 @@ screens = [
                         widget.HDDBusyGraph(
                             path='/', type='line', line_width=1
                         ),
+                        widget.SwapGraph(type='line', line_width=1),
                         widget.Memory(
                             measure_mem='M',
                             format="RAM: {MemUsed:.0f}{ms}/{MemTotal:.0f}{ms}",
                         ),
                         widget.MemoryGraph(type='line', line_width=1),
                         # widget.TextBox(fmt="NET: "),
-                        widget.Net(prefix='M', format='NET: {up:} {down:}'),
-                        widget.NetGraph(type='line', line_width=1),
+                    ],
+                ),
+                widget.WidgetBox(
+                    text_open='[b]',
+                    text_closed='[B]',
+                    close_button_location='right',
+                    widgets=[
+                        widget.Sep(),
+                        widget.ThermalZone(
+                            fmt='{}',
+                            mouse_callbacks={
+                                'Button1': lazy.spawn('kitty'),
+                            },
+                        ),
+                        widget.TextBox(
+                            fmt='Kitty',
+                            mouse_callbacks={
+                                'Button1': lazy.spawn('kitty'),
+                            },
+                        ),
                     ],
                 ),
                 widget.WidgetBox(
@@ -638,14 +676,33 @@ screens = [
                         widget.HDDBusyGraph(
                             path='/', type='line', line_width=1
                         ),
+                        widget.SwapGraph(type='line', line_width=1),
                         widget.Memory(
                             measure_mem='M',
                             format="RAM: {MemUsed:.0f}{ms}/{MemTotal:.0f}{ms}",
                         ),
                         widget.MemoryGraph(type='line', line_width=1),
                         # widget.TextBox(fmt="NET: "),
-                        widget.Net(prefix='M', format='NET: {up:} {down:}'),
-                        widget.NetGraph(type='line', line_width=1),
+                    ],
+                ),
+                widget.WidgetBox(
+                    text_open='[b]',
+                    text_closed='[B]',
+                    close_button_location='right',
+                    widgets=[
+                        widget.Sep(),
+                        widget.ThermalZone(
+                            fmt='{}',
+                            mouse_callbacks={
+                                'Button1': lazy.spawn('kitty'),
+                            },
+                        ),
+                        widget.TextBox(
+                            fmt='Kitty',
+                            mouse_callbacks={
+                                'Button1': lazy.spawn('kitty'),
+                            },
+                        ),
                     ],
                 ),
                 widget.WidgetBox(
@@ -663,7 +720,15 @@ screens = [
                     no_update_string='(0)',
                     execute='kitty --title Update --hold sudo apt update && sudo apt upgrade',
                 ),
-                widget.Clock(format="%Y-%m-%d %a %H:%M:%S"),
+                widget.Clock(
+                    font="JetBrainsMono Nerd Font",
+                    fontsize=12,
+                    mouse_callbacks={
+                        'Button1': lazy.spawn('gsimplecal'),
+                    },
+                    format="%Y-%m-%d %a %H:%M:%S",
+                ),
+                # widget.Clock(format="%Y-%m-%d %a %H:%M:%S"),
             ],
             24,
             border_color=barBorderColor,
@@ -701,6 +766,7 @@ floating_layout = layout.Floating(
 )
 auto_fullscreen = False
 focus_on_window_activation = "smart"
+cursor_wrap = True
 reconfigure_screens = True
 auto_minimize = True
 wmname = "Qtile"

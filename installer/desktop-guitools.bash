@@ -2,7 +2,7 @@
 # --- Packages ----------------------------------------------------------------
 OFFICE="firefox-esr thunderbird birdtray gsimplecal evince keepass2 gparted"
 GVFS="gvfs gvfs-backends gvfs-fuse"
-MMEDIA="vlc thunar-media-tags-plugin"
+MMEDIA="vlc thunar-media-tags-plugin mumble"
 THUNAR="thunar thunar-data thunar-volman thunar-gtkhash file-roller "
 THUNAREXTRA="thunar-vcs-plugin thunar-archive-plugin"
 XFCE="xfce4-goodies xfce4-places-plugin"

@@ -37,10 +37,12 @@ function do_install {
     sudo chown "$USER":"$USER" ~
     sudo mkdir -p $QTILE_FOLDER
     sudo chown "$USER":"$USER" $QTILE_FOLDER
-    git clone $QTILEURL $QTILE_FOLDER
-    cd $QTILE_FOLDER || exit 1
-    pip3 install . --break-system-packages
-    cd - || exit 1
+    if [[ "$(which qtile)" == "" ]] ; then
+        git clone $QTILEURL $QTILE_FOLDER
+        cd $QTILE_FOLDER || exit 1
+        pip3 install . --break-system-packages
+        cd - || exit 1
+    fi
 }
 function do_uninstall {
     # === packages ===

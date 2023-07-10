@@ -35,8 +35,6 @@ function do_install {
     # === packages ===
     sudo -E apt --yes install "${ALL[@]}"
     # === rofi ===
-    sudo rm -rf $MPS_FOLDER_REPO
-
     if [[ ! -d "$MPS_FOLDER_REPO" ]] ; then
         sudo mkdir -p $MPS_FOLDER_REPO
         sudo git clone $MPS_ROFI_URL $MPS_FOLDER_REPO

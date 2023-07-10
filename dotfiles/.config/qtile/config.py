@@ -57,7 +57,7 @@ rofipower = f"{home}/mps/snippets/rofi-boot-powermenu.sh"
 sysmon = "gnome-system-monitor"
 calendar = "gnome-calendar"
 keepasslauncher = f"keepass2 {home}/mps/secrets/Database.kdbx"
-
+randomwp = f"{home}/mps/snippets/randomize_wp.bash"
 wp1 = f"{home}/.config/images/wallpaper/wormhole.jpg"
 wp2 = f"{home}/.config/images/wallpaper/moon.jpg"
 wp3 = f"{home}/.config/images/wallpaper/mountains.jpg"
@@ -303,12 +303,7 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "u", lazy.spawn(calendar), desc="Calendar Popup"),
     Key([mod], "p", lazy.spawn(keepasslauncher), desc="Keepass"),
-    # Key(
-    #     [mod],
-    #     "u",
-    #     lazy.screen.set_wallpaper(wp2),
-    #     desc="Default wallpaper",
-    # ),
+    Key([alt], "a", lazy.spawn(randomwp), desc="Randomize wallpaper"),
     # # Gui tools
     Key(
         [alt],

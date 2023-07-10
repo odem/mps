@@ -67,7 +67,18 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# Quick vm script
+alias qvm_install="quickvm.bash -a install"
+alias qvm_clone="quickvm.bash -a clone"
+alias qvm_delete="quickvm.bash -a delete"
+alias qvm_start="quickvm.bash -a start"
+alias qvm_stop="quickvm.bash -a stop"
+alias qvm_list="quickvm.bash -a list"
+alias qvm_ssh="quickvm.bash -a ssh"
+
+# Custom shortcuts
 alias nuro="cd ~/mps/repo/github/nuromedia/design-daas"
 alias backend="cd ~/mps/repo/github/nuromedia/design-daas/backend"
 alias design="cd ~/mps/repo/gitlab/design"
+alias mpsrepo="cd ~/mps/repo/github/odem/mps"
 

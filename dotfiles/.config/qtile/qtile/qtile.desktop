@@ -1,7 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Name=qtile
-Comment=Dynamic Window Manager
-Exec=/home/dummy/.local/bin/qtile start
-Icon=qtile
-Type=XSession

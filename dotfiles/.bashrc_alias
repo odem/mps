@@ -81,4 +81,6 @@ alias nuro="cd ~/mps/repo/github/nuromedia/design-daas"
 alias backend="cd ~/mps/repo/github/nuromedia/design-daas/backend"
 alias design="cd ~/mps/repo/gitlab/design"
 alias mpsrepo="cd ~/mps/repo/github/odem/mps"
-
+alias cfg-qtile="nvim ~/.config/qtile/config.py"
+alias cfg-nvim="nvim ~/.config/nvim/init.lua"
+alias cfg-ssh="nvim ~/.ssh/config"

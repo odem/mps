@@ -42,5 +42,5 @@ export LC_LANG=de_DE.UTF-8
 export LANGUAGE=de_DE.UTF-8
 #--- Tokens -------------------------------------------------------------------
 ASKSCRIPT=~/mps/secrets/chatgpt-token.bash
-[[ -f $ASKSCRIPT ]] && source $ASKSCRIPT
+[[ -f $ASKSCRIPT ]] && . $ASKSCRIPT
 

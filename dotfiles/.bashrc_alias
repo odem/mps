@@ -29,7 +29,7 @@ alias bcat='batcat'
 alias gs='git status'
 alias gl='git log --pretty=oneline'
 alias gll='git log'
-alias gd='git diff master'
+alias gd='git diff'
 alias ga='git add'
 alias gaa='git add -A'
 alias gc='git commit -m'
@@ -75,14 +75,18 @@ alias qvm_stop="quickvm.bash -a stop"
 alias qvm_list="quickvm.bash -a list"
 alias qvm_ssh="quickvm.bash -a ssh"
 
-# Custom shortcuts
-alias backend="cd ~/mps/repo/github/nuromedia/design-daas/backend"
-alias mpsrepo="cd ~/mps/repo/github/odem/mps"
+# Custom config aliases
 alias cfg-qtile="nvim ~/.config/qtile/config.py"
 alias cfg-nvim="nvim ~/.config/nvim/init.lua"
 alias cfg-ssh="nvim ~/.ssh/config"
 alias cfg-autostart="nvim \$(which autostart.sh)"
+alias cfg-backup="nvim \$(which backup.bash)"
+alias cfg-bashrc="nvim ~/.bashrc && source ~/.bashrc"
+alias cfg-alias="nvim ~/.bashrc_alias && source ~/.bashrc_alias"
 
+# Custom folders aliases
+alias backend="cd ~/mps/repo/github/nuromedia/design-daas/backend"
+alias mpsrepo="cd ~/mps/repo/github/odem/mps"
 alias nuro="cd ~/mps/repo/github/nuromedia/design-daas"
 alias nuroenv="cd ~/mps/repo/github/nuromedia/design-daas/backend/installer/iso"
 alias nuroenvstart="cd ~/mps/repo/github/nuromedia/design-daas/backend/installer/iso && make ISOTYPE=devenv EXTRAPORTS=1 start"

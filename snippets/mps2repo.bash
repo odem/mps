@@ -2,12 +2,20 @@
 
 REPO=~/mps/repo/github/odem/mps
 HOMECONFIG=~/.config
+REPODOTFILES=$REPO/dotfiles
 REPOCONFIG=$REPO/dotfiles/.config
 HOMESNIPPETS=~/mps/snippets
 REPOSNIPPETS=$REPO/snippets
 
 # Copy Snippets
 cp $HOMESNIPPETS/* $REPOSNIPPETS/
+
+# Copy bashrc stuff
+cp ~/.bashrc $REPODOTFILES/.bashrc
+cp ~/.bashrc_alias $REPODOTFILES/.bashrc_alias
+cp ~/.bashrc_colors $REPODOTFILES/.bashrc_colors
+cp ~/.bashrc_distro $REPODOTFILES/.bashrc_distro
+cp ~/.bashrc_prompt $REPODOTFILES/.bashrc_prompt
 
 # Copy .config
 cp -r $HOMECONFIG/birdtray-config.json $REPOCONFIG/birdtray-config.json

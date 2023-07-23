@@ -9,6 +9,13 @@ from globals import (
     rofiwindows,
     keepasslauncher,
     screenshot,
+    spotifynext,
+    spotifyprev,
+    spotifyplay,
+    spotifystop,
+    spotifymute,
+    spotifyVolup,
+    spotifyVoldown,
     tm,
     fm,
     tb,
@@ -105,6 +112,12 @@ keys_static = [
     Key(a, "F7", spawn_once(ap), lazy.group["9"].toscreen(), desc="Music"),
     Key(a, "F8", spawn_once(gi), lazy.group["4"].toscreen(), desc="Music"),
     Key(a, "F9", spawn_once(zo), lazy.group["7"].toscreen(), desc="Music"),
+    # Media keys for spotify
+    Key([], "XF86AudioNext", lazy.spawn(spotifynext), desc="Next song"),
+    Key([], "XF86AudioPrev", lazy.spawn(spotifyprev), desc="Prev song"),
+    Key([], "XF86AudioPlay", lazy.spawn(spotifyplay), desc="Play/pause song"),
+    Key([], "XF86AudioStop", lazy.spawn(spotifystop), desc="Stop song"),
+    Key([], "XF86AudioMute", lazy.spawn(spotifymute), desc="Mute song"),
 ]
 
 

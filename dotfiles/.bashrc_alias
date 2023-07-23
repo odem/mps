@@ -32,7 +32,6 @@ alias gll='git log'
 alias gd='git diff master'
 alias ga='git add'
 alias gaa='git add -A'
-alias gac='git add -A ; git commit -m '
 alias gc='git commit -m'
 alias gpull='git pull'
 alias gpush='git push'
@@ -77,10 +76,16 @@ alias qvm_list="quickvm.bash -a list"
 alias qvm_ssh="quickvm.bash -a ssh"
 
 # Custom shortcuts
-alias nuro="cd ~/mps/repo/github/nuromedia/design-daas"
 alias backend="cd ~/mps/repo/github/nuromedia/design-daas/backend"
-alias design="cd ~/mps/repo/gitlab/design"
 alias mpsrepo="cd ~/mps/repo/github/odem/mps"
 alias cfg-qtile="nvim ~/.config/qtile/config.py"
 alias cfg-nvim="nvim ~/.config/nvim/init.lua"
 alias cfg-ssh="nvim ~/.ssh/config"
+alias cfg-autostart="nvim \$(which autostart.sh)"
+
+alias nuro="cd ~/mps/repo/github/nuromedia/design-daas"
+alias nuroenv="cd ~/mps/repo/github/nuromedia/design-daas/backend/installer/iso"
+alias nuroenvstart="cd ~/mps/repo/github/nuromedia/design-daas/backend/installer/iso && make ISOTYPE=devenv EXTRAPORTS=1 start"
+alias nuroenvstop="cd ~/mps/repo/github/nuromedia/design-daas/backend/installer/iso && make ISOTYPE=devenv stop"
+alias nuroenvssh="cd ~/mps/repo/github/nuromedia/design-daas/backend/installer/iso && tmux new-session -s devenv 'bash -c \"ssh pve\"'"
+

@@ -1,16 +1,17 @@
 #!/bin/bash
 # --- Packages ----------------------------------------------------------------
-REQUIRED="galculator numlockx xclip arandr lxappearance psutils iw xcwd"
+REQ="galculator numlockx xclip arandr lxappearance psutils iw xcwd"
 WMTOOLS="feh lightdm picom xbacklight "
 TERM="kitty tilda ssh-askpass"
 SOUND="pulseaudio pavucontrol volumeicon-alsa libmpg123-dev"
 ICONS="lxde-icon-theme gnome-extra-icons"
-OSTOOLS="gnome-system-monitor network-manager-gnome dconf-cli dconf-editor"
+OSTOOLS="dconf-cli dconf-editor"
+GNOME="gnome-system-monitor network-manager-gnome gnome-screenshot"
 TXT="gedit gedit-plugins"
 XORG="xorg xserver-xorg-video-nouveau xserver-xorg-video-vesa xterm"
 OGL="mesa-utils freeglut3-dev "
 XLIBS="libglm-dev libao-dev libxinerama-dev libxft-dev libglu1-mesa-dev"
-FULL="$REQUIRED $WMTOOLS $TERM $SOUND $ICONS $OSTOOLS $TXT $XORG $OGL $XLIBS"
+FULL="$REQ $WMTOOLS $TERM $SOUND $ICONS $OSTOOLS $TXT $XORG $OGL $XLIBS $GNOME"
 IFS=', ' read -r -a ALL <<< "$FULL"
 # --- Prepare Environment -----------------------------------------------------
 ACTION=all

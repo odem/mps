@@ -101,6 +101,8 @@ keys_static = [
     Key(a, "F5", spawn_once(lu), lazy.group["8"].toscreen(), desc="Lutris"),
     Key(a, "F6", spawn_once(st), lazy.group["8"].toscreen(), desc="Steam"),
     Key(a, "F7", spawn_once(ap), lazy.group["9"].toscreen(), desc="Music"),
+    Key(a, "F8", spawn_once(gi), lazy.group["4"].toscreen(), desc="Music"),
+    Key(a, "F9", spawn_once(zo), lazy.group["7"].toscreen(), desc="Music"),
 ]
 
 

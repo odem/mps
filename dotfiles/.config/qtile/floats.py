@@ -12,7 +12,7 @@ class MpsFloats(object):
                 Match(wm_class="ssh-askpass"),  # ssh-askpass
                 Match(wm_class="Tilda"),  # tilda
                 Match(wm_class="Rofi"),  # tilda
-                Match(wm_class="Pavucontrol"),  # tilda
+                Match(wm_class="Pavucontrol"),  # pavu
                 Match(wm_class="KeePass2"),  # keepass
             ]
         )

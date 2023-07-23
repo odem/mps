@@ -142,9 +142,9 @@ map(
 )
 
 map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
--- Remap for dealing with word wrap
-map('n', 'k', "v:count == 0 ? 'gk' : 'k'", opts)
-map('n', 'j', "v:count == 0 ? 'gj' : 'j'", opts)
+-- Remap for dealing with word wrap (overlaps regular vim bindings)
+-- map('n', 'k', "v:count == 0 ? 'gk' : 'k'", opts)
+-- map('n', 'j', "v:count == 0 ? 'gj' : 'j'", opts)
 
 -- Delete next line to current row
 map('n', "J", "mzJ`z", opts)
@@ -221,5 +221,5 @@ map("n", "<leader>smv", ":!mv %:p", opts)
 
 -- BrowserSearch
 map("n", "<leader>Ä", "<cmd>BrowserSearch<CR>", opts)
-map("n", "<leader>ä", "<Plug>SearchNormal", opts)
+--map("n", "<leader>ä", "<Plug>SearchNormal", opts)
 map("v", "<leader>ä", "<Plug>SearchVisual", opts)

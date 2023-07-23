@@ -82,7 +82,7 @@ ins_left {
 	function()
 		return '▊'
 	end,
-	color = { fg = colors.blue },    -- Sets highlighting of component
+	color = { fg = colors.blue },   -- Sets highlighting of component
 	padding = { left = 0, right = 1 }, -- We don't need space before this
 }
 
@@ -178,7 +178,7 @@ ins_left {
 
 -- Add components to right sections
 ins_right {
-	'o:encoding',     -- option component same as &encoding in viml
+	'o:encoding',    -- option component same as &encoding in viml
 	fmt = string.upper, -- I'm not sure why it's upper case either ;)
 	cond = conditions.hide_in_width,
 	color = { fg = colors.green, gui = 'bold' },
@@ -220,43 +220,43 @@ ins_right {
 -- Now don't forget to initialize lualine
 lualine.setup(config)
 
--- require('lualine').setup {
--- 	options = {
--- 		icons_enabled = true,
--- 		theme = 'auto',
--- 		component_separators = { left = '', right = '' },
--- 		section_separators = { left = '', right = '' },
--- 		disabled_filetypes = {
--- 			statusline = {},
--- 			winbar = {},
--- 		},
--- 		ignore_focus = {},
--- 		always_divide_middle = true,
--- 		globalstatus = false,
--- 		refresh = {
--- 			statusline = 1000,
--- 			tabline = 1000,
--- 			winbar = 1000,
--- 		}
--- 	},
--- 	sections = {
--- 		lualine_a = { 'mode' },
--- 		lualine_b = { 'branch', 'diff', 'diagnostics' },
--- 		lualine_c = { 'filename' },
--- 		lualine_x = { 'encoding', 'fileformat', 'filetype' },
--- 		lualine_y = { 'progress' },
--- 		lualine_z = { 'location' }
--- 	},
--- 	inactive_sections = {
--- 		lualine_a = {},
--- 		lualine_b = {},
--- 		lualine_c = { 'filename' },
--- 		lualine_x = { 'location' },
--- 		lualine_y = {},
--- 		lualine_z = {}
--- 	},
--- 	tabline = {},
--- 	winbar = {},
--- 	inactive_winbar = {},
--- 	extensions = {}
--- }
+require('lualine').setup {
+	options = {
+		icons_enabled = true,
+		theme = 'auto',
+		component_separators = { left = '', right = '' },
+		section_separators = { left = '', right = '' },
+		disabled_filetypes = {
+			statusline = {},
+			winbar = {},
+		},
+		ignore_focus = {},
+		always_divide_middle = true,
+		globalstatus = false,
+		refresh = {
+			statusline = 1000,
+			tabline = 1000,
+			winbar = 1000,
+		}
+	},
+	sections = {
+		lualine_a = { 'mode' },
+		lualine_b = { 'branch', 'diff', 'diagnostics' },
+		lualine_c = { 'filename' },
+		lualine_x = { 'encoding', 'fileformat', 'filetype' },
+		lualine_y = { 'progress' },
+		lualine_z = { 'location' }
+	},
+	inactive_sections = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = { 'filename' },
+		lualine_x = { 'location' },
+		lualine_y = {},
+		lualine_z = {}
+	},
+	tabline = {},
+	winbar = {},
+	inactive_winbar = {},
+	extensions = {}
+}

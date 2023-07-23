@@ -1,7 +1,7 @@
 tilda_config_version="1.5.4"
 command=""
 font="JetBrainsMono Nerd Font 10"
-key="F9"
+key="<Alt>dead_circumflex"
 addtab_key="<Shift><Control>t"
 fullscreen_key="F10"
 toggle_transparency_key="F11"

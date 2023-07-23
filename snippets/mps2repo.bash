@@ -2,10 +2,10 @@
 
 REPO=~/mps/repo/github/odem/mps
 HOMECONFIG=~/.config
-REPODOTFILES=$REPO/dotfiles
-REPOCONFIG=$REPO/dotfiles/.config
 HOMESNIPPETS=~/mps/snippets
 REPOSNIPPETS=$REPO/snippets
+REPODOTFILES=$REPO/dotfiles
+REPOCONFIG=$REPODOTFILES/.config
 
 # Copy Snippets
 cp $HOMESNIPPETS/* $REPOSNIPPETS/

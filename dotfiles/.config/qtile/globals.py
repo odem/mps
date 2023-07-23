@@ -48,6 +48,7 @@ home = os.path.expanduser('~')
 rofilaunch = f"{home}/mps/snippets/rofi-boot-launcher.sh"
 rofiwindows = "rofi -show window"
 rofipower = f"{home}/mps/snippets/rofi-boot-powermenu.sh"
+screenshot = "gnome-screenshot -i"
 keepasslauncher = f"keepass2 {home}/mps/secrets/Database.kdbx"
 randomwp = f"{home}/mps/snippets/randomize_wp.bash"
 startup = f"{home}/mps/snippets/autostart.sh"

@@ -8,6 +8,7 @@ from globals import (
     rofilaunch,
     rofiwindows,
     keepasslauncher,
+    screenshot,
     tm,
     fm,
     tb,
@@ -78,7 +79,7 @@ keys_static = [
     Key(modctrl, "e", lazy.restart(), desc="Shutdown Qtile"),
     Key(modctrl, "a", lazy.spawn(startup), desc="autostart"),
     Key(modctrl, "Delete", lazy.spawn(rofipower), desc="Powermenu"),
-    Key(m, "d", lazy.spawncmd(), desc="autostart"),
+    Key(m, "d", lazy.spawncmd(), desc="dmenu"),
     # Move between groups
     Key(a, "Left", lazy.screen.prev_group(), desc="Move prev"),
     Key(a, "Right", lazy.screen.next_group(), desc="Move next group"),
@@ -89,8 +90,9 @@ keys_static = [
     # Applications
     Key(a, "Tab", lazy.spawn(rofiwindows), desc="Launcher widget"),
     Key(m, "p", lazy.spawn(keepasslauncher), desc="Keepass"),
+    Key(m, "Print", lazy.spawn(screenshot), desc="Screenshot"),
     Key(m, "t", lazy.spawn(randomwp), desc="Randomize wallpaper"),
-    Key(m, "v", lazy.spawn(nv), desc="Randomize wallpaper"),
+    Key(m, "v", lazy.spawn(nv), desc="neovim"),
     Key(m, "Return", lazy.spawn(tm), desc="Launch terminal"),
     Key(m, "space", lazy.spawn(rofilaunch), desc="Start rofi"),
     # Applications + Movement

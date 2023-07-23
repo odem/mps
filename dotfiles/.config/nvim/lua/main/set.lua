@@ -61,8 +61,8 @@ opt.filetype = "on"
 opt.encoding = "utf-8"
 opt.hidden = true
 -- Status
-opt.showtabline = 1
-opt.laststatus = 1
+opt.showtabline = 2
+opt.laststatus = 2
 opt.cmdheight = 1  -- 0 is a problem! https://github.com/neovim/neovim/issues/20380
 opt.pumheight = 10 -- pop up menu height
 opt.fillchars = { eob = ' ' }

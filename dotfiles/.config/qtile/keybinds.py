@@ -13,9 +13,6 @@ from globals import (
     spotifyprev,
     spotifyplay,
     spotifystop,
-    spotifymute,
-    spotifyVolup,
-    spotifyVoldown,
     tm,
     fm,
     tb,
@@ -117,7 +114,6 @@ keys_static = [
     Key([], "XF86AudioPrev", lazy.spawn(spotifyprev), desc="Prev song"),
     Key([], "XF86AudioPlay", lazy.spawn(spotifyplay), desc="Play/pause song"),
     Key([], "XF86AudioStop", lazy.spawn(spotifystop), desc="Stop song"),
-    Key([], "XF86AudioMute", lazy.spawn(spotifymute), desc="Mute song"),
 ]
 
 

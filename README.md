@@ -26,3 +26,6 @@ Example invocations:
 ./desktop.bash -u foo
 ./all.bash -u foo
 ```
+
+Some Screenshots:
+![Neovim with pre-installed Lsp support and various plugins](screenshots/nvim.png)

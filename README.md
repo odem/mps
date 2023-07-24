@@ -29,19 +29,19 @@ Example invocations:
 
 Some Screenshots:
 
-![Neovim](screenshots/nvim.png)
+![Neovim](screenshots/nvim.png) \
 Neovim with pre-installed Lsp support and various plugins
 
-![Debug](screenshots/debug.png)
+![Debug](screenshots/debug.png) \
 Neovim-based debugging environment and for various languages
 
-![Terminal](screenshots/kitty.png)
+![Terminal](screenshots/kitty.png) \
 Customized .bashrc, prompts, fonts, colorschemes, aliases and shortcuts
 
-![Desktop](screenshots/desktop.png)
-Riced desktop, with custom virtual desktops, bars and shortcuts
+![Desktop](screenshots/desktop.png) \
+Riced desktop, with custom virtual desktops, launchers, bars and shortcuts
 
-![Qtile](screenshots/qtile.png)
+![Qtile](screenshots/qtile.png) \
 Qtile as dynamic tiling window manager
 
 Some Files with Keybindings:

@@ -1,5 +1,6 @@
 # My Perfect System (MPS)
-The System is a collection of scripts and configurations to turn a vanilla
+Not yours, but mine! So be warned!
+The system is a collection of scripts and configurations to turn a vanilla
 Debian installation into the system i like to work with.
 Generally, all dedicated installers are stored within the "installers" folder
 and are categorized into certain catgeories building on top of each other:
@@ -44,9 +45,11 @@ Riced desktop, with custom virtual desktops, launchers, bars and shortcuts
 ![Qtile](screenshots/qtile.png) \
 Qtile as dynamic tiling window manager
 
-Some Files with Keybindings:
+Some useful config files:
 - [Nvim](https://github.com/odem/mps/blob/main/dotfiles/.config/nvim/lua/main/keymap.lua)
 - [Nvim Plugins](https://github.com/odem/mps/tree/main/dotfiles/.config/nvim/lua/config)
 - [Qtile](https://github.com/odem/mps/blob/main/dotfiles/.config/qtile/keybinds.py)
 - [Tmux](https://github.com/odem/mps/blob/main/dotfiles/.config/tmux/tmux.conf.local)
 - [Kitty](https://github.com/odem/mps/blob/main/dotfiles/.config/kitty/kitty.conf)
+- [.bashrc](https://github.com/odem/mps/blob/main/dotfiles/.bashrc)
+- [Wallpapers](https://github.com/odem/mps/tree/main/dotfiles/.config/images)

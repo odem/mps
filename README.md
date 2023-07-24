@@ -46,7 +46,7 @@ Qtile as dynamic tiling window manager
 
 Some Files with Keybindings:
 - [Nvim](https://github.com/odem/mps/blob/main/dotfiles/.config/nvim/lua/main/keymap.lua)
-- [Nvim Plugins] (https://github.com/odem/mps/tree/main/dotfiles/.config/nvim/lua/config)
-- [Qtile] (https://github.com/odem/mps/blob/main/dotfiles/.config/qtile/keybinds.py)
-- [Tmux] (https://github.com/odem/mps/blob/main/dotfiles/.config/tmux/tmux.conf.local)
--  [Kitty] (https://github.com/odem/mps/blob/main/dotfiles/.config/kitty/kitty.conf)
+- [Nvim Plugins](https://github.com/odem/mps/tree/main/dotfiles/.config/nvim/lua/config)
+- [Qtile](https://github.com/odem/mps/blob/main/dotfiles/.config/qtile/keybinds.py)
+- [Tmux](https://github.com/odem/mps/blob/main/dotfiles/.config/tmux/tmux.conf.local)
+- [Kitty](https://github.com/odem/mps/blob/main/dotfiles/.config/kitty/kitty.conf)

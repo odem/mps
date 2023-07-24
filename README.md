@@ -28,4 +28,25 @@ Example invocations:
 ```
 
 Some Screenshots:
-![Neovim with pre-installed Lsp support and various plugins](screenshots/nvim.png)
+
+![Neovim](screenshots/nvim.png)
+Neovim with pre-installed Lsp support and various plugins
+
+![Debug](screenshots/debug.png)
+Neovim-based debugging environment and for various languages
+
+![Terminal](screenshots/kitty.png)
+Customized .bashrc, prompts, fonts, colorschemes, aliases and shortcuts
+
+![Desktop](screenshots/desktop.png)
+Riced desktop, with custom virtual desktops, bars and shortcuts
+
+![Qtile](screenshots/qtile.png)
+Qtile as dynamic tiling window manager
+
+Some Files with Keybindings:
+- [Nvim](https://github.com/odem/mps/blob/main/dotfiles/.config/nvim/lua/main/keymap.lua)
+- [Nvim Plugins] (https://github.com/odem/mps/tree/main/dotfiles/.config/nvim/lua/config)
+- [Qtile] (https://github.com/odem/mps/blob/main/dotfiles/.config/qtile/keybinds.py)
+- [Tmux] (https://github.com/odem/mps/blob/main/dotfiles/.config/tmux/tmux.conf.local)
+-  [Kitty] (https://github.com/odem/mps/blob/main/dotfiles/.config/kitty/kitty.conf)

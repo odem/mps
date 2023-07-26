@@ -25,6 +25,9 @@ alias vff='nvim $(~/mps/snippets/fuzzy-find.bash)'
 # cat
 alias bcat='batcat'
 
+# cp
+alias rp='rsync -arvP --info=progress2'
+
 # git
 alias gs='git status'
 alias gl='git log --pretty=oneline'

@@ -24,9 +24,14 @@ vim.g.maplocalleader = ' '
 -- Quit neovim
 map('n', '<leader>Q', '<cmd>qa<CR>', opts)
 map('n', '<leader>q', '<cmd>q<CR>', opts)
+--  close buffer
+map('n', '<C-.>', '<cmd>bd<CR>', opts)
 
 -- Toggle Relativenumbers
 map("n", "<leader>#", "<cmd>set rnu!<CR>", opts)
+
+-- venv
+map("n", "<leader>C", "<cmd>lua require('swenv.api').pick_venv()<CR>", opts)
 
 -- Telescope
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
@@ -118,6 +123,9 @@ vim.keymap.set('n', '<leader>lL', function() return require('lazy').log() end)
 vim.keymap.set('n', '<leader>lc', function() return require('lazy').clean() end)
 vim.keymap.set('n', '<leader>lp', function() return require('lazy').profile() end)
 
+-- lsp
+vim.keymap.set('n', '<leader>cr', "<cmd>LspRestart<cr>")
+
 -- Move lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
@@ -174,8 +182,11 @@ map("n", "<leader>sen", ":setlocal spell! spelllang=en_us<CR>", opts)
 map("n", "<leader>sde", ":setlocal spell! spelllang=de_de<CR>", opts)
 
 -- NERDTree
+map("n", "<C-e>", "<cmd>NERDTreeToggle<CR>", opts)
 map("n", "<leader>e", "<cmd>NERDTreeToggle<CR>", opts)
 map("n", "<leader>E", "<cmd>NERDTreeFind<CR>", opts)
+map("n", "<C-f>", "<cmd>NERDTreeFocus<CR>", opts)
+map("n", "<leader>f", "<cmd>NERDTreeFocus<CR>", opts)
 map("n", "bb", "<cmd>Bookmark<CR>", opts)
 
 -- Stay in indent mode

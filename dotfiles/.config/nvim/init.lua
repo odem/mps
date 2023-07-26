@@ -19,13 +19,14 @@ require("lazy").setup({
 	require("plugins.comment"),
 	require("plugins.chatgpt"),
 	require("plugins.lspconfig"),
+	require("plugins.null-ls"),
 	require("plugins.telescope"),
 	require("plugins.gitsigns"),
 	require("plugins.treesitter"),
 	require("plugins.lazygit"),
 	require("plugins.barbecue"),
 	require("plugins.nvimcmp"),
-	require("plugins.lualine"),
+	--require("plugins.lualine"),
 	require("plugins.surround"),
 	require("plugins.trouble"),
 	require("plugins.null-ls"),
@@ -35,6 +36,7 @@ require("lazy").setup({
 
 -- Configs
 require("config.alpha")
+require("config.webicons")
 require("config.bufferline")
 require("config.colors")
 require("config.chatgpt")
@@ -49,6 +51,7 @@ require("config.toggleterm")
 require("config.barbecue")
 require("config.lualine")
 require("config.trouble")
+require("config.swenv")
 
 -- Main
 require("main.autocmd")

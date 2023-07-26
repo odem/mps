@@ -29,6 +29,7 @@ opt.softtabstop = 4
 -- Make terminal support truecolor
 opt.termguicolors = true
 opt.guifont = "JetBrainsMono Nerd Font:h14"
+opt.guifontwide = "JetBrains Nerd Font:h14"
 
 -- Make neovim use the system clipboard
 opt.clipboard = 'unnamedplus'
@@ -121,12 +122,15 @@ g.loaded_fzf = 1
 -- Disable provider warnings in the healthcheck
 g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
-g.loaded_npm_provider = 0
+--g.loaded_npm_provider = 0
 g.loaded_ruby_provider = 0
+
+-- Python
+g.python3_host_prog = '/home/jb/mps/venv/nvim/bin/python3'
 
 g.NERDTreeQuitOnOpen = 1
 g.NERDTreeBookmarkSort = 0
-
+g.NERDTreeWinPos = "right"
 
 
 -- g.tpipeline_autoembed = 1

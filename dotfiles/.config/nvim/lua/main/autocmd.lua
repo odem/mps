@@ -4,6 +4,19 @@ local function augroup(name)
 	return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
+-- Open NERDTree at startup and put cursor in correct window
+-- autocmd({ 'VimEnter' }, {
+-- 	pattern = '*',
+-- 	command = ":NERDTree | wincmd p"
+-- })
+
+autocmd({ 'BufEnter' }, {
+	pattern = "*",
+	command =
+	"if bufname('#') =~ 'NERD_tree_\\d\\+' && bufname('%') !~ 'NERD_tree_\\d\\+' && winnr('$') > 1 | let buf=bufnr() | buffer# | execute \"normal! \\<C-W>w\" | execute 'buffer'.buf | endif",
+})
+
+
 autocmd({ 'BufRead', 'BufNewFile' }, {
 	pattern = '*.tex',
 	command = ":set filetype=tex"

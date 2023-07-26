@@ -50,15 +50,40 @@ local on_attach = function(_, bufnr)
 	end, { desc = 'Format current buffer with LSP' })
 end
 
+local configs = require('lspconfig/configs')
+local util = require('lspconfig/util')
+
+local path = util.path
+
+local function get_python_path(workspace)
+	-- Use activated virtualenv.
+	if vim.env.VIRTUAL_ENV then
+		return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
+	end
+
+	-- Find and use virtualenv in workspace directory.
+	for _, pattern in ipairs({ '*', '.*' }) do
+		local match = vim.fn.glob(path.join(workspace, pattern, 'pyvenv.cfg'))
+		if match ~= '' then
+			return path.join(path.dirname(match), 'bin', 'python')
+		end
+	end
+
+	-- Fallback to system Python.
+	return 'python3'
+end
 
 local servers = {
 	clangd = {},
 	--gopls = {},
 	pyright = {
 		python = {
+			--pythonPath = get_python_path("."),
 			analysis = {
-				typeCheckingMode = "on",
+				autoImportCompletions = true,
 				autoSearchPaths = true,
+				diagnosticMode = "workspace", -- openFilesOnly, workspace
+				typeCheckingMode = "basic", -- off, basic, strict
 				useLibraryCodeForTypes = true
 			}
 		}
@@ -105,9 +130,13 @@ mason_lspconfig.setup_handlers {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = servers[server_name],
+			before_init = function(_, config)
+				config.settings.python.pythonPath = ".venv/bin/python3"
+			end,
 		}
 	end,
 }
+
 
 -- require("custom.mason")
 local cmp = require 'cmp'

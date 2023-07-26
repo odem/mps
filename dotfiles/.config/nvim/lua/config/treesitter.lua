@@ -7,7 +7,7 @@ require('nvim-treesitter.configs').setup {
     'rust', 'toml', 'yaml', 'tsx', 'latex', 'typescript', 'vimdoc', 'vim' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-  auto_install = false,
+  auto_install = true,
 
   highlight = { enable = true },
   indent = { enable = true },

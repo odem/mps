@@ -8,6 +8,9 @@ return {
 		local nls = require("null-ls")
 		return {
 			sources = {
+				nls.builtins.diagnostics.ruff,
+				nls.builtins.diagnostics.mypy,
+				nls.builtins.diagnostics.pylint,
 				nls.builtins.diagnostics.flake8,
 				nls.builtins.diagnostics.shellcheck,
 				nls.builtins.formatting.black.with({

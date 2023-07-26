@@ -1,5 +1,9 @@
 #!/bin/bash
 # Construct Prompt
+
+HOMEHOST=hive
+HOST=$(hostname)
+
 PS1="\
 \$(RET=\$? ; if [[ \$RET -gt 0 ]]; then\
     printf \"\\${CPref}\\${BIRed}\\${CSuf}[\$RET]\"; else \
@@ -13,7 +17,9 @@ elif [[ \$DISTRO == "Debian" ]]; then \
     printf \"\\${CPref}\\${BGreen}\\${CSuf}\"; fi)\
 \u\
 \001${BIRed}\002@\
-\001${BGreen}\002\h\
+\$(if [[ \$HOST != \$HOMEHOST ]]; then \
+    printf \"\\${CPref}\\${BIRed}\\${CSuf}\h\"; else\
+    printf \"\\${CPref}\\${BIGreen}\\${CSuf}\h\"; fi)\
 \001${BIWhite}\002:\
 \001${BIBlue}\002\W\
 \$(if [[ \$USER == "root" ]]; then \

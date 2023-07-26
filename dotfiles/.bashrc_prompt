@@ -16,7 +16,9 @@ elif [[ \$DISTRO == "Debian" ]]; then \
     printf \"\\${CPref}\\${BIRed}\\${CSuf}\"; else\
     printf \"\\${CPref}\\${BGreen}\\${CSuf}\"; fi)\
 \u\
-\001${BIRed}\002@\
+\$(if [[ \$USER == "root" ]] ; then \
+    printf \"\\${CPref}\\${BIYellow}\\${CSuf}@\"; else\
+    printf \"\\${CPref}\\${BIPurple}\\${CSuf}@\"; fi)\
 \$(if [[ \$HOST != \$HOMEHOST ]]; then \
     printf \"\\${CPref}\\${BIRed}\\${CSuf}\h\"; else\
     printf \"\\${CPref}\\${BIGreen}\\${CSuf}\h\"; fi)\

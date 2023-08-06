@@ -43,7 +43,8 @@ alias dps="docker ps -a"
 alias drm="docker container rm"
 alias dia="docker images -a"
 # network
-alias ns='sudo netstat -tulpano'
+alias ns='sudo netstat -tulpan'
+alias nso='sudo netstat -tulpano'
 alias v='nvim'
 # mps
 alias mps="cd ~/mps"

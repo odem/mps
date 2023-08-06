@@ -34,6 +34,7 @@ cp -r $HOMECONFIG/qtile/* $REPOCONFIG/qtile
 cp -r $HOMECONFIG/rofi/* $REPOCONFIG/rofi
 cp -r $HOMECONFIG/Thunar/* $REPOCONFIG/Thunar
 cp -r $HOMECONFIG/tilda/* $REPOCONFIG/tilda
-cp -r $HOMECONFIG/tmux/* $REPOCONFIG/tmux
+cp -r $HOMECONFIG/tmux/tmux.conf $REPOCONFIG/tmux
+cp -r $HOMECONFIG/tmux/tmux.conf.local $REPOCONFIG/tmux
 cp -r $HOMECONFIG/volumeicon/* $REPOCONFIG/volumeicon
 cp -r $HOMECONFIG/xfce4/* $REPOCONFIG/xfce4

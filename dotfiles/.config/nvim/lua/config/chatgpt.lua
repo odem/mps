@@ -67,7 +67,7 @@ require("chatgpt").setup({
       },
     },
     win_options = {
-      wrap = false,
+      wrap = true,
       linebreak = true,
       foldcolumn = "4",
       winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
@@ -85,7 +85,7 @@ require("chatgpt").setup({
       },
     },
     win_options = {
-      wrap = false,
+      wrap = true,
       linebreak = true,
       foldcolumn = "4",
       winhighlight = "Normal:Normal,FloatBorder:FloatBorder",

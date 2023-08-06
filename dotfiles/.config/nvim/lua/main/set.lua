@@ -130,7 +130,7 @@ g.python3_host_prog = '/home/jb/mps/venv/nvim/bin/python3'
 
 g.NERDTreeQuitOnOpen = 1
 g.NERDTreeBookmarkSort = 0
-g.NERDTreeWinPos = "right"
+--g.NERDTreeWinPos = "right"
 
 
 -- g.tpipeline_autoembed = 1

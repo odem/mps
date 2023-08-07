@@ -11,19 +11,26 @@ alias cmmi='./configure && make && sudo make install'
 alias ll='ls -lah --color=auto'
 alias la='ls -A --color=auto'
 alias l='ls -CF --color=auto'
+alias sll='sudo ls -la'
+
+# exa
 alias e='exa'
 alias et='exa --long --tree'
 alias ee='exa -abghHlS'
 alias eet='exa --long --tree -abghHlS'
+alias see='sudo exa -abghHlS'
+alias stree='sudo exa --long --tree'
 
 # custom scripts
 alias rfs='~/mps/snippets/rfs.bash'
+alias vff='nvim $(~/mps/snippets/fuzzy-find.bash)'
 alias ela='~/mps/snippets/elapsed.bash'
 alias cheat='~/mps/snippets/chtsht.bash'
-alias vff='nvim $(~/mps/snippets/fuzzy-find.bash)'
 
 # cat
 alias bcat='batcat'
+alias scat='sudo cat'
+alias sbcat='sudo batcat'
 
 # cp
 alias rp='rsync -arvP --info=progress2'
@@ -40,12 +47,18 @@ alias gpull='git pull'
 alias gpush='git push'
 # Docker
 alias dps="docker ps -a"
-alias drm="docker container rm"
+alias dcexec="docker exec -ti "
+alias dcstop="docker container stop "
+alias dcrm="docker container rm"
+alias dnls="docker network ls"
+alias dirm="docker image rm"
 alias dia="docker images -a"
 # network
-alias ns='sudo netstat -tulpan'
-alias nso='sudo netstat -tulpano'
+alias ns='sudo netstat -tulpn |sort'
+alias nso='sudo netstat -tulpano |sort'
+# nvim
 alias v='nvim'
+alias sv='sudo nvim'
 # mps
 alias mps="cd ~/mps"
 alias disks="cd ~/mps/disks"

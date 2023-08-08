@@ -92,6 +92,14 @@ alias qvm_stop="quickvm.bash -a stop"
 alias qvm_list="quickvm.bash -a list"
 alias qvm_ssh="quickvm.bash -a ssh"
 
+# vpn
+alias vpn-ptp="vpn.bash ptp"
+alias vpn-bridge="vpn.bash bridge"
+alias vpn-state="vpn.bash"
+
+# public ip
+alias whoamip="echo $(curl -s ifconfig.me)"
+
 # tmux
 alias tls="tmux ls"
 alias tas="tmux attach -t "
@@ -103,6 +111,7 @@ alias cfg-qtile="nvim ~/.config/qtile/config.py"
 alias cfg-nvim="nvim ~/.config/nvim/init.lua"
 alias cfg-tmux="nvim ~/.config/tmux/tmux.conf.local"
 alias cfg-ssh="nvim ~/.ssh/config"
+alias cfg-snippets="nvim ~/mps/snippets"
 alias cfg-autostart="nvim \$(which autostart.sh)"
 alias cfg-backup="nvim \$(which backup.bash)"
 alias cfg-bashrc="nvim ~/.bashrc && source ~/.bashrc"

@@ -7,15 +7,20 @@
 		<DpiFactorY>1</DpiFactorY>
 	</Meta>
 	<Application>
-		<LastUpdateCheck>2023-07-23T18:09:54Z</LastUpdateCheck>
+		<LastUpdateCheck>2023-08-02T12:08:17Z</LastUpdateCheck>
 		<LastUsedFile>
-			<Path>../../../home/jb/mps/secrets/Database.kdbx</Path>
+			<Path>../../../home/jb/mps/repo/archive/nextcloud/Detos/keepass/full_keepass.kdbx</Path>
 			<CredProtMode>Obf</CredProtMode>
 			<CredSaveMode>NoSave</CredSaveMode>
 		</LastUsedFile>
 		<MostRecentlyUsed>
 			<MaxItemCount>12</MaxItemCount>
 			<Items>
+				<ConnectionInfo>
+					<Path>../../../home/jb/mps/repo/archive/nextcloud/Detos/keepass/full_keepass.kdbx</Path>
+					<CredProtMode>Obf</CredProtMode>
+					<CredSaveMode>NoSave</CredSaveMode>
+				</ConnectionInfo>
 				<ConnectionInfo>
 					<Path>../../../home/jb/mps/secrets/Database.kdbx</Path>
 					<CredProtMode>Obf</CredProtMode>
@@ -151,6 +156,10 @@
 		<KeySources>
 			<Association>
 				<DatabasePath>../../../home/jb/mps/secrets/Database.kdbx</DatabasePath>
+				<Password>true</Password>
+			</Association>
+			<Association>
+				<DatabasePath>../../../home/jb/mps/repo/archive/nextcloud/Detos/keepass/full_keepass.kdbx</DatabasePath>
 				<Password>true</Password>
 			</Association>
 		</KeySources>

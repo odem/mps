@@ -431,6 +431,12 @@ set -g @tmux-resurrect-strategy-nvim 'sessions'
 unbind r
 bind r source-file ~/.config/tmux/tmux.conf
 
+# copymode
+bind-key -n 'C-y' copy-mode
+
+# find session
+bind a command-prompt -p "session abbr:" "run 'tmux switch -t $(tmux ls -F \"##{session_created}:##{session_name}\" | sort -n | grep \':%%\' | head -n 1 | cut -d \':\' -f 2)'"
+
 # vim keys
 bind-key h select-pane -L
 bind-key j select-pane -D

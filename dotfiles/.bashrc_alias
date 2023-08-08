@@ -54,8 +54,8 @@ alias dnls="docker network ls"
 alias dirm="docker image rm"
 alias dia="docker images -a"
 # network
-alias ns='sudo netstat -tulpn |sort'
-alias nso='sudo netstat -tulpano |sort'
+alias ns='sudo netstat -tulpn |sort -k 4 -n'
+alias nso='sudo netstat -tulpano |sort -k 4 -n'
 # nvim
 alias v='nvim'
 alias sv='sudo nvim'

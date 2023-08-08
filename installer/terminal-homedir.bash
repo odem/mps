@@ -5,7 +5,7 @@ IFS=', ' read -r -a ALL <<< "$DEFAULT"
 # --- Folders ----------------------------------------------------------------
 MPS_ROOT=~/mps
 MPS_ROOT_DISKS=/media/disks
-MPS_FOLDERS="scratch snippets iso repo tools vm disks docs wsp secrets venv"
+MPS_FOLDERS="scratch snippets iso repo tools vm disks docs wsp secrets venv vpn"
 MPS_SYMLINKS=""
 # --- Prepare Environment -----------------------------------------------------
 ACTION=all

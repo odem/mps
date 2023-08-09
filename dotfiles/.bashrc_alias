@@ -102,7 +102,7 @@ alias vpn-bridge="vpn.bash bridge"
 alias vpn-state="vpn.bash"
 
 # public ip
-alias whoamip="echo $(curl -s ifconfig.me)"
+alias whoamip='echo $(curl -s ifconfig.me)'
 
 # tmux
 alias tls="tmux ls"

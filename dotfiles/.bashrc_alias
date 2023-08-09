@@ -21,6 +21,9 @@ alias eet='exa --long --tree -abghHlS'
 alias see='sudo exa -abghHlS'
 alias stree='sudo exa --long --tree'
 
+# Skeletons
+alias skel='new-skeleton.bash'
+
 # custom scripts
 alias rfs='~/mps/snippets/rfs.bash'
 alias vff='nvim $(~/mps/snippets/fuzzy-find.bash)'

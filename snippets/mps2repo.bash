@@ -3,12 +3,17 @@
 REPO=~/mps/repo/github/odem/mps
 HOMECONFIG=~/.config
 HOMESNIPPETS=~/mps/snippets
+HOMESKELETONS=~/mps/skeletons
 REPOSNIPPETS=$REPO/snippets
+REPOSKELETONS=$REPO/skeletons
 REPODOTFILES=$REPO/dotfiles
 REPOCONFIG=$REPODOTFILES/.config
 
 # Copy Snippets
 cp $HOMESNIPPETS/* $REPOSNIPPETS/
+
+# Copy Skeletons
+cp $HOMESKELETONS/* $REPOSKELETONS/
 
 # Copy bashrc stuff
 cp ~/.bashrc $REPODOTFILES/.bashrc

@@ -39,6 +39,9 @@ function do_configure() {
     cp dotfiles/.bashrc* ~
     cp -r dotfiles/.config/tmux -t ~/.config/
     cp -r dotfiles/.config/neofetch -t ~/.config/
+    # === skeletons ===
+    mkdir -p ~/mps/skeletons
+    cp skeletons/* ~/mps/skeletons
     # === keypair ===
     [[ -f ~/.ssh/id_rsa ]] || \
         echo "y" | ssh-keygen -f ~/.ssh/id_rsa -t rsa -N '' 1>/dev/null

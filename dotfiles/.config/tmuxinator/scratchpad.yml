@@ -1,0 +1,10 @@
+# /home/jb/.config/tmuxinator/scratchpad.yml
+
+name: scratchpad
+root: ~/mps/scratch
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - nvim
+        - bash

@@ -1,6 +1,6 @@
 #!/bin/bash
 # --- Packages ----------------------------------------------------------------
-ESSENTIALS="git tmux kitty python3 python3-pip lsb-release"
+ESSENTIALS="git tmux tmuxinator kitty python3 python3-pip lsb-release"
 OS="debconf debconf-utils fontconfig neofetch figlet"
 PS="psmisc psutils htop bpytop"
 FILES="fd-find fzf bat exa tree ranger ncdu"

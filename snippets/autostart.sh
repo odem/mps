@@ -33,3 +33,11 @@ for comp in $ALL
 do
     $comp &
 done
+
+# Trigger resurrect plugin (tmux) with dummy session
+#kitty bash -c "tmux start-server; tmux new-session -d -s autostart ; sleep 3"
+#kitty bash -c "tmux kill-session -t autostart"
+
+# Default tmux sessions
+#kitty bash -c "tmux new-session -d -s scratchpad -c ~/mps/scratch"
+tmuxinator start scratchpad

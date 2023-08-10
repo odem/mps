@@ -2,11 +2,12 @@
 inode/directory=thunar.desktop
 x-scheme-handler/http=firefox-esr.desktop
 x-scheme-handler/https=firefox-esr.desktop
+text/plain=nvim.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox-esr.desktop
 x-scheme-handler/https=firefox-esr.desktop
 image/png=gimp.desktop;
-text/plain=org.gnome.gedit.desktop;
-application/pdf=masterpdfeditor5.desktop;org.gnome.Evince.desktop;
-text/x-makefile=org.gnome.gedit.desktop;
+text/plain=nvim.desktop;
+application/pdf=org.gnome.Evince.desktop;
+text/x-makefile=nvim.desktop;

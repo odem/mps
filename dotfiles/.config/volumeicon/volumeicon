@@ -1,5 +1,6 @@
 [Alsa]
-card=default
+card=HD-Audio Generic
+channel=Master
 logarithmic_scale=false
 
 [Notification]

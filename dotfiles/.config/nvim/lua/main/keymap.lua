@@ -24,8 +24,9 @@ vim.g.maplocalleader = ' '
 -- Quit neovim
 map('n', '<leader>Q', '<cmd>qa<CR>', opts)
 map('n', '<leader>q', '<cmd>q<CR>', opts)
+map('n', '<C-Q>', '<cmd>q<CR>', opts)
 --  close buffer
-map('n', '<C-.>', '<cmd>bd<CR>', opts)
+map('n', '<A-.>', '<cmd>bd<CR>', opts)
 
 -- Toggle Relativenumbers
 map("n", "<leader>#", "<cmd>set rnu!<CR>", opts)

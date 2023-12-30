@@ -28,7 +28,12 @@ class MpsGroups(object):
                 ],
                 layout="monadtall",
             ),
-            Group("6", label="6  ", matches=[], layout="max"),
+            Group(
+                "6",
+                label="6  ",
+                matches=[Match(wm_class='qemu')],
+                layout="column",
+            ),
             Group(
                 "7",
                 label="7  ",

@@ -15,9 +15,10 @@ require("lazy").setup({
 	require("plugins.other"),
 	-- complex
 	require("plugins.blankindent"),
+	-- require("plugins.blankindent"),
 	require("plugins.bufferline"),
 	require("plugins.comment"),
-	require("plugins.chatgpt"),
+	-- require("plugins.chatgpt"),
 	require("plugins.lspconfig"),
 	require("plugins.null-ls"),
 	require("plugins.telescope"),
@@ -36,10 +37,11 @@ require("lazy").setup({
 
 -- Configs
 require("config.alpha")
+require("config.blankindent")
 require("config.webicons")
 require("config.bufferline")
 require("config.colors")
-require("config.chatgpt")
+-- require("config.chatgpt")
 require("config.comment")
 require("config.nerdtree")
 require("config.yank")

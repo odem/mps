@@ -43,4 +43,5 @@ export LANGUAGE=de_DE.UTF-8
 #--- Tokens -------------------------------------------------------------------
 ASKSCRIPT=~/mps/secrets/chatgpt-token.bash
 [[ -f $ASKSCRIPT ]] && . $ASKSCRIPT
-
+#--- Zoxide -------------------------------------------------------------------
+eval "$(zoxide init bash)"

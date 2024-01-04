@@ -18,6 +18,7 @@ return {
     { "goolord/alpha-nvim" },
     { "saadparwaiz1/cmp_luasnip" },
     { "neovim/nvim-lspconfig" },
+    { "onsails/lspkind.nvim" },
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-path" },

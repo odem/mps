@@ -31,10 +31,14 @@ function do_install() {
 
     # === ohmyzsh ===
     rm -rf ~/.oh-my-zsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O ohmyzsh.sh
+    chmod a+x ohmyzsh.sh
+    echo "q" | ./ohmyzsh.sh
+    rm -rf ./ohmyzsh.sh
+    cp dotfiles/.zshrc ~/.zshrc
+
     git clone https://github.com/fdellwing/zsh-bat.git  ~/.oh-my-zsh/custom/plugins/zsh-bat
     git clone https://github.com/MichaelAquilina/zsh-you-should-use.git  ~/.oh-my-zsh/custom/plugins/zsh-you-should-use
-    git clone https://github.com/zsh-users/zsh-interactive-cd ~/.oh-my-zsh/custom/plugins/zsh-interactive-cd
     git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
@@ -47,7 +51,6 @@ function do_configure() {
     # === dotfiles ===
     mkdir -p ~/.config
     cp dotfiles/.bashrc* ~
-    cp dotfiles/.zshrc ~
     cp dotfiles/.common_alias.sh ~
     cp -r dotfiles/.config/tmux -t ~/.config/
     cp -r dotfiles/.config/tmuxinator -t ~/.config/

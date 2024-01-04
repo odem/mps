@@ -1,7 +1,9 @@
 -- Set up nvim-cmp.
 local cmp = require 'cmp'
 
+local luasnip = require 'luasnip'
 local lspkind = require('lspkind')
+require('luasnip.loaders.from_vscode').lazy_load()
 require('lspkind').init({
 	-- DEPRECATED (use mode instead): enables text annotations
 	--
@@ -107,12 +109,34 @@ cmp.setup({
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered()
 	},
+
 	mapping = cmp.mapping.preset.insert({
-		['<C-b>'] = cmp.mapping.scroll_docs(-4),
+		['<Down>'] = cmp.mapping.select_next_item(),
+		['<Up>'] = cmp.mapping.select_prev_item(),
+		['<C-n>'] = cmp.mapping.select_next_item(),
+		['<C-b>'] = cmp.mapping.select_prev_item(),
+		['<C-d>'] = cmp.mapping.scroll_docs(-4),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
-		['<C-Space>'] = cmp.mapping.complete(),
-		['<C-e>'] = cmp.mapping.abort(),
-		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		['<C-Space>'] = cmp.mapping.complete {},
+		['<C-y>'] = cmp.mapping.confirm({ select = true }),
+		['<CR>'] = cmp.mapping.confirm {
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		},
+		['<C-v>'] = cmp.mapping(function(fallback)
+			if luasnip.jumpable(1) then
+				luasnip.jump(1)
+			else
+				fallback()
+			end
+		end, { 'i', 's' }),
+		['<C-z>'] = cmp.mapping(function(fallback)
+			if luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { 'i', 's' }),
 	}),
 	sources = cmp.config.sources({
 		{ name = 'path' },

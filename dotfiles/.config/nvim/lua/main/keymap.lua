@@ -94,10 +94,10 @@ map('n', '<S-Up>', '<C-w>k', opts)
 map('n', '<S-Right>', '<C-w>l', opts)
 
 -- Resize splits
-map('n', '<A-l>', '<cmd>vertical resize +1<CR>', opts)
-map('n', '<A-h>', '<cmd>vertical resize -1<CR>', opts)
-map('n', '<A-k>', '<cmd>resize +1<CR>', opts)
-map('n', '<A-j>', '<cmd>resize -1<CR>', opts)
+-- map('n', '<A-l>', '<cmd>vertical resize +1<CR>', opts)
+-- map('n', '<A-h>', '<cmd>vertical resize -1<CR>', opts)
+-- map('n', '<A-k>', '<cmd>resize +1<CR>', opts)
+-- map('n', '<A-j>', '<cmd>resize -1<CR>', opts)
 
 -- Resize splits
 map("n", "<", ":vertical resize+5<CR>", opts)
@@ -156,15 +156,15 @@ map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
 -- map('n', 'j', "v:count == 0 ? 'gj' : 'j'", opts)
 
 -- Delete next line to current row
-map('n', "J", "mzJ`z", opts)
+-- map('n', "J", "mzJ`z", opts)
 
 -- Half page up or down
-map('n', "<C-d>", "<C-d>zz", opts)
-map('n', "<C-u>", "<C-u>zz", opts)
+--map('n', "<C-d>", "<C-d>zz", opts)
+--map('n', "<C-u>", "<C-u>zz", opts)
 
 -- ?
-map('n', "n", "nzzzv", opts)
-map('n', "N", "Nzzzv", opts)
+-- map('n', "n", "nzzzv", opts)
+-- map('n', "N", "Nzzzv", opts)
 
 -- Better pasting
 map('x', "<leader>p", "\"_dP", opts)
@@ -183,10 +183,10 @@ map("n", "<leader>sen", ":setlocal spell! spelllang=en_us<CR>", opts)
 map("n", "<leader>sde", ":setlocal spell! spelllang=de_de<CR>", opts)
 
 -- NERDTree
-map("n", "<C-e>", "<cmd>NERDTreeToggle<CR>", opts)
+map("n", "<A-e>", "<cmd>NERDTreeToggle<CR>", opts)
 map("n", "<leader>e", "<cmd>NERDTreeToggle<CR>", opts)
 map("n", "<leader>E", "<cmd>NERDTreeFind<CR>", opts)
-map("n", "<C-f>", "<cmd>NERDTreeFocus<CR>", opts)
+map("n", "<A-f>", "<cmd>NERDTreeFocus<CR>", opts)
 map("n", "<leader>f", "<cmd>NERDTreeFocus<CR>", opts)
 map("n", "bb", "<cmd>Bookmark<CR>", opts)
 

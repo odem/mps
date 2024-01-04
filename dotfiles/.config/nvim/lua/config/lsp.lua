@@ -139,6 +139,7 @@ mason_lspconfig.setup_handlers {
 
 
 -- require("custom.mason")
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
@@ -179,7 +180,12 @@ cmp.setup {
 		end, { 'i', 's' }),
 	},
 	sources = {
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' },
+		{ name = 'path' },
+		{ name = 'nvim_lsp', keyword_length = 1 },
+		{ name = 'luasnip',  keyword_length = 2 },
+		{ name = 'buffer',   keyword_length = 3 },
+	},
+	window = {
+		documentation = cmp.config.window.bordered()
 	},
 }

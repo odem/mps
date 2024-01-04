@@ -4,9 +4,7 @@ return {
     { "tpope/vim-sleuth" },
     { "tpope/vim-fugitive" },
     { "nvim-tree/nvim-web-devicons",   opts = {} },
-    --{ "kyazdani42/nvim-web-devicons" },
     { "kyazdani42/nvim-tree.lua" },
-    --{ "ryanoasis/vim-devicons" },
     { "voldikss/vim-browser-search" },
     { "ellisonleao/gruvbox.nvim" },
     { "folke/tokyonight.nvim" },
@@ -34,4 +32,5 @@ return {
     { "AckslD/swenv.nvim" },
     { "stevearc/dressing.nvim" },
     { "nvim-lualine/lualine.nvim" },
+    { "onsails/lspkind.nvim" },
 }

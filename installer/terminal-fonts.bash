@@ -5,8 +5,9 @@ IFS=', ' read -r -a ALL <<< "$DEFAULT"
 # --- Font-URLs ---------------------------------------------------------------
 FONTDIR=/opt/mps/tools/fonts
 FONTS_URL_AWESOME=https://use.fontawesome.com/releases/v6.2.1/fontawesome-free-6.2.1-desktop.zip
-FONTS_URL_JETBRAINS=https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/JetBrainsMono.zip
-FONTS_URL_MONOID=https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Monoid.zip
+FONTS_URL_JETBRAINS=https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
+FONTS_URL_MONOID=https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Monoid.zip
+FONTS_URL_SYMBOLS=https://github.com/microsoft/vscode-codicons/blob/master/dist/codicon.ttf
 # --- Prepare Environment -----------------------------------------------------
 ACTION=all
 export DEBIAN_FRONTEND=noninteractive
@@ -59,6 +60,11 @@ function do_configure() {
         sudo unzip $FONTDIR/JetBrainsMono.zip \
             -d $FONTDIR/JetBrainsMono
         sudo rm -rf $FONTDIR/JetBrainsMono.zip
+    fi
+    # === Symbols ===
+    if [[ ! -d $FONTDIR/codicon/ ]] ; then
+        mkdir $FONTDIR/codicon/
+        sudo wget $FONTS_URL_SYMBOLS -O $FONTDIR/codicon.ttf
     fi
     # === Deploy ===
     mkdir -p ~/.local/share/fonts

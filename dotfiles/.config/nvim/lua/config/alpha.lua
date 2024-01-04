@@ -24,7 +24,7 @@ dashboard.section.header.val = {
 	"                  ⠀⠀⠀⠀⠀⢻⣆⡈⠣⠤⠴⠶⠒⠒⠒⠒⠲⠶⠤⣄⣀⣀⣀⣤⠖⢲⣼⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀                  ",
 	"                  ⠀⠀⠀⠀⠀⠘⣿⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠒⠒⠒⠂⠛⢚⠛⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀                  ",
 	"                  ⠀⠀⠀⠀⠀⠀⠸⣧⢱⡀⠀⠀⠐⠲⣄⠀⠀⠀⠀⠀⠀⢀⡿⠀⠀⠀⠘⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀                  ",
-	"                                                                         ",
+	"                                                                         "
 	-- "                   -- a M3sS@g3 2 tHe P@raN0iD --                        ",
 	-- "++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>>-----------.++++++++++++.++",
 	-- "++++++++++++.<<++++++++++++++.------------.>>----------.<<.>>--------.+++",
@@ -82,7 +82,6 @@ dashboard.section.buttons.val = {
 	dashboard.button("s", "🔧 >                            Settings",
 		":e $MYVIMRC | :cd %:p:h | wincmd k | pwd<CR>"),
 	dashboard.button("t", "💻 >                            Terminal", ":ToggleTerm<CR>"),
-	dashboard.button("c", "🤖 >                            ChatGPT", ":ChatGPT<CR>"),
 	dashboard.button("l", "😴 >                            Lazy", ":Lazy! sync<CR>"),
 	dashboard.button("m", "🔨 >                            Mason", ":Mason<CR>"),
 	dashboard.button("q", "❌ >                            Quit", ":qa<CR>"),
@@ -100,7 +99,7 @@ local hi_top_section = {
 
 local hi_middle_section = {
 	type = "text",
-	val = "",
+	val = " ",
 	opts = {
 		position = "center",
 		hl = "EcovimHeaderInfo"
@@ -121,7 +120,7 @@ dashboard.section.footer = {
 	val = "└───────────────────────────────────────────────────────────────────────┘",
 	opts = {
 		position = "center",
-		hl = "Number",
+		hl = "Type"
 	},
 }
 
@@ -138,10 +137,10 @@ local opts = {
 	layout = {
 		{ type = "padding", val = 0 },
 		section.header,
-		{ type = "padding", val = 1 },
+		{ type = "padding", val = 5 },
 		section.hi_top_section,
 		section.hi_middle_section,
-		{ type = "padding", val = 1 },
+		{ type = "padding", val = 0 },
 		section.buttons,
 		{ type = "padding", val = 0 },
 		section.hi_bottom_section,

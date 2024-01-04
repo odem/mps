@@ -17,7 +17,7 @@ cp $HOMESKELETONS/* $REPOSKELETONS/
 
 # Copy bashrc stuff
 cp ~/.bashrc $REPODOTFILES/.bashrc
-cp ~/.common_alias $REPODOTFILES/.common_alias.sh
+cp ~/.common_alias.sh $REPODOTFILES/.common_alias.sh
 cp ~/.zshrc $REPODOTFILES/.zshrc
 #cp -r ~/.oh-my-zsh $REPODOTFILES/.oh-my-zsh
 cp ~/.bashrc_colors $REPODOTFILES/.bashrc_colors

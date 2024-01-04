@@ -47,6 +47,9 @@ alias gd='git diff'
 alias ga='git add'
 alias gaa='git add -A'
 alias gc='git commit -m'
+alias gsl='git stash list'
+alias gstash='git stash save wip'
+alias gstashpop='bucket=$(git stash list | grep wip | awk "{print $1}" | cut -f 1 -d ":") ; [ ! -z "$bucket" ] && git stash pop "$bucket" || echo "NO"'
 alias gpull='git pull'
 alias gpush='git push'
 # Docker
@@ -127,9 +130,3 @@ alias cfg-alias="nvim ~/.bashrc_alias && source ~/.bashrc_alias"
 alias backend="cd ~/mps/repo/github/nuromedia/design-daas/backend"
 alias mpsrepo="cd ~/mps/repo/github/odem/mps"
 alias nuro="tmuxinator stop nuro ; tmuxinator start nuro"
-#alias nuro="cd ~/mps/repo/github/nuromedia/design-daas"
-# alias nuroenv="cd ~/mps/repo/github/nuromedia/design-daas/backend/installer/iso"
-# alias nuroenvstart="cd ~/mps/repo/github/nuromedia/design-daas/backend/installer/iso && make ISOTYPE=devenv EXTRAPORTS=1 start"
-# alias nuroenvstop="cd ~/mps/repo/github/nuromedia/design-daas/backend/installer/iso && make ISOTYPE=devenv stop"
-# alias nuroenvssh="cd ~/mps/repo/github/nuromedia/design-daas/backend/installer/iso && tmux new-session -s devenv 'bash -c \"ssh pve\"'"
-

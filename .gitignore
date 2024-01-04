@@ -3,6 +3,7 @@
 /dotfiles/.config/nvim/lazy-lock.json
 /dotfiles/.config/tmux/plugins
 /dotfiles/.config/dconf/user
+/dotfiles/.oh-my-zsh/
 /snippets/backup_contabo.bash
 /snippets/designcmd.bash
 

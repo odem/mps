@@ -20,7 +20,7 @@ HISTCONTROL=ignoreboth 		# don't put duplicate lines in the history.
 shopt -s histappend 		# append to the history file, don't overwrite it
 shopt -s checkwinsize 		# update the values of LINES and COLUMNS.
 #--- Aliases ------------------------------------------------------------------
-. ~/.bashrc_alias
+. ~/.common_alias.sh
 #--- Bash completion ----------------------------------------------------------
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then

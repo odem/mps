@@ -74,7 +74,8 @@ end
 -- Set menu
 dashboard.section.buttons.val = {
 	dashboard.button("n", "📄 >                            New file", ":ene <BAR> startinsert <CR>"),
-	dashboard.button("e", "📁 >                            Explore", ":NERDTree<CR> | :wincmd p<CR> | :close<CR>"),
+	dashboard.button("e", "📁 >                            Explore",
+		":NvimTreeToggle<CR> | :wincmd p<CR> | :close<CR>"),
 	dashboard.button("f", "🔍 >                            Find file",
 		":cd $HOME/Workspace | Telescope find_files<CR>"),
 	dashboard.button("r", "⌛ >                            Recent", ":Telescope oldfiles<CR>"),

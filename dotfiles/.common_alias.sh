@@ -128,6 +128,7 @@ alias cfg-skeletons="nvim ~/mps/skeletons"
 alias cfg-autostart="nvim \$(which autostart.sh)"
 alias cfg-backup="nvim \$(which backup.bash)"
 alias cfg-bashrc="nvim ~/.bashrc && source ~/.bashrc"
+alias cfg-zshrc="nvim ~/.zshrc && source ~/.zshrc"
 alias cfg-alias="nvim ~/.bashrc_alias && source ~/.bashrc_alias"
 
 # Custom folders aliases

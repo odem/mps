@@ -1,4 +1,4 @@
-local opts = { noremap = true, silent = true }
+local default_opts = { noremap = true, silent = true }
 --local map = vim.api.nvim_set_keymap
 
 
@@ -22,17 +22,17 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Quit neovim
-map('n', '<leader>Q', '<cmd>qa<CR>', opts)
-map('n', '<leader>q', '<cmd>q<CR>', opts)
-map('n', '<C-Q>', '<cmd>q<CR>', opts)
+map('n', '<leader>Q', '<cmd>qa<CR>', default_opts)
+map('n', '<leader>q', '<cmd>q<CR>', default_opts)
+map('n', '<C-Q>', '<cmd>q<CR>', default_opts)
 --  close buffer
-map('n', '<A-.>', '<cmd>bd<CR>', opts)
+map('n', '<A-.>', '<cmd>bd<CR>', default_opts)
 
 -- Toggle Relativenumbers
-map("n", "<leader>#", "<cmd>set rnu!<CR>", opts)
+map("n", "<leader>#", "<cmd>set rnu!<CR>", default_opts)
 
 -- venv
-map("n", "<leader>C", "<cmd>lua require('swenv.api').pick_venv()<CR>", opts)
+map("n", "<leader>C", "<cmd>lua require('swenv.api').pick_venv()<CR>", default_opts)
 
 -- Telescope
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
@@ -84,14 +84,14 @@ vim.keymap.set("n", "<leader>4", function() ui.nav_file(4) end)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 -- splits
-map("n", "<leader>-", ":split<Space>", opts)
-map("n", "<leader>_", ":vsplit<Space>", opts)
+map("n", "<leader>-", ":split<Space>", default_opts)
+map("n", "<leader>_", ":vsplit<Space>", default_opts)
 
 -- Better split navigation
-map('n', '<S-Left>', '<C-w>h', opts)
-map('n', '<S-Down>', '<C-w>j', opts)
-map('n', '<S-Up>', '<C-w>k', opts)
-map('n', '<S-Right>', '<C-w>l', opts)
+map('n', '<S-Left>', '<C-w>h', default_opts)
+map('n', '<S-Down>', '<C-w>j', default_opts)
+map('n', '<S-Up>', '<C-w>k', default_opts)
+map('n', '<S-Right>', '<C-w>l', default_opts)
 
 -- Resize splits
 -- map('n', '<A-l>', '<cmd>vertical resize +1<CR>', opts)
@@ -100,21 +100,21 @@ map('n', '<S-Right>', '<C-w>l', opts)
 -- map('n', '<A-j>', '<cmd>resize -1<CR>', opts)
 
 -- Resize splits
-map("n", "<", ":vertical resize+5<CR>", opts)
-map("n", ">", ":vertical resize-5<CR>", opts)
-map("n", "_", ":horizontal resize+5<CR>", opts)
-map("n", "-", ":horizontal resize-5<CR>", opts)
+map("n", "<", ":vertical resize+5<CR>", default_opts)
+map("n", ">", ":vertical resize-5<CR>", default_opts)
+map("n", "_", ":horizontal resize+5<CR>", default_opts)
+map("n", "-", ":horizontal resize-5<CR>", default_opts)
 
 -- Buffers
 map('n', '<Space>', '<Nop>', { silent = true })
 map('v', '<Space>', '<Nop>', { silent = true })
 
 -- Navigate buffers
-map("n", "<S-c>", ":bnext<CR>", opts)
-map("n", "<S-x>", ":bprevious<CR>", opts)
+map("n", "<S-c>", ":bnext<CR>", default_opts)
+map("n", "<S-x>", ":bprevious<CR>", default_opts)
 
 -- Quick write
-map('n', '<leader>w', '<cmd>w<CR>', opts)
+map('n', '<leader>w', '<cmd>w<CR>', default_opts)
 
 -- Lazy keymap
 vim.keymap.set('n', '<leader>ll', function() return require('lazy').home() end)
@@ -167,53 +167,43 @@ map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
 -- map('n', "N", "Nzzzv", opts)
 
 -- Better pasting
-map('x', "<leader>p", "\"_dP", opts)
-map("n", "<leader>d", "\"_d", opts)
-map("v", "<leader>d", "\"_d", opts)
-map("i", "<C-c>", "<Esc>", opts)
+map('x', "<leader>p", "\"_dP", default_opts)
+map("n", "<leader>d", "\"_d", default_opts)
+map("v", "<leader>d", "\"_d", default_opts)
+map("i", "<C-c>", "<Esc>", default_opts)
 
 -- Clipboard
-map("n", "<leader>y", "\"+y", opts)
-map("v", "<leader>y", "\"+y", opts)
-map("n", "<leader>Y", "\"+Y", opts)
+map("n", "<leader>y", "\"+y", default_opts)
+map("v", "<leader>y", "\"+y", default_opts)
+map("n", "<leader>Y", "\"+Y", default_opts)
 
 -- Replace current word
-map("n", "<leader>rn", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>", opts)
-map("n", "<leader>sen", ":setlocal spell! spelllang=en_us<CR>", opts)
-map("n", "<leader>sde", ":setlocal spell! spelllang=de_de<CR>", opts)
+map("n", "<leader>rn", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>", default_opts)
+map("n", "<leader>sen", ":setlocal spell! spelllang=en_us<CR>", default_opts)
+map("n", "<leader>sde", ":setlocal spell! spelllang=de_de<CR>", default_opts)
 
 -- NERDTree
-map("n", "<A-e>", "<cmd>NERDTreeToggle<CR>", opts)
-map("n", "<leader>e", "<cmd>NERDTreeToggle<CR>", opts)
-map("n", "<leader>E", "<cmd>NERDTreeFind<CR>", opts)
-map("n", "<A-f>", "<cmd>NERDTreeFocus<CR>", opts)
-map("n", "<leader>f", "<cmd>NERDTreeFocus<CR>", opts)
-map("n", "bb", "<cmd>Bookmark<CR>", opts)
+vim.api.nvim_set_keymap("n", "<C-h>", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
+map("n", "<A-e>", "<cmd>NvimTreeToggle<CR>", default_opts)
+map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", default_opts)
+map("n", "<leader>E", "<cmd>NvimTreeFindFile<CR>", default_opts)
+map("n", "<A-f>", "<cmd>NvimTreeFocus<CR>", default_opts)
+map("n", "<leader>f", "<cmd>NvimTreeFocus<CR>", default_opts)
+map("n", "bb", "<cmd>Bookmark<CR>", default_opts)
+
+
 
 -- Stay in indent mode
-map("v", "<", "<gv", opts)
-map("v", ">", ">gv", opts)
-
--- ChatGPT
-map("n", "<leader>öö", "<cmd>ChatGPT<CR>", opts)
-map("n", "<leader>öa", "<cmd>ChatGPTActAs<CR>", opts)
-map("n", "<leader>öc", "<cmd>ChatGPTCompleteCode<CR>", opts)
-map("n", "<leader>öi", "<cmd>ChatGPTEditWithInstructions<CR>", opts)
-map("n", "<leader>öre", "<cmd>ChatGPTRun explain_code<CR>", opts)
-map("n", "<leader>örf", "<cmd>ChatGPTRun fix_bugs<CR>", opts)
-map("n", "<leader>örs", "<cmd>ChatGPTRun summarize<CR>", opts)
-map("n", "<leader>öro", "<cmd>ChatGPTRun optimize<CR>", opts)
-map("n", "<leader>örd", "<cmd>ChatGPTRun docstring<CR>", opts)
-map("n", "<leader>örc", "<cmd>ChatGPTRun code_readability_analysis<CR>", opts)
-map("n", "<leader>ört", "<cmd>ChatGPTRun add_tests<CR>", opts)
+map("v", "<", "<gv", default_opts)
+map("v", ">", ">gv", default_opts)
 
 -- Trouble
-map("n", "<leader>xx", "<cmd>TroubleToggle<CR>", opts)
-map("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>", opts)
-map("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>", opts)
-map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<CR>", opts)
-map("n", "<leader>xl", "<cmd>TroubleToggle loclist<CR>", opts)
-map("n", "gR", "<cmd>TroubleToggle lsp_references<CR>", opts)
+map("n", "<leader>xx", "<cmd>TroubleToggle<CR>", default_opts)
+map("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>", default_opts)
+map("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>", default_opts)
+map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<CR>", default_opts)
+map("n", "<leader>xl", "<cmd>TroubleToggle loclist<CR>", default_opts)
+map("n", "gR", "<cmd>TroubleToggle lsp_references<CR>", default_opts)
 
 -- toggleterm
 vim.api.nvim_set_keymap("n", "<leader>üü", "<cmd>lua _HTOP_TOGGLE()<CR>", { noremap = true, silent = true })
@@ -223,15 +213,15 @@ vim.api.nvim_set_keymap("n", "<leader>üt", "<cmd>lua _HTOP_TOGGLE()<CR>", { nor
 vim.api.nvim_set_keymap("n", "<leader>üb", "<cmd>lua _BPYTOP_TOGGLE()<CR>", { noremap = true, silent = true })
 
 -- Shell
-map("n", "<leader>ss", "<cmd>15sp term://bash<CR>i", opts)
-map("n", "<leader>sx+", "<cmd>!chmod +x %:p<CR><CR>", opts)
-map("n", "<leader>sx-", "<cmd>!chmod -x %:p <CR><CR>", opts)
-map("n", "<leader>srb", "<cmd>!bash -c %:p<CR>", opts)
-map("n", "<leader>srp", "<cmd>!python3 %:p<CR>", opts)
-map("n", "<leader>scp", ":!cp %:p<space>", opts)
-map("n", "<leader>smv", ":!mv %:p", opts)
+map("n", "<leader>ss", "<cmd>15sp term://bash<CR>i", default_opts)
+map("n", "<leader>sx+", "<cmd>!chmod +x %:p<CR><CR>", default_opts)
+map("n", "<leader>sx-", "<cmd>!chmod -x %:p <CR><CR>", default_opts)
+map("n", "<leader>srb", "<cmd>!bash -c %:p<CR>", default_opts)
+map("n", "<leader>srp", "<cmd>!python3 %:p<CR>", default_opts)
+map("n", "<leader>scp", ":!cp %:p<space>", default_opts)
+map("n", "<leader>smv", ":!mv %:p", default_opts)
 
 -- BrowserSearch
-map("n", "<leader>Ä", "<cmd>BrowserSearch<CR>", opts)
+map("n", "<leader>Ä", "<cmd>BrowserSearch<CR>", default_opts)
 --map("n", "<leader>ä", "<Plug>SearchNormal", opts)
-map("v", "<leader>ä", "<Plug>SearchVisual", opts)
+map("v", "<leader>ä", "<Plug>SearchVisual", default_opts)

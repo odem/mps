@@ -19,5 +19,6 @@ while (( "$#" )); do
             ;;
     esac
 done
+
 ./installer/bootstrap-user.bash -u "$MPS_USER" -p "$MPS_PASS"
 

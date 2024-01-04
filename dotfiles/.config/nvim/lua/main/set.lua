@@ -131,3 +131,39 @@ g.python3_host_prog = '/home/jb/mps/venv/nvim/bin/python3'
 g.NERDTreeQuitOnOpen = 1
 g.NERDTreeBookmarkSort = 0
 --g.NERDTreeWinPos = "right"
+g.WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
+g.WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
+g.NERDTreeFileExtensionHighlightFullName = 1
+g.NERDTreeExactMatchHighlightFullName = 1
+g.NERDTreePatternMatchHighlightFullName = 1
+g.brown = "905532"
+g.aqua = "3AFFDB"
+g.blue = "689FB6"
+g.darkBlue = "44788E"
+g.purple = "834F79"
+g.lightPurple = "834F79"
+g.red = "AE403F"
+g.beige = "F5C06F"
+g.yellow = "F09F17"
+g.orange = "D4843E"
+g.darkOrange = "F16529"
+g.pink = "CB6F6F"
+g.salmon = "EE6E73"
+g.green = "8FAA54"
+g.lightGreen = "31B53E"
+g.white = "FFFFFF"
+g.rspec_red = 'FE405F'
+g.git_orange = 'F54D27'
+
+g.NERDTreeSyntaxEnabledExtensions = { 'hbs', 'lhs' }
+g.NERDTreeSyntaxEnabledExactMatches = { 'dropbox', 'node_modules', 'favicon.ico' }
+g.NERDTreeHighlightCursorline = 1
+
+g.NERDTreeDirArrowExpandable = "+"
+g.NERDTreeDirArrowCollapsible = "~"
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true

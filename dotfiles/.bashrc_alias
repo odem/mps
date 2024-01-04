@@ -8,6 +8,10 @@ alias puu='sudo apt update && sudo apt upgrade'
 alias cmmi='./configure && make && sudo make install'
 
 # ls
+alias zz='z -'
+alias zq='zoxide query'
+
+# ls
 alias ll='ls -lah --color=auto'
 alias la='ls -A --color=auto'
 alias l='ls -CF --color=auto'
@@ -67,19 +71,19 @@ alias nso='sudo netstat -tulpano |sort -k 4 -n'
 alias v='nvim'
 alias sv='sudo nvim'
 # mps
-alias mps="cd ~/mps"
-alias disks="cd ~/mps/disks"
-alias docs="cd ~/mps/docs"
-alias iso="cd ~/mps/iso"
-alias repo="cd ~/mps/repo"
-alias scratch="cd ~/mps/scratch"
-alias secrets="cd ~/mps/secrets"
-alias skeletons="cd ~/mps/skeletons"
-alias snippets="cd ~/mps/snippets"
-alias tools="cd ~/mps/tools"
-alias venv="cd ~/mps/venv"
-alias vm="cd ~/mps/vm"
-alias wsp="cd ~/mps/wsp"
+alias mps="z ~/mps"
+alias disks="z ~/mps/disks"
+alias docs="z ~/mps/docs"
+alias iso="z ~/mps/iso"
+alias repo="z ~/mps/repo"
+alias scratch="z ~/mps/scratch"
+alias secrets="z ~/mps/secrets"
+alias skeletons="z ~/mps/skeletons"
+alias snippets="z ~/mps/snippets"
+alias tools="z ~/mps/tools"
+alias venv="z ~/mps/venv"
+alias vm="z ~/mps/vm"
+alias wsp="z ~/mps/wsp"
 # More fancy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -127,6 +131,7 @@ alias cfg-bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias cfg-alias="nvim ~/.bashrc_alias && source ~/.bashrc_alias"
 
 # Custom folders aliases
-alias backend="cd ~/mps/repo/github/nuromedia/design-daas/backend"
-alias mpsrepo="cd ~/mps/repo/github/odem/mps"
-alias nuro="tmuxinator stop nuro ; tmuxinator start nuro"
+alias backend="z ~/mps/repo/github/nuromedia/design-daas/backend"
+alias mpsrepo="z ~/mps/repo/github/odem/mps"
+alias nuro=" z ~/mps/repo/github/nuromedia"
+alias nuromux="tmuxinator stop nuro ; tmuxinator start nuro"

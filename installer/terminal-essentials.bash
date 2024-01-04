@@ -3,7 +3,7 @@
 ESSENTIALS="git tmux tmuxinator kitty python3 python3-pip lsb-release"
 OS="debconf debconf-utils fontconfig neofetch figlet"
 PS="psmisc psutils htop bpytop"
-FILES="fd-find fzf bat exa tree ranger ncdu zoxide"
+FILES="fd-find fzf bat exa tree ranger ncdu zoxide entr"
 TRANSPORT="ca-certificates curl wget gnupg apt-utils apt-transport-https"
 ARCHIVES="zip unzip bzip2 dtrx"
 BASHUTILS="cowsay fortune fortunes-de cmatrix console-setup bash-completion"

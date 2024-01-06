@@ -28,6 +28,7 @@ require("lazy").setup({
 	require("plugins.nvimcmp"),
 	require("plugins.trouble"),
 	require("plugins.autoformat"),
+	require("plugins.dadbod"),
 	require("plugins.debug"),
 }, {})
 

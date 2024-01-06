@@ -91,6 +91,7 @@ return {
       --    Don't feel like these are good choices.
       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
       controls = {
+        element = "repl",
         enabled = true,
         icons = {
           pause = '⏸',
@@ -104,6 +105,44 @@ return {
           disconnect = '⏏',
         },
       },
+      element_mappings = {},
+      render = {
+        indent = 1,
+        max_value_lines = 100
+      },
+      floating = {
+        border = "single",
+        mappings = {
+          close = { "q", "<Esc>" }
+        }
+      },
+      layouts = {
+        elements = { {
+          id = "scopes",
+          size = 0.25
+        }, {
+          id = "breakpoints",
+          size = 0.25
+        }, {
+          id = "stacks",
+          size = 0.25
+        }, {
+          id = "watches",
+          size = 0.25
+        } },
+        position = "left",
+        size = 40
+      },
+      force_buffers = true,
+      expand_lines = true,
+      mappings = {
+        -- edit = "e",
+        -- expand = { "<CR>", "<2-LeftMouse>" },
+        -- open = "o",
+        -- remove = "d",
+        -- repl = "r",
+        -- toggle = "t"
+      },
     }
 
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
@@ -116,6 +155,6 @@ return {
     -- Install golang specific config
     -- require('dap-go').setup()
 
-    require('dap-python').setup(os.getenv("HOME") .. '/mps/neovim/debugpy/bin/python')
+    require('dap-python').setup(os.getenv("HOME") .. '/mps/nvim/bin/python')
   end,
 }

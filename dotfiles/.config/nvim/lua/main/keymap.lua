@@ -225,3 +225,6 @@ map("n", "<leader>smv", ":!mv %:p", default_opts)
 map("n", "<leader>Ä", "<cmd>BrowserSearch<CR>", default_opts)
 --map("n", "<leader>ä", "<Plug>SearchNormal", opts)
 map("v", "<leader>ä", "<Plug>SearchVisual", default_opts)
+
+-- dadbod
+map("n", "<A-d>", "<cmd>DBUIToggle<CR>", default_opts)

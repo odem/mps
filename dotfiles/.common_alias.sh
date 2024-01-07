@@ -136,3 +136,5 @@ alias backend="z ~/mps/repo/github/nuromedia/design-daas/backend"
 alias mpsrepo="z ~/mps/repo/github/odem/mps"
 alias nuro=" z ~/mps/repo/github/nuromedia"
 alias nuromux="tmuxinator stop nuro ; tmuxinator start nuro"
+
+source custom_alias.sh

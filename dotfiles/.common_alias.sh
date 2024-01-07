@@ -132,9 +132,7 @@ alias cfg-zshrc="nvim ~/.zshrc && source ~/.zshrc"
 alias cfg-alias="nvim ~/.bashrc_alias && source ~/.bashrc_alias"
 
 # Custom folders aliases
-alias backend="z ~/mps/repo/github/nuromedia/design-daas/backend"
 alias mpsrepo="z ~/mps/repo/github/odem/mps"
-alias nuro=" z ~/mps/repo/github/nuromedia"
-alias nuromux="tmuxinator stop nuro ; tmuxinator start nuro"
 
-source custom_alias.sh
+# Include more custom aliases
+. ~/.custom_alias.sh

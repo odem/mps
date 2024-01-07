@@ -52,9 +52,11 @@ function do_configure() {
     mkdir -p ~/.config
     cp dotfiles/.bashrc* ~
     cp dotfiles/.common_alias.sh ~
+    cp dotfiles/.custom_alias.sh ~
     cp -r dotfiles/.config/tmux -t ~/.config/
     cp -r dotfiles/.config/tmuxinator -t ~/.config/
     cp -r dotfiles/.config/neofetch -t ~/.config/
+
     # === skeletons ===
     mkdir -p ~/mps/skeletons
     cp skeletons/* ~/mps/skeletons

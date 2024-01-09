@@ -6,7 +6,7 @@
 # NOTE: Consider escaping
 REPODIR=/home/jb/mps/repo/github/nuromedia/design-daas
 BACKENDDIR=$REPODIR/backend
-WEBDIR=$REPODIR/web
+WEBDIR=$BACKENDDIR/web
 NOWEBDIR=$BACKENDDIR/noweb
 ISODIR=$BACKENDDIR/installer/iso
 # Directories

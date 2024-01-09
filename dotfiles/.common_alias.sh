@@ -60,6 +60,7 @@ alias gpush='git push'
 alias dps="docker ps -a"
 alias dcexec="docker exec -ti "
 alias dcstop="docker container stop "
+alias dkill="docker container kill "
 alias dcrm="docker container rm"
 alias dnls="docker network ls"
 alias dirm="docker image rm"

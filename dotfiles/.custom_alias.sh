@@ -1,4 +1,4 @@
-
+#!/bin/sh
 
 # -- NURODEV -----------------------------------------------------------------
 WEBDIR=/home/design-daas/backend/web

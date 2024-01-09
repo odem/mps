@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # apt
 alias pq='apt search'
@@ -60,11 +60,14 @@ alias gpush='git push'
 alias dps="docker ps -a"
 alias dcexec="docker exec -ti "
 alias dcstop="docker container stop "
-alias dkill="docker container kill "
+alias dckill="docker container kill "
 alias dcrm="docker container rm"
 alias dnls="docker network ls"
+alias dvls="docker volume ls"
 alias dirm="docker image rm"
 alias dia="docker images -a"
+alias diatagged='docker images -a | grep -v "<none>"'
+
 # network
 alias ns='sudo netstat -tulpn |sort -k 4 -n'
 alias nso='sudo netstat -tulpano |sort -k 4 -n'
@@ -85,7 +88,8 @@ alias tools="z ~/mps/tools"
 alias venv="z ~/mps/venv"
 alias vm="z ~/mps/vm"
 alias wsp="z ~/mps/wsp"
-# More fancy aliases
+
+# More fancy colors
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -96,7 +100,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# Quick vm script
+# Quick script for launching virtual machines with qemu
 alias qvm_install="quickvm.bash -a install"
 alias qvm_clone="quickvm.bash -a clone"
 alias qvm_delete="quickvm.bash -a delete"
@@ -113,7 +117,7 @@ alias vpn-state="vpn.bash"
 # public ip
 alias whoamip='echo $(curl -s ifconfig.me)'
 
-# tmux
+# tmux session control
 alias tls="tmux ls"
 alias tas="tmux attach -t "
 alias tns="tmux new -s "
@@ -130,7 +134,8 @@ alias cfg-autostart="nvim \$(which autostart.sh)"
 alias cfg-backup="nvim \$(which backup.bash)"
 alias cfg-bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias cfg-zshrc="nvim ~/.zshrc && source ~/.zshrc"
-alias cfg-alias="nvim ~/.bashrc_alias && source ~/.bashrc_alias"
+alias cfg-alias-common="nvim ~/.common_alias.sh && source ~/.common_alias.sh"
+alias cfg-alias-custom="nvim ~/.custom_alias.sh && source ~/.custom_alias.sh"
 
 # Custom folders aliases
 alias mpsrepo="z ~/mps/repo/github/odem/mps"

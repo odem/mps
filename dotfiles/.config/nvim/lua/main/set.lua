@@ -14,6 +14,7 @@ opt.smartcase = true
 opt.hlsearch = true
 opt.ignorecase = true
 opt.incsearch = true
+opt.inccommand = "split"
 
 -- Tab config
 opt.autoindent = true

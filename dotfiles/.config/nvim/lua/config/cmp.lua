@@ -71,12 +71,12 @@ cmp.setup({
 					nvim_lsp = 'λ',
 					luasnip = '⋗',
 					buffer = 'Ω',
+					vim_dadbod_completion = "",
 					path = '🖫',
 				}
-				--item.kind = lspkind.presets.default[item.kind]
 				item.menu = menu_icon[entry.source.name]
 				return item
-			end
+			end,
 		})
 	},
 	snippet = {
@@ -117,9 +117,10 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = 'path' },
-		{ name = 'nvim_lsp', keyword_length = 1 },
-		{ name = 'luasnip',  keyword_length = 2 },
-		{ name = 'buffer',   keyword_length = 3 },
+		{ name = 'nvim_lsp',              keyword_length = 1 },
+		{ name = 'luasnip',               keyword_length = 2 },
+		{ name = 'buffer',                keyword_length = 3 },
+		{ name = "vim-dadbod-completion", keyword_length = 4 },
 	})
 })
 

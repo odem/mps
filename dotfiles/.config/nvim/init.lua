@@ -11,25 +11,25 @@ end
 vim.opt.rtp:prepend(lazypath)
 -- Setup
 require("lazy").setup({
-    -- simple
-    require("plugins.themes"),
-    require("plugins.other"),
-    -- major
-    require("plugins.telescope"),
-    require("plugins.nvimcmp"),
-    require("plugins.lspconfig"),
-    require("plugins.none-ls"),
-    require("plugins.treesitter"),
-    -- minor
-    require("plugins.blankindent"),
-    require("plugins.bufferline"),
-    require("plugins.barbecue"),
-    require("plugins.comment"),
-    require("plugins.gitsigns"),
-    require("plugins.lazygit"),
-    require("plugins.autoformat"),
-    require("plugins.dadbod"),
-    require("plugins.debug"),
+	-- simple
+	require("plugins.themes"),
+	require("plugins.other"),
+	-- major
+	require("plugins.telescope"),
+	require("plugins.nvimcmp"),
+	require("plugins.lspconfig"),
+	require("plugins.none-ls"),
+	require("plugins.treesitter"),
+	-- minor
+	require("plugins.blankindent"),
+	require("plugins.bufferline"),
+	require("plugins.barbecue"),
+	require("plugins.comment"),
+	require("plugins.gitsigns"),
+	require("plugins.lazygit"),
+	require("plugins.autoformat"),
+	require("plugins.dadbod"),
+	require("plugins.debug"),
 }, {})
 
 ---- Major
@@ -46,17 +46,16 @@ require("config.neovim")
 require("config.cmp")
 require("config.luasnip")
 require("config.lualine")
-
+require("config.noice")
 require("config.alpha")
 require("config.webicons")
 require("config.colors")
 require("config.colorizer")
-
+require("config.dressing")
 require("config.nvim-tree")
 require("config.yank")
 require("config.toggleterm")
 require("config.swenv")
-
 
 -- Main
 require("main.autocmd")

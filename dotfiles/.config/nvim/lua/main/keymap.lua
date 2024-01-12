@@ -32,8 +32,7 @@ map('n', '<A-.>', '<cmd>bd<CR>', default_opts)
 map("n", "<leader>#", "<cmd>set rnu!<CR>", default_opts)
 
 -- venv
-map("n", "<leader>C", "<cmd>lua require('swenv.api').pick_venv()<CR>", default_opts)
-
+map("n", "<A-v>", "<cmd>lua require('swenv.api').pick_venv()<CR>", default_opts)
 -- Telescope
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
@@ -73,7 +72,7 @@ vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 -- Harpoon
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
-vim.keymap.set("n", "<leader>a", mark.add_file)
+vim.keymap.set("n", "<leader>M", mark.add_file)
 vim.keymap.set("n", "<leader>m", ui.toggle_quick_menu)
 vim.keymap.set("n", "<leader>1", function() ui.nav_file(1) end)
 vim.keymap.set("n", "<leader>2", function() ui.nav_file(2) end)
@@ -81,7 +80,7 @@ vim.keymap.set("n", "<leader>3", function() ui.nav_file(3) end)
 vim.keymap.set("n", "<leader>4", function() ui.nav_file(4) end)
 
 -- undotree
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+-- vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 -- splits
 map("n", "<leader>-", ":split<Space>", default_opts)
@@ -106,26 +105,26 @@ map("n", "_", ":horizontal resize+5<CR>", default_opts)
 map("n", "-", ":horizontal resize-5<CR>", default_opts)
 
 -- Buffers
-map('n', '<Space>', '<Nop>', { silent = true })
-map('v', '<Space>', '<Nop>', { silent = true })
+--map('n', '<Space>', '<Nop>', { silent = true })
+--map('v', '<Space>', '<Nop>', { silent = true })
 
 -- Navigate buffers
 map("n", "<S-c>", ":bnext<CR>", default_opts)
 map("n", "<S-x>", ":bprevious<CR>", default_opts)
 
 -- Quick write
-map('n', '<leader>w', '<cmd>w<CR>', default_opts)
+--map('n', '<leader>w', '<cmd>w<CR>', default_opts)
 
 -- Lazy keymap
-vim.keymap.set('n', '<leader>ll', function() return require('lazy').home() end)
-vim.keymap.set('n', '<leader>lu', function() return require('lazy').update() end)
-vim.keymap.set('n', '<leader>ls', function() return require('lazy').sync() end)
-vim.keymap.set('n', '<leader>lL', function() return require('lazy').log() end)
-vim.keymap.set('n', '<leader>lc', function() return require('lazy').clean() end)
-vim.keymap.set('n', '<leader>lp', function() return require('lazy').profile() end)
+--vim.keymap.set('n', '<leader>ll', function() return require('lazy').home() end)
+--vim.keymap.set('n', '<leader>lu', function() return require('lazy').update() end)
+--vim.keymap.set('n', '<leader>ls', function() return require('lazy').sync() end)
+--vim.keymap.set('n', '<leader>lL', function() return require('lazy').log() end)
+--vim.keymap.set('n', '<leader>lc', function() return require('lazy').clean() end)
+--vim.keymap.set('n', '<leader>lp', function() return require('lazy').profile() end)
 
 -- lsp
-vim.keymap.set('n', '<leader>cr', "<cmd>LspRestart<cr>")
+map('n', '<leader>cr', "<cmd>LspRestart<cr>", {desc = "LspRestart"})
 
 -- Move lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
@@ -178,9 +177,9 @@ map("v", "<leader>y", "\"+y", default_opts)
 map("n", "<leader>Y", "\"+Y", default_opts)
 
 -- Replace current word
-map("n", "<leader>rn", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>", default_opts)
-map("n", "<leader>sen", ":setlocal spell! spelllang=en_us<CR>", default_opts)
-map("n", "<leader>sde", ":setlocal spell! spelllang=de_de<CR>", default_opts)
+-- map("n", "<leader>rn", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>", default_opts)
+--map("n", "<leader>sen", ":setlocal spell! spelllang=en_us<CR>", default_opts)
+--map("n", "<leader>sde", ":setlocal spell! spelllang=de_de<CR>", default_opts)
 
 -- NERDTree
 vim.api.nvim_set_keymap("n", "<C-h>", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
@@ -189,7 +188,7 @@ map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", default_opts)
 map("n", "<leader>E", "<cmd>NvimTreeFindFile<CR>", default_opts)
 map("n", "<A-f>", "<cmd>NvimTreeFocus<CR>", default_opts)
 map("n", "<leader>f", "<cmd>NvimTreeFocus<CR>", default_opts)
-map("n", "bb", "<cmd>Bookmark<CR>", default_opts)
+-- map("n", "bb", "<cmd>Bookmark<CR>", default_opts)
 
 
 
@@ -198,12 +197,12 @@ map("v", "<", "<gv", default_opts)
 map("v", ">", ">gv", default_opts)
 
 -- Trouble
-map("n", "<leader>xx", "<cmd>TroubleToggle<CR>", default_opts)
-map("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>", default_opts)
-map("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>", default_opts)
-map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<CR>", default_opts)
-map("n", "<leader>xl", "<cmd>TroubleToggle loclist<CR>", default_opts)
-map("n", "gR", "<cmd>TroubleToggle lsp_references<CR>", default_opts)
+--map("n", "<leader>xx", "<cmd>TroubleToggle<CR>", default_opts)
+--map("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>", default_opts)
+--map("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>", default_opts)
+--map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<CR>", default_opts)
+--map("n", "<leader>xl", "<cmd>TroubleToggle loclist<CR>", default_opts)
+--map("n", "gR", "<cmd>TroubleToggle lsp_references<CR>", default_opts)
 
 -- toggleterm
 vim.api.nvim_set_keymap("n", "<leader>üü", "<cmd>lua _HTOP_TOGGLE()<CR>", { noremap = true, silent = true })

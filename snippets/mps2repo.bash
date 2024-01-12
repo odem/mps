@@ -36,7 +36,6 @@ cp -r $HOMECONFIG/KeePass/* $REPOCONFIG/KeePass
 cp -r $HOMECONFIG/kitty/* $REPOCONFIG/kitty
 cp -r $HOMECONFIG/neofetch/* $REPOCONFIG/neofetch
 cp -r $HOMECONFIG/nvim/* $REPOCONFIG/nvim
-cp -r $HOMECONFIG/nvim/* $REPOCONFIG/nvim
 cp -r $HOMECONFIG/qtile/* $REPOCONFIG/qtile
 cp -r $HOMECONFIG/rofi/* $REPOCONFIG/rofi
 cp -r $HOMECONFIG/Thunar/* $REPOCONFIG/Thunar

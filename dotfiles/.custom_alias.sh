@@ -19,6 +19,6 @@ alias dir-iso="z $ISODIR"
 alias srv-demo="z $WEBDIR ; make demo"
 alias srv-serve="z $WEBDIR ; make serve"
 # Other
-alias vq="z $WEBDIR ; nvim daas_web/quart_app.py"
+alias vq="z $WEBDIR ; source .venv/bin/activate ; nvim daas_web/quart_app.py && deactivate && zz"
 alias nuromux="tmuxinator stop nuro ; tmuxinator start nuro"
 

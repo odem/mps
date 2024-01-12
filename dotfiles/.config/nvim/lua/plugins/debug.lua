@@ -155,6 +155,7 @@ return {
     -- Install golang specific config
     -- require('dap-go').setup()
 
-    require('dap-python').setup(os.getenv("HOME") .. '/mps/nvim/bin/python')
+    local pythonPath = os.getenv("HOME") .. "/mps/venv/nvim/bin/python"
+    require('dap-python').setup(pythonPath)
   end,
 }

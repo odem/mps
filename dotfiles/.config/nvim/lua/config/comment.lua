@@ -8,9 +8,9 @@ local config = {
 	---LHS of toggle mappings in NORMAL mode
 	toggler = {
 		---Line-comment toggle keymap
-		line = 'gccc',
+		line = 'gcc',
 		---Block-comment toggle keymap
-		block = 'gccb',
+		block = 'gcb',
 	},
 	---LHS of operator-pending mappings in NORMAL and VISUAL mode
 	opleader = {
@@ -22,11 +22,11 @@ local config = {
 	---LHS of extra mappings
 	extra = {
 		---Add comment on the line above
-		above = 'gccO',
+		above = 'gck',
 		---Add comment on the line below
-		below = 'gcco',
+		below = 'gcj',
 		---Add comment at the end of line
-		eol = 'gcca',
+		eol = 'gcl',
 	},
 	---Enable keybindings
 	---NOTE: If given `false` then the plugin won't create any mappings

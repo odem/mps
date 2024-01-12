@@ -2,7 +2,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-
 -- Lazy Bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -12,47 +11,52 @@ end
 vim.opt.rtp:prepend(lazypath)
 -- Setup
 require("lazy").setup({
-	-- simple
-	require("plugins.other"),
-	-- complex
-	require("plugins.blankindent"),
-	require("plugins.bufferline"),
-	require("plugins.comment"),
-	require("plugins.lspconfig"),
-	require("plugins.none-ls"),
-	require("plugins.telescope"),
-	require("plugins.gitsigns"),
-	require("plugins.treesitter"),
-	require("plugins.lazygit"),
-	require("plugins.barbecue"),
-	require("plugins.nvimcmp"),
-	require("plugins.trouble"),
-	require("plugins.autoformat"),
-	require("plugins.dadbod"),
-	require("plugins.debug"),
+    -- simple
+    require("plugins.themes"),
+    require("plugins.other"),
+    -- major
+    require("plugins.telescope"),
+    require("plugins.nvimcmp"),
+    require("plugins.lspconfig"),
+    require("plugins.none-ls"),
+    require("plugins.treesitter"),
+    -- minor
+    require("plugins.blankindent"),
+    require("plugins.bufferline"),
+    require("plugins.barbecue"),
+    require("plugins.comment"),
+    require("plugins.gitsigns"),
+    require("plugins.lazygit"),
+    require("plugins.autoformat"),
+    require("plugins.dadbod"),
+    require("plugins.debug"),
 }, {})
 
--- Configs
-require("config.alpha")
-require("config.blankindent")
-require("config.webicons")
-require("config.bufferline")
-require("config.colors")
-require("config.comment")
-require("config.nvim-tree")
-require("config.yank")
+---- Major
+require("config.lsp")
 require("config.telescope")
 require("config.treesitter")
+
+-- Minor
+require("config.blankindent")
+require("config.bufferline")
+require("config.barbecue")
+require("config.comment")
 require("config.neovim")
-require("config.lsp")
 require("config.cmp")
 require("config.luasnip")
-require("config.toggleterm")
-require("config.barbecue")
 require("config.lualine")
-require("config.trouble")
-require("config.swenv")
+
+require("config.alpha")
+require("config.webicons")
+require("config.colors")
 require("config.colorizer")
+
+require("config.nvim-tree")
+require("config.yank")
+require("config.toggleterm")
+require("config.swenv")
+
 
 -- Main
 require("main.autocmd")

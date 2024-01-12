@@ -53,7 +53,7 @@ opt.timeout = true
 opt.timeoutlen = 300
 opt.swapfile = false
 opt.undofile = true
-opt.undodir = "/home/jb/.vim/undodir"
+opt.undodir = vim.fn.expand("$HOME/.config/nvim-undodir")
 opt.backup = false
 opt.writebackup = false
 opt.autochdir = true
@@ -98,7 +98,7 @@ opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 
 -- Spell language
-opt.spelllang = { "en", "de" }
+opt.spelllang = { "de", "en" }
 
 -- Disable certain builtins
 g.loaded_netrw = 1
@@ -126,7 +126,9 @@ g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 
 -- Python
-g.python3_host_prog = '/home/jb/mps/venv/nvim/bin/python3'
+g.python_host_prog = vim.fn.expand("$HOME/mps/venv/nvim/bin/python")
+g.python3_host_prog = vim.fn.expand("$HOME/mps/venv/nvim/bin/python3")
+
 
 g.NERDTreeQuitOnOpen = 1
 g.NERDTreeBookmarkSort = 0

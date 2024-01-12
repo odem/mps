@@ -3,6 +3,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		'williamboman/mason.nvim',
+		'nvim-lua/plenary.nvim' ,
 	},
 	opts = function()
 		local nls = require("null-ls")

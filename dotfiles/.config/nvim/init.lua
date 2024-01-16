@@ -37,6 +37,7 @@ require("lazy").setup({
 	require("plugins.dadbod"),
 	require("plugins.debug"),
 	require("plugins.gp"),
+	require("plugins.nvim-surround"),
 }, {})
 
 ---- Major
@@ -64,6 +65,7 @@ require("config.yank")
 require("config.toggleterm")
 require("config.swenv")
 require("config.gp")
+require("config.vim-rest-console")
 
 -- Main
 require("main.autocmd")

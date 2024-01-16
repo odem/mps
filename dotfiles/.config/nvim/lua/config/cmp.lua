@@ -55,7 +55,7 @@ cmp.setup({
 		path = true,
 		buffer = true,
 		calc = true,
-		nvim_lsp = true,
+		nvim_lsp = false,
 		nvim_lua = true,
 		vsnip = false,
 	},
@@ -97,20 +97,19 @@ cmp.setup({
 		--["<Right>"] = cmp.mapping.complete(),
 		["<C-Up>"] = cmp.mapping.scroll_docs(-1),
 		["<C-Down>"] = cmp.mapping.scroll_docs(1),
-		-- ["<CR>"] = cmp.mapping.complete(),
 		["<C-y>"] = cmp.mapping.confirm({ select = true }),
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
 		}),
-		["<C-v>"] = cmp.mapping(function(fallback)
+		["<A-n>"] = cmp.mapping(function(fallback)
 			if luasnip.jumpable(1) then
 				luasnip.jump(1)
 			else
 				fallback()
 			end
 		end, { "i", "s" }),
-		["<C-z>"] = cmp.mapping(function(fallback)
+		["<A-p>"] = cmp.mapping(function(fallback)
 			if luasnip.jumpable(-1) then
 				luasnip.jump(-1)
 			else
@@ -121,7 +120,7 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = "path" },
 		{ name = "nvim_lsp", keyword_length = 1 },
-		{ name = "luasnip", keyword_length = 2 },
+		-- { name = "luasnip", keyword_length = 2 },
 		{ name = "buffer", keyword_length = 3 },
 		{ name = "vim-dadbod-completion", keyword_length = 4 },
 	}),

@@ -1,5 +1,6 @@
 -- Import api
 local ls = require("luasnip")
+local fmta = require("luasnip.extras.fmt").fmta
 local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
@@ -29,5 +30,33 @@ ls.add_snippets("python", {
 		i(1),
 		t(""),
 		t('")'),
+	}),
+})
+
+ls.add_snippets("rest", {
+	s("template-rest-request", {
+		t({
+			"# Host",
+			"https://httpbin.org:443",
+			"",
+			"# Curl options",
+			"--silent",
+			"--insecure",
+			"#--include",
+			"",
+			"# Headers",
+			"Accept: application/json;",
+			"Connection: keep-alive",
+			"Content-Type: application/json; charset=utf-8",
+			"User-Agent: VRC",
+			"",
+			"# Query",
+			"POST /anything",
+			"",
+			"# Body",
+			"{",
+			'"test" : 1234',
+			"}",
+		}),
 	}),
 })

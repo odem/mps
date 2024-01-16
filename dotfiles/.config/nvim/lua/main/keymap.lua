@@ -18,16 +18,16 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Disable Arrow keys
-map("n", "<up>", "<nop>", {})
-map("n", "<down>", "<nop>", {})
-map("n", "<left>", "<nop>", {})
-map("n", "<right>", "<nop>", {})
+-- map("n", "<up>", "<nop>", {})
+-- map("n", "<down>", "<nop>", {})
+-- map("n", "<left>", "<nop>", {})
+-- map("n", "<right>", "<nop>", {})
 
 
 -- Quit neovim
-map('n', '<leader>Q', '<cmd>qa<CR>', default_opts)
-map('n', '<leader>q', '<cmd>q<CR>', default_opts)
-map('n', '<C-Q>', '<cmd>q<CR>', default_opts)
+map('n', '<leader>q', '<cmd>qa<CR>', default_opts)
+-- map('n', '<leader>q', '<cmd>q<CR>', default_opts)
+map('n', '<C-q>', '<cmd>qa<CR>', default_opts)
 --  close buffer
 map('n', '<A-.>', '<cmd>bd<CR>', default_opts)
 
@@ -42,10 +42,12 @@ map("n", "<A-d>", "<cmd>NvimTreeClose<CR> <BAR><cmd>DBUIToggle<CR>", default_opt
 
 -- NerdTree
 map("n", "<A-e>", "<cmd>NvimTreeToggle<CR>", default_opts)
+map("n", "<A-E>", "<cmd>NvimTreeFindFileToggle<CR>", default_opts)
+map("n", "<A-f>", "<cmd>NvimTreeFindFile<CR>", default_opts)
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", default_opts)
 
 -- Lsp rename
-map('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Lsp [R]e[n]ame' })
+-- map('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Lsp [R]e[n]ame' })
 
 -- Search files
 local builtin = require('telescope.builtin')
@@ -55,7 +57,7 @@ map('n', '<leader>gf', function() builtin.git_files(ivy) end, { desc = 'Search [
 map('n', '<leader>so', function() builtin.oldfiles(ivy) end, { desc = '[S]earch [O]ld' })
 map('n', '<leader>sb', function() builtin.buffers(ivy) end, { desc = '[S]earch [B]uffers' })
 map('n', '<leader>sz', function() builtin.current_buffer_fuzzy_find(ivy) end, { desc = '[S]earch fu[Z]zy' })
-map('n', '<leader>sf', function() builtin.find_files(ivy) end, { desc = '[S]earch [F]iles' })
+map('n', '<leader><space>', function() builtin.find_files(ivy) end, { desc = '[S]earch [F]iles' })
 map('n', '<leader>sh', function() builtin.help_tags(ivy) end, { desc = '[S]earch [H]elp' })
 map('n', '<leader>sr', function() builtin.registers(ivy) end, { desc = '[S]earch [R]egisters' })
 map('n', '<leader>sm', function() builtin.keymaps(ivy) end, { desc = '[S]earch key[M]aps' })
@@ -64,6 +66,16 @@ map('n', '<leader>sg', function() builtin.live_grep(ivy) end, { desc = '[S]earch
 map('n', '<leader>sc', function() builtin.colorscheme(ivy) end, { desc = '[S]earch [C]olorscheme' })
 map('n', '<leader>sd', function() builtin.diagnostics(ivy) end, { desc = '[S]earch [D]iagnostics' })
 map('n', '<leader>sj', function() builtin.jumplist(ivy) end, { desc = '[S]earch [J]umps' })
+
+-- Custom telescope modules
+map('n', '<leader>sfroot', function() require("custom.telescope").find_files_root() end, { desc = '[S]earch [F]iles [R]oot' })
+map('n', '<leader>sfh', function() require("custom.telescope").find_files_home() end, { desc = '[S]earch [F]iles [H]ome' })
+map('n', '<leader>sfm', function() require("custom.telescope").find_files_mps() end, { desc = '[S]earch [F]iles [M]ps' })
+map('n', '<leader>sfs', function() require("custom.telescope").find_files_scratch() end, { desc = '[S]earch [F]iles [S]cratch' })
+map('n', '<leader>sfr', function() require("custom.telescope").find_files_repo() end, { desc = '[S]earch [F]iles [R]epositories' })
+map('n', '<leader>sfe', function() require("custom.telescope").find_files_etc() end, { desc = '[S]earch [F]iles /[E]tc' })
+map('n', '<leader>sfv', function() require("custom.telescope").find_files_var() end, { desc = '[S]earch [F]iles /[V]ar' })
+map('n', '<leader>sfl', function() require("custom.telescope").find_files_log() end, { desc = '[S]earch [F]iles /var/[L]og' })
 
 
 -- Diagnostic keymaps
@@ -154,3 +166,5 @@ map("n", "<leader>bsmv", ":!mv %:p", default_opts)
 -- BrowserSearch
 map("n", "<leader>Ä", "<cmd>BrowserSearch<CR>", default_opts)
 map("v", "<leader>ä", "<Plug>SearchVisual", default_opts)
+
+

@@ -1,0 +1,23 @@
+[Print Settings]
+page-set=all
+number-up=1
+cups-ColorModel=RGB
+default-source=Tray1
+cups-OutputBin=Bottom
+media-type=Stationery
+cups-MediaType=Stationery
+cups-job-priority=50
+cups-number-up=1
+cover-before=none
+print-pages=all
+collate=false
+cups-InputSlot=Tray1
+print-at-time=
+output-bin=Bottom
+cups-print-scaling=auto
+reverse=false
+cover-after=none
+print-at=now
+printer=HPB0227A5C4679_HP_Color_Laser_MFP_178_179
+scale=100
+cups-job-sheets=none,none

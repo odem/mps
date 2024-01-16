@@ -5,8 +5,14 @@ vim.g.maplocalleader = " "
 -- Lazy Bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({ "git", "clone", "--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable",
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 -- Setup
@@ -30,6 +36,7 @@ require("lazy").setup({
 	require("plugins.autoformat"),
 	require("plugins.dadbod"),
 	require("plugins.debug"),
+	require("plugins.gp"),
 }, {})
 
 ---- Major
@@ -56,6 +63,7 @@ require("config.nvim-tree")
 require("config.yank")
 require("config.toggleterm")
 require("config.swenv")
+require("config.gp")
 
 -- Main
 require("main.autocmd")

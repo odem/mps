@@ -72,7 +72,7 @@ alias diatagged='docker images -a | grep -v "<none>"'
 alias ns='sudo netstat -tulpn |sort -k 4 -n'
 alias nso='sudo netstat -tulpano |sort -k 4 -n'
 # nvim
-alias v='nvim'
+alias v='~/mps/secrets/chatgpt-token.bash && nvim'
 alias sv='sudo nvim'
 # mps
 alias mps="z ~/mps"

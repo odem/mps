@@ -8,10 +8,12 @@ REPODIR=/home/jb/mps/repo/github/nuromedia/design-daas
 BACKENDDIR=$REPODIR/backend
 WEBDIR=$BACKENDDIR/web
 NOWEBDIR=$BACKENDDIR/noweb
-ISODIR=$BACKENDDIR/installer/iso
+INSTDIR=$BACKENDDIR/installer/
+ISODIR=$INSTDIR/iso
 # Directories
 alias dir-nuro="z $REPODIR"
 alias dir-backend="z $BACKENDDIR"
+alias dir-web="z $INSTDIR"
 alias dir-web="z $WEBDIR"
 alias dir-noweb="z $NOWEBDIR"
 alias dir-iso="z $ISODIR"

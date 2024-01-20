@@ -13,7 +13,7 @@ ISODIR=$INSTDIR/iso
 # Directories
 alias dir-nuro="z $REPODIR"
 alias dir-backend="z $BACKENDDIR"
-alias dir-web="z $INSTDIR"
+alias dir-inst="z $INSTDIR"
 alias dir-web="z $WEBDIR"
 alias dir-noweb="z $NOWEBDIR"
 alias dir-iso="z $ISODIR"

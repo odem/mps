@@ -40,12 +40,15 @@ require("lspkind").init({
 })
 
 cmp.setup({
+	completion = {
+		autocomplete = { require("cmp.types").cmp.TriggerEvent.TextChanged },
+	},
 	enabled = true,
-	autocomplete = true,
-	debug = false,
-	min_length = 1,
-	throttle_time = 80,
-	source_timeout = 200,
+	-- autocomplete = true,
+	debug = true,
+	min_length = 3,
+	throttle_time = 400,
+	source_timeout = 400,
 	incomplete_delay = 400,
 	max_abbr_width = 100,
 	max_kind_width = 100,
@@ -186,3 +189,19 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 require("lspconfig")["pyright"].setup({
 	capabilities = capabilities,
 })
+
+function setAutoCmp(mode)
+	if mode then
+		cmp.setup({
+			completion = {
+				autocomplete = { require("cmp.types").cmp.TriggerEvent.TextChanged },
+			},
+		})
+	else
+		cmp.setup({
+			completion = {
+				autocomplete = false,
+			},
+		})
+	end
+end

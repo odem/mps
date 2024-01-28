@@ -33,7 +33,7 @@ opt.guifont = "JetBrainsMono Nerd Font:h14"
 opt.guifontwide = "JetBrains Nerd Font:h14"
 
 -- Make neovim use the system clipboard
-opt.clipboard = 'unnamedplus'
+opt.clipboard = "unnamedplus"
 
 -- Disable old vim status
 opt.showmode = true
@@ -47,7 +47,7 @@ opt.numberwidth = 2
 opt.foldenable = true
 opt.foldlevel = 99
 opt.foldlevelstart = 99
-opt.foldcolumn = '1'
+opt.foldcolumn = "1"
 
 opt.updatetime = 200
 opt.timeout = true
@@ -57,7 +57,8 @@ opt.undofile = true
 opt.undodir = vim.fn.expand("$HOME/.config/nvim-undodir")
 opt.backup = false
 opt.writebackup = false
-opt.autochdir = true
+--opt.autochdir = true
+opt.autochdir = false
 
 opt.filetype = "on"
 opt.encoding = "utf-8"
@@ -65,12 +66,12 @@ opt.hidden = true
 -- Status
 opt.showtabline = 2
 opt.laststatus = 2
-opt.cmdheight = 1  -- 0 is a problem! https://github.com/neovim/neovim/issues/20380
+opt.cmdheight = 1 -- 0 is a problem! https://github.com/neovim/neovim/issues/20380
 opt.pumheight = 10 -- pop up menu height
-opt.fillchars = { eob = ' ' }
+opt.fillchars = { eob = " " }
 opt.wildmode = "longest:full,full"
 -- Mouse
-opt.mouse = 'a'
+opt.mouse = "a"
 
 -- Scrolloff
 opt.scrolloff = 8
@@ -88,11 +89,11 @@ opt.conceallevel = 0
 vim.o.breakindent = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"
 vim.wo.colorcolumn = "79"
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menu,menuone,noselect'
+vim.o.completeopt = "menu,menuone,noselect"
 
 -- grep
 opt.grepformat = "%f:%l:%c:%m"
@@ -130,7 +131,6 @@ g.loaded_ruby_provider = 0
 g.python_host_prog = vim.fn.expand("$HOME/mps/venv/nvim/bin/python")
 g.python3_host_prog = vim.fn.expand("$HOME/mps/venv/nvim/bin/python3")
 
-
 g.NERDTreeQuitOnOpen = 1
 g.NERDTreeBookmarkSort = 0
 --g.NERDTreeWinPos = "right"
@@ -155,11 +155,11 @@ g.salmon = "EE6E73"
 g.green = "8FAA54"
 g.lightGreen = "31B53E"
 g.white = "FFFFFF"
-g.rspec_red = 'FE405F'
-g.git_orange = 'F54D27'
+g.rspec_red = "FE405F"
+g.git_orange = "F54D27"
 
-g.NERDTreeSyntaxEnabledExtensions = { 'hbs', 'lhs' }
-g.NERDTreeSyntaxEnabledExactMatches = { 'dropbox', 'node_modules', 'favicon.ico' }
+g.NERDTreeSyntaxEnabledExtensions = { "hbs", "lhs" }
+g.NERDTreeSyntaxEnabledExactMatches = { "dropbox", "node_modules", "favicon.ico" }
 g.NERDTreeHighlightCursorline = 1
 
 g.NERDTreeDirArrowExpandable = "+"

@@ -27,6 +27,7 @@ vim.g.maplocalleader = " "
 map("n", "<leader>q", "<cmd>qa<CR>", default_opts)
 -- map('n', '<leader>q', '<cmd>q<CR>', default_opts)
 map("n", "<C-q>", "<cmd>qa<CR>", default_opts)
+map("n", "<C-A-q>", "<cmd>qa!<CR>", default_opts)
 --  close buffer
 map("n", "<A-.>", "<cmd>bd<CR>", default_opts)
 
@@ -39,11 +40,17 @@ map("n", "<A-v>", "<cmd>lua require('swenv.api').pick_venv()<CR>", default_opts)
 -- DBUI
 map("n", "<A-d>", "<cmd>NvimTreeClose<CR> <BAR><cmd>DBUIToggle<CR>", default_opts)
 
--- NerdTree
-map("n", "<A-e>", "<cmd>NvimTreeToggle<CR>", default_opts)
-map("n", "<A-E>", "<cmd>NvimTreeFindFileToggle<CR>", default_opts)
-map("n", "<A-f>", "<cmd>NvimTreeFindFile<CR>", default_opts)
-map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", default_opts)
+-- NvimTree
+-- map("n", "<A-e>", "<cmd>NvimTreeToggle<CR>", default_opts)
+-- map("n", "<A-E>", "<cmd>NvimTreeFindFileToggle<CR>", default_opts)
+-- map("n", "<A-f>", "<cmd>NvimTreeFindFile<CR>", default_opts)
+-- map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", default_opts)
+
+-- NERDTree
+map("n", "<leader>e", "<cmd>NERDTreeToggle<CR>", opts)
+map("n", "<A-e>", "<cmd>NERDTreeToggle<CR>", opts)
+map("n", "<A-E>", "<cmd>NERDTreeFind<CR>", opts)
+map("n", "bb", "<cmd>Bookmark<CR>", opts)
 
 -- Lsp rename
 -- map('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Lsp [R]e[n]ame' })
@@ -224,6 +231,16 @@ local function keymapOptions(desc)
 	}
 end
 
+-- COPY: Normal/Visual delete/change into nirvana
+vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "D", '"_D', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "c", '"_c', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "C", '"_C', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("x", "d", '"_d', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("x", "D", '"_D', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("x", "c", '"_c', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("x", "C", '"_C', { noremap = true, silent = true })
+
 -- Chat commands
 vim.keymap.set({ "n", "i" }, "<C-g>c", "<cmd>GpChatNew<cr>", keymapOptions("New Chat"))
 vim.keymap.set({ "n", "i" }, "<C-g>t", "<cmd>GpChatToggle<cr>", keymapOptions("Toggle Chat"))
@@ -295,3 +312,84 @@ vim.keymap.set("v", "<C-g>wt", ":<C-u>'<,'>GpWhisperTabnew<cr>", keymapOptions("
 
 -- Vim-rest-client
 vim.keymap.set("n", "<leader>xr", ":call VrcQuery()<CR>")
+
+-- Remove words with Backspace and delete
+vim.keymap.set("n", "<BS>", "<Nop>")
+vim.api.nvim_set_keymap("n", "<C-Delete>", ":call DeleteConditionallyRight()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+	"i",
+	"<C-Delete>",
+	"<C-O>:call DeleteConditionallyRight()<CR>",
+	{ noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap("n", "<C-BS>", ":call DeleteConditionallyLeft()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-BS>", "<C-O>:call DeleteConditionallyLeft()<CR>", { noremap = true, silent = true })
+vim.cmd([[
+	function! DeleteConditionallyRight()
+		let l:char_right = getline('.')[col('.') + 1]
+		let l:char_current = getline('.')[col('.')]
+		let current_col = col(".")
+		let line_length = strlen(getline('.'))
+		if current_col == line_length
+			"echomsg "EOL"
+			execute "normal! J"
+		else
+			if l:char_right =~# '\s' || col('.') == 1
+				"echomsg "WS: " . l:char_right
+				execute "normal! lx"
+			else
+				"echomsg "WORD: " . l:char_right
+				execute "normal! dW"
+			endif
+		endif
+	endfunction
+]])
+vim.cmd([[
+	function! DeleteConditionallyLeft()
+		let l:char_left = getline('.')[col('.') - 2]
+		let l:char_current = getline('.')[col('.') - 1]
+		let current_line = line(".")
+		let current_col = col(".")
+		let line_length = strlen(getline('.'))
+		"echomsg "COL: " . current_col . " LINE: " . current_line
+		if current_col == 1 && current_line > 1
+			" echomsg "BOL"
+			execute "normal! k$J"
+		else
+			if l:char_left =~# '\s' || col('.') == 1
+				"echomsg "WS: " . l:char_left
+				execute "normal! hx"
+			else
+				"echomsg "WORD: " . l:char_left
+				execute "normal! dB"
+			endif
+		endif
+	endfunction
+]])
+
+-- Enable/Disable/Toggle Autocomplete
+vim.g.cmp_autocomplete = 1
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>tcmp",
+	":let g:cmp_autocomplete = !g:cmp_autocomplete<CR>",
+	{ noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap("n", "<leader>tcon", "<Esc>:AutoCmpOn<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>tcoff", "<Esc>:AutoCmpOff<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>tcmp", "<Esc>:AutoCmpToggle<CR>", { noremap = true, silent = true })
+
+function ToggleAutocomplete()
+	vim.g.cmp_autocomplete = not vim.g.cmp_autocomplete
+	setAutoCmp(vim.g.cmp_autocomplete)
+	print("CMP-Autocomplete is now: " .. tostring(vim.g.cmp_autocomplete))
+end
+
+-- toggle automatic completion popup on typing
+vim.cmd("command! AutoCmpToggle lua ToggleAutocomplete()")
+
+-- enable automatic completion popup on typing
+vim.cmd("command AutoCmpOn lua setAutoCmp(true)")
+
+-- disable automatic competion popup on typing
+vim.cmd("command AutoCmpOff lua setAutoCmp(false)")

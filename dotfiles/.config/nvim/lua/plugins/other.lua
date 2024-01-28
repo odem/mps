@@ -18,6 +18,7 @@ return {
 	{ "norcalli/nvim-colorizer.lua" },
 	{ "nvim-lua/plenary.nvim" },
 	{ "AckslD/swenv.nvim" },
+	{ "preservim/nerdtree" },
 	{ "nvim-tree/nvim-tree.lua" },
 	{ "RRethy/vim-illuminate" },
 	{ "sakhnik/nvim-gdb" },

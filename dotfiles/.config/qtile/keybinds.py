@@ -1,6 +1,9 @@
+import subprocess
+
 from libqtile.config import Key
 from libqtile.command import lazy
 from helpers import to_urgent, spawn_once
+from groups import MpsGroups
 from globals import (
     startup,
     randomwp,
@@ -30,6 +33,22 @@ from globals import (
     modshift,
     mcs,
 )
+
+
+@lazy.function
+def enable_keybinds(qtile):
+    lazy.reload_config()
+    keys.append(Key(m, "i", lazy.reload_config()))
+    keys.append(Key(m, "o", disable_keybinds()))
+
+
+@lazy.function
+def disable_keybinds(qtile):
+    keys = []
+    qtile.cmd_spawn('notify-send "My Custom Function" "Hello from Qtile!"')
+    subprocess.run("echo 'AAA' > /home/jb/kbtest.txt", shell=True, check=False)
+    # keys.append(Key(m, "i", lazy.reload_config()))
+    # keys.append(Key(m, "o", disable_keybinds()))
 
 
 keys_static = [
@@ -114,10 +133,12 @@ keys_static = [
     Key([], "XF86AudioPrev", lazy.spawn(spotifyprev), desc="Prev song"),
     Key([], "XF86AudioPlay", lazy.spawn(spotifyplay), desc="Play/pause song"),
     Key([], "XF86AudioStop", lazy.spawn(spotifystop), desc="Stop song"),
+    Key(m, "i", lazy.reload_config(), desc="Enable keybinds"),
+    Key(m, "o", lazy.function(disable_keybinds), desc="Disable keybinds"),
 ]
 
 
-class MpsKeybinds(object):
+class MpsKeybinds:
     def init_keybinds(self, groups):
         keys = keys_static
         for group in groups:

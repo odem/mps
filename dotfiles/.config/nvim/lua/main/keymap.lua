@@ -315,15 +315,15 @@ vim.keymap.set("n", "<leader>xr", ":call VrcQuery()<CR>")
 
 -- Remove words with Backspace and delete
 vim.keymap.set("n", "<BS>", "<Nop>")
-vim.api.nvim_set_keymap("n", "<C-Delete>", ":call DeleteConditionallyRight()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<S-Delete>", ":call DeleteConditionallyRight()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
 	"i",
-	"<C-Delete>",
+	"<S-Delete>",
 	"<C-O>:call DeleteConditionallyRight()<CR>",
 	{ noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap("n", "<C-BS>", ":call DeleteConditionallyLeft()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-BS>", "<C-O>:call DeleteConditionallyLeft()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<S-BS>", ":call DeleteConditionallyLeft()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<S-BS>", "<C-O>:call DeleteConditionallyLeft()<CR>", { noremap = true, silent = true })
 vim.cmd([[
 	function! DeleteConditionallyRight()
 		let l:char_right = getline('.')[col('.') + 1]

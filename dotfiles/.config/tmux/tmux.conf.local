@@ -462,7 +462,7 @@ set -g @gpu_medium_fg_color "#[fg=$tmux_conf_theme_colour_9]" # background color
 set -g @gpu_high_fg_color "#[fg=$tmux_conf_theme_colour_16]" # background color when cpu is high
 
 set -g status-position top
-set -s default-terminal 'xterm-256color'
+#set -s default-terminal 'xterm-256color'
 # loud or quiet?
 set -g visual-activity off
 set -g visual-bell off

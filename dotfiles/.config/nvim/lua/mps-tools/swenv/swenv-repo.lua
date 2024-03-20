@@ -1,0 +1,3 @@
+return {
+	"AckslD/swenv.nvim" 
+}

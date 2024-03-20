@@ -23,4 +23,6 @@ alias srv-serve="z $WEBDIR ; make serve"
 # Other
 alias vq="z $WEBDIR ; source .venv/bin/activate ; nvim daas_web/quart_app.py && deactivate && zz"
 alias nuromux="tmuxinator stop nuro ; tmuxinator start nuro"
+alias vt="NVIM_APPNAME=nvim-tests nvim"
+
 

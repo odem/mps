@@ -28,6 +28,11 @@ function do_install() {
     wget -qO code.deb https://go.microsoft.com/fwlink/?LinkID=760868
     sudo dpkg -i code.deb
     rm code.deb
+    wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+    chmod a+x ./dotnet-install.sh
+    ./dotnet-install.sh --version latest
+    rm dotnet-install.sh
+
 }
 function do_uninstall() {
     # === packages ===

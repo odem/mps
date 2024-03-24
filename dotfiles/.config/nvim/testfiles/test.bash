@@ -1,4 +1,5 @@
 #!/bin/bash
 
 AAA="BBB"
-   echo "foo" $AAA
+echo "foo" "$AAA"
+

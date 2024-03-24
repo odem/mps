@@ -1,10 +1,10 @@
 local K = require("mps-core.helpers")
 
--- -- Vim-rest-client
-K.map("n", "<leader>xr", ":call VrcQuery()<CR>", { desc = "Query rest" })
-
 -- Neogen
 K.map("n", "gnc", "<cmd>Neogen<CR>", { desc = "Insert Neogen comment" })
+
+-- Neoformat
+K.map("n", "gnf", "<cmd>Neoformat<CR>", { desc = "Format with Neoformat" })
 
 -- Neogen
 K.map("n", "gso", "<cmd>SymbolsOutline<CR>", { desc = "Toggle Symbol Outliner" })
@@ -19,15 +19,6 @@ K.map("n", "<leader>üb", "<cmd>lua _BPYTOP_TOGGLE()<CR>", { desc = "ToggleTerm 
 -- noh
 K.map("n", "<Leader>l", "<Cmd>noh<CR>", { desc = "" })
 
--- Overseer
-K.map("n", "<a-t>", "<Cmd>OverseerToggle<CR>", { desc = "overseer [t]oggle" })
-K.map("n", "<Leader>ovt", "<Cmd>OverseerToggle<CR>", { desc = "[ov]erseer [t]oggle" })
-K.map("n", "<Leader>ovo", "<Cmd>OverseerOpen<CR>", { desc = "[ov]erseer [o]pen" })
-K.map("n", "<Leader>ovc", "<Cmd>OverseerClose<CR>", { desc = "[ov]erseer [c]lose" })
-K.map("n", "<Leader>ovr", "<Cmd>OverseerRun<CR>", { desc = "[ov]erseer [r]un" })
-K.map("n", "<Leader>ovi", "<Cmd>OverseerInfo<CR>", { desc = "[ov]erseer [i]nfo" })
-K.map("n", "<Leader>ovb", "<Cmd>OverseerBuild<CR>", { desc = "[ov]erseer [b]uild" })
-
 -- project
 K.map(
 	"n",
@@ -40,6 +31,9 @@ K.map("n", "<leader>tcpr", function()
 	local recent_projects = project_nvim.get_recent_projects()
 	print(vim.inspect(recent_projects))
 end, { desc = "Recent Projects" })
+
+-- vim-rest-console
+K.map("n", "<A-r>", ":call VrcQuery()<CR>", { desc = "Vrc Query ([r]est)" })
 
 -- Yanky
 K.map("x", "p", "<Plug>(YankyPutAfter)", { desc = "" })

@@ -92,19 +92,19 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 
-	mapping = cmp.mapping.preset.insert({
+	mapping = cmp.mapping({
 		["<Tab>"] = cmp.mapping.select_next_item(),
 		["<S-Tab>"] = cmp.mapping.select_prev_item(),
-		["<Down>"] = cmp.mapping.select_next_item(),
-		["<Up>"] = cmp.mapping.select_prev_item(),
-		--["<Right>"] = cmp.mapping.complete(),
+		-- ["<Down>"] = cmp.mapping.select_next_item(),
+		-- ["<Up>"] = cmp.mapping.select_prev_item(),
+		["<C-Space>"] = cmp.mapping.complete({ reason = cmp.ContextReason.Auto }),
 		["<C-Up>"] = cmp.mapping.scroll_docs(-1),
 		["<C-Down>"] = cmp.mapping.scroll_docs(1),
-		["<C-y>"] = cmp.mapping.confirm({ select = true }),
-		["<CR>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
-		}),
+		["<C-y>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+		-- ["<CR>"] = cmp.mapping.confirm({
+		-- 	behavior = cmp.ConfirmBehavior.Replace,
+		-- 	select = true,
+		-- }),
 		["<A-n>"] = cmp.mapping(function(fallback)
 			if luasnip.jumpable(1) then
 				luasnip.jump(1)
@@ -181,7 +181,6 @@ vim.diagnostic.config({
 	},
 })
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
 -- Set up lspconfig.

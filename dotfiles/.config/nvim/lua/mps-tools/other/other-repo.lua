@@ -9,4 +9,5 @@ return {
 	{ "voldikss/vim-browser-search" },
 	{ "mg979/vim-visual-multi" },
 	{ "tiagofumo/vim-nerdtree-syntax-highlight" },
+	{ "sbdchd/neoformat" },
 }

@@ -1,4 +1,4 @@
-; thunar GtkAccelMap rc-file         -*- scheme -*-
+; Thunar GtkAccelMap rc-file         -*- scheme -*-
 ; this file is an automated accelerator map dump
 ;
 ; (gtk_accel_path "<Actions>/ThunarStandardView/sort-by-type" "")
@@ -31,8 +31,9 @@
 ; (gtk_accel_path "<Actions>/ThunarWindow/zoom-out-alt" "<Primary>minus")
 ; (gtk_accel_path "<Actions>/ThunarWindow/open-file-menu" "F10")
 ; (gtk_accel_path "<Actions>/ThunarWindow/contents" "F1")
-; (gtk_accel_path "<Actions>/ThunarWindow/show-highlight" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/sort-descending" "")
+; (gtk_accel_path "<Actions>/ThunarWindow/show-highlight" "")
+; (gtk_accel_path "<Actions>/ThunarBookmarks/3b7bf053773dd6a2f59d8979b2c09724" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/sort-by-name" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/select-all-files" "<Primary>a")
 ; (gtk_accel_path "<Actions>/ThunarActionManager/execute" "")
@@ -88,8 +89,8 @@
 ; (gtk_accel_path "<Actions>/ThunarWindow/view-as-icons" "<Primary>1")
 ; (gtk_accel_path "<Actions>/ThunarActionManager/delete-2" "<Shift>Delete")
 ; (gtk_accel_path "<Actions>/ThunarWindow/zoom-in" "<Primary>KP_Add")
-; (gtk_accel_path "<Actions>/ThunarStandardView/rename" "F2")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/configure-columns" "")
+; (gtk_accel_path "<Actions>/ThunarStandardView/rename" "F2")
 ; (gtk_accel_path "<Actions>/ThunarWindow/open-location" "<Primary>l")
 ; (gtk_accel_path "<Actions>/ThunarWindow/view-as-compact-list" "<Primary>3")
 ; (gtk_accel_path "<Actions>/ThunarWindow/view-menu" "")
@@ -112,6 +113,7 @@
 ; (gtk_accel_path "<Actions>/ThunarWindow/show-hidden" "<Primary>h")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/set-default-app" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/empty-trash" "")
+; (gtk_accel_path "<Actions>/ThunarBookmarks/895a9e992c3755b86f8a13053ab40b6b" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/back-alt" "BackSpace")
 ; (gtk_accel_path "<Actions>/ThunarWindow/preferences" "")
 ; (gtk_accel_path "<Actions>/ThunarActionManager/delete" "")

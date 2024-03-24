@@ -7,9 +7,10 @@ M.getplugins = function()
 		require("mps-tools.overseer.overseer-repo"),
 		require("mps-tools.lazygit.lazygit-repo"),
 		require("mps-tools.dadbod.dadbod-repo"),
+		require("mps-tools.markdown-preview.markdown-preview-repo"),
 		require("mps-tools.dressing.dressing-repo"),
 		require("mps-tools.noice.noice-repo"),
-		require("mps-tools.swenv.swenv-repo"),
+		-- require("mps-tools.swenv.swenv-repo"),
 		require("mps-tools.toggleterm.toggleterm-repo"),
 		require("mps-tools.todo-comments.todo-comments-repo"),
 		require("mps-tools.neogen.neogen-repo"),
@@ -27,9 +28,10 @@ M.configure = function()
 	require("mps-tools.debug.debug-config")
 	require("mps-tools.overseer.overseer-config")
 	require("mps-tools.project.project-config")
+	require("mps-tools.markdown-preview.markdown-preview-config")
 	require("mps-tools.dressing.dressing-config")
 	require("mps-tools.noice.noice-config")
-	require("mps-tools.swenv.swenv-config")
+	-- require("mps-tools.swenv.swenv-config")
 	require("mps-tools.toggleterm.toggleterm-config")
 	require("mps-tools.nvim-ts-autotag.nvim-ts-autotag-config")
 	require("mps-tools.neogen.neogen-config")
@@ -44,6 +46,7 @@ M.configure = function()
 	require("mps-tools.nvim-hlslens.nvim-hlslens-keymaps")
 	require("mps-tools.debug.debug-keymaps")
 	require("mps-tools.dadbod.dadbod-keymaps")
+	require("mps-tools.overseer.overseer-keymaps")
 	--require("mps-tools.gp.gp-keymaps")
 end
 return M

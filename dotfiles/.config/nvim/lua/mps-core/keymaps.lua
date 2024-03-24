@@ -81,10 +81,14 @@ K.map("n", "<BS>", "<Nop>")
 
 -- Delete Iwth Delete and backspace
 K.map("n", "<S-BS>", ":call DeleteConditionallyLeft()<CR>", { desc = "Delete to left" })
-K.map("i", "<S-BS>", ":call DeleteConditionallyLeft()<CR>", { desc = "Delete to left" })
+K.map("i", "<S-BS>", "<C-o>:call DeleteConditionallyLeft()<CR>", { desc = "Delete to left" })
 K.map("n", "<S-Delete>", ":call DeleteConditionallyRight()<CR>", { desc = "Delete to right" })
-K.map("i", "<S-Delete>", ":call DeleteConditionallyRight()<CR>", { desc = "Delete to right" })
+K.map("i", "<S-Delete>", "<C-o>:call DeleteConditionallyRight()<CR>", { desc = "Delete to right" })
 
+-- Mason
+K.map("n", "<leader>mm", "<cmd>Mason<CR>", { desc = "Open [m]ason" })
+-- Lazy
+K.map("n", "<leader>ll", "<cmd>Lazy<CR>", { desc = "Open [l]azy" })
 -- Fugitive
 K.map("n", "<leader>gs", vim.cmd.Git, { desc = "Fugitive Git" })
 -- venv

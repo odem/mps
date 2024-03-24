@@ -43,6 +43,3 @@ K.tmap("n", "gd", "lsp_definitions", "[gt] [l]sp [d]efinitions")
 K.tmap("n", "gr", "lsp_references", "[gt] [l]sp [r]eferences")
 
 K.tmap("n", "<leader>td", "diagnostics", "[t]elescope [d]iagnostics")
-K.tmap("n", "<leader>td", "diagnostics", "[t]elescope [d]iagnostics")
-K.tmap("n", "<leader>td", "diagnostics", "[t]elescope [d]iagnostics")
-K.tmap("n", "<leader>td", "diagnostics", "[t]elescope [d]iagnostics")

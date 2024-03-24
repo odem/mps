@@ -1,0 +1,2 @@
+-- vim.g.nvim_markdown_preview_theme = "solarized-light"
+-- vim.g.vim.g.nvim_markdown_preview_format = "markdown"

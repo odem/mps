@@ -1,14 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 
 # Kill old instances
 SNIPPETS=~/mps/snippets
-$SNIPPETS/autostart_clean.sh
+"$SNIPPETS"/autostart_clean.sh
 
 # Force always
 #xrandr -s 1680x1050 &
 #xrandr -s 1920x1080 &
-xrandr --output DP-2 --primary --auto --mode 1920x1080 --pos 0x0 --rotate normal \
-    --output HDMI-1 --mode 1920x1080 --pos 1920x0 --rotate normal
+xrandr --output DP-2 --primary --auto --mode 3840x2160 --pos 0x0 --rotate normal \
+    --output HDMI-0 --mode 1920x1080 --pos 3840x1080 --rotate normal
 
 xset s off &
 #xset -dpms &
@@ -18,7 +18,7 @@ setxkbmap de &
 #feh --bg-scale ~/.config/images/wallpaper.jpg &
 
 # dconf settings
-dconf load / < ~/.config/dconf/config.ini
+dconf load / <~/.config/dconf/config.ini
 
 # Tray apps and daemons
 COMPOSITOR=picom
@@ -29,10 +29,15 @@ SYSMON=gnome-system-monitor
 POLKIT=lxpolkit
 MAILTRAY=birdtray
 ALL="$COMPOSITOR $NETMON $VOLMON $SCRATCHTERM $SYSMON $POLKIT $MAILTRAY"
-for comp in $ALL
-do
-    $comp &
+for comp in "${ALL[@]}"; do
+    echo "$comp" #&
 done
+"$COMPOSITOR" &
+"$NETMON" &
+"$VOLMON" &
+"$SCRATCHTERM" &
+"$SYSMON" "$POLKIT" &
+"$MAILTRAY" &
 
 # Trigger resurrect plugin (tmux) with dummy session
 #kitty bash -c "tmux start-server; tmux new-session -d -s autostart ; sleep 3"
@@ -40,4 +45,4 @@ done
 
 # Default tmux sessions
 #kitty bash -c "tmux new-session -d -s scratchpad -c ~/mps/scratch"
-tmuxinator start scratchpad
+kitty bash -c "tmuxinator start scratchpad &"

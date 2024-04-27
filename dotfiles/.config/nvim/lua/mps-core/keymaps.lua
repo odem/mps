@@ -38,6 +38,12 @@ K.map("n", "-", ":horizontal resize-5<CR>", { desc = "Horizontal WindowSize -5" 
 K.map("n", "<S-x>", ":bnext<CR>", { desc = "Next buffer" })
 K.map("n", "<S-y>", ":bprevious<CR>", { desc = "Previous buffer" })
 
+-- Navigate Quickfixlist
+K.map("n", "<A-j>", "<cmd>cnext<CR>", { desc = "Next entry in Quickfix list" })
+K.map("n", "<A-k>", "<cmd>cprev<CR>", { desc = "Prev entry in Quickfix list" })
+K.map("n", "<A-g><A-g>", "<cmd>cfirst<CR>", { desc = "First entry in Quickfix list" })
+K.map("n", "<A-G>", "<cmd>clast<CR>", { desc = "Last entry in Quickfix list" })
+
 -- Move lines
 K.map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 K.map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })

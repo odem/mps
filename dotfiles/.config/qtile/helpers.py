@@ -2,6 +2,7 @@ from libqtile import qtile
 from libqtile.lazy import lazy
 from libqtile import hook
 from libqtile.log_utils import logger
+
 from globals import wallpapers, startup
 import subprocess
 

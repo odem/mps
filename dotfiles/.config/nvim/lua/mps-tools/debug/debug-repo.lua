@@ -6,7 +6,7 @@
 -- be extended to other languages as well. That's why it's called
 -- kickstart.nvim and not kitchen-sink.nvim ;)
 
-return  {
+return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
@@ -14,6 +14,7 @@ return  {
 		"jay-babu/mason-nvim-dap.nvim",
 		"mfussenegger/nvim-dap-python",
 		"theHamsta/nvim-dap-virtual-text",
+		"nvim-neotest/nvim-nio",
 	},
 	config = function()
 		local dap = require("dap")
@@ -73,8 +74,5 @@ return  {
 		}
 		dap.configurations.c = dap.configurations.cpp
 		dap.configurations.rust = dap.configurations.cpp
-
-
 	end,
 }
-

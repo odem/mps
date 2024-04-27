@@ -52,6 +52,26 @@ function M.tcmap(mode, lhs, rhs, desc)
 	end, { desc = desc })
 end
 
+function ToggleQuickfix()
+	local quickfix_exists = false
+
+	-- Iterate through all windows
+	for _, winid in ipairs(vim.api.nvim_list_wins()) do
+		local bufnr = vim.api.nvim_win_get_buf(winid)
+		local buftype = vim.api.nvim_buf_get_option(bufnr, "buftype")
+		if buftype == "quickfix" then
+			quickfix_exists = true
+			vim.cmd("cclose")
+			break
+		end
+	end
+
+	-- If quickfix list doesn't exist, open it
+	if not quickfix_exists then
+		vim.cmd("copen")
+	end
+end
+
 -- Delete words with Delete and Backspace
 vim.cmd([[
 	function! DeleteConditionallyRight()

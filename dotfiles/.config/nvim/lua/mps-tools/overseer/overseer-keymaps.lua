@@ -46,7 +46,7 @@ function OverseerTaskBySelection(action)
 	end)
 end
 -- Overseer
-K.map("n", "<a-o>", "<Cmd>OverseerToggle<CR>", { desc = "overseer [v]iew toggle" })
+K.map("n", "<a-v>", "<Cmd>OverseerToggle<CR>", { desc = "overseer [v]iew toggle" })
 K.map("n", "<Leader>ovv", "<Cmd>OverseerToggle<CR>", { desc = "[ov]erseer [t]oggle" })
 K.map("n", "<Leader>ovo", "<Cmd>OverseerOpen<CR>", { desc = "[ov]erseer [o]pen" })
 K.map("n", "<Leader>ovc", "<Cmd>OverseerClose<CR>", { desc = "[ov]erseer [c]lose" })

@@ -6,7 +6,7 @@ case $- in
 *) return ;;
 esac
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+if [ "${debian_chroot:-}" = "" ] && [ -r /etc/debian_chroot ]; then
 	debian_chroot=$(cat /etc/debian_chroot)
 fi
 #--- Prompt -------------------------------------------------------------------
@@ -44,21 +44,21 @@ export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 #--- Tokens -------------------------------------------------------------------
 ASKSCRIPT=~/mps/secrets/chatgpt-token.bash
-[[ -f $ASKSCRIPT ]] && . $ASKSCRIPT
+[[ -f $ASKSCRIPT ]] && . "$ASKSCRIPT"
 #--- Zoxide -------------------------------------------------------------------
 eval "$(zoxide init bash)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jb/anaconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
-if [ $? -eq 0 ]; then
-	eval "$__conda_setup"
-else
-	if [ -f "/home/jb/anaconda3/etc/profile.d/conda.sh" ]; then
-		. "/home/jb/anaconda3/etc/profile.d/conda.sh"
-	else
-		export PATH="/home/jb/anaconda3/bin:$PATH"
-	fi
-fi
-unset __conda_setup
+# __conda_setup="$('/home/jb/anaconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
+# if [ $? -eq 0 ]; then
+# 	eval "$__conda_setup"
+# else
+# 	if [ -f "/home/jb/anaconda3/etc/profile.d/conda.sh" ]; then
+# 		. "/home/jb/anaconda3/etc/profile.d/conda.sh"
+# 	else
+# 		export PATH="/home/jb/anaconda3/bin:$PATH"
+# 	fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<

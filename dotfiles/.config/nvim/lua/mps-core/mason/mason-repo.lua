@@ -11,6 +11,8 @@ local opts = {
 		"black",
 		"mypy",
 		"pyright",
+		"ruff",
+		"ruff-lsp",
 		"debugpy",
 		"bash-debug-adapter",
 		"bash-language-server",

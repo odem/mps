@@ -1,5 +1,10 @@
 local lspconfig = require("lspconfig")
 local on_attach = function(client, bufnr)
+	-- client.server_capabilities.completionProvider = true
+	-- client.server_capabilities.documentFormattingProvider = true
+	-- client.server_capabilities.documentRangeFormattingProvider = true
+	-- client.server_capabilities.hoverProvider = true
+	-- client.server_capabilities.signatureHelpProvider = true
 	print("Lsp '", client.name, "' attached to buffer ", bufnr)
 end
 local pid = vim.fn.getpid()
@@ -209,6 +214,10 @@ local config = function()
 			["rust-analyzer"] = {},
 		},
 	})
+	lspconfig.ruff.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
 	lspconfig.pyright.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
@@ -224,8 +233,9 @@ local config = function()
 					autoImportCompletions = true,
 				},
 				venvPath = vim.fn.getcwd() .. "/.venv",
-				pathonPath = vim.fn.getcwd() .. "/.venv/bin/python",
+				pythonPath = vim.fn.getcwd() .. "/.venv/bin/python",
 			},
+			python = vim.fn.getcwd() .. "/.venv/bin/python",
 		},
 	})
 	lspconfig.taplo.setup({
@@ -351,7 +361,7 @@ local config = function()
 	-- # Linters
 	-- ############################################################################
 	local luacheck = require("efmls-configs.linters.luacheck")
-	local pylint = require("efmls-configs.linters.pylint")
+	local ruff = require("efmls-configs.linters.ruff")
 	local eslint_d = require("efmls-configs.linters.eslint_d")
 	local shellcheck = require("efmls-configs.linters.shellcheck")
 	local stylint = require("efmls-configs.linters.stylelint")
@@ -443,7 +453,7 @@ local config = function()
 			languages = {
 				sh = { shellcheck, shellharden },
 				lua = { luacheck, stylua },
-				python = { pylint, black },
+				python = { ruff, black },
 				typescript = { eslint_d, prettierd },
 				javascript = { eslint_d, prettierd },
 				html = { stylint, prettierd },

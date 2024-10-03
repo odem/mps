@@ -72,6 +72,18 @@ return {
 				args = {},
 			},
 		}
+		dap.configurations.python = {
+			{
+				justMyCode = false,
+				type = "python",
+				request = "launch",
+				name = "Launch python file (justMyCode=false)",
+				file = "${file}",
+				program = "${file}",
+				console = "integratedTerminal",
+			},
+		}
+
 		dap.configurations.c = dap.configurations.cpp
 		dap.configurations.rust = dap.configurations.cpp
 	end,

@@ -58,9 +58,9 @@ cmp.setup({
 		path = true,
 		buffer = true,
 		calc = true,
-		nvim_lsp = false,
+		nvim_lsp = true,
 		nvim_lua = true,
-		vsnip = false,
+		vsnip = true,
 	},
 	formatting = {
 		expandable_indicator = true,

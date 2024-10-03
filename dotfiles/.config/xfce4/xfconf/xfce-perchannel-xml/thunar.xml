@@ -2,14 +2,14 @@
 
 <channel name="thunar" version="1.0">
   <property name="last-view" type="string" value="ThunarDetailsView"/>
-  <property name="last-icon-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_100_PERCENT"/>
+  <property name="last-icon-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
   <property name="last-window-width" type="int" value="1770"/>
-  <property name="last-window-height" type="int" value="1024"/>
+  <property name="last-window-height" type="int" value="988"/>
   <property name="last-window-maximized" type="bool" value="false"/>
-  <property name="last-separator-position" type="int" value="226"/>
+  <property name="last-separator-position" type="int" value="395"/>
   <property name="last-show-hidden" type="bool" value="true"/>
-  <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_25_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="158,144,144,144,111,54,79,528,506,95,143,88,143,80"/>
+  <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_100_PERCENT"/>
+  <property name="last-details-view-column-widths" type="string" value="254,246,246,246,111,54,115,442,732,143,227,148,227,80"/>
   <property name="last-details-view-visible-columns" type="string" value="THUNAR_COLUMN_DATE_CREATED,THUNAR_COLUMN_DATE_ACCESSED,THUNAR_COLUMN_DATE_MODIFIED,THUNAR_COLUMN_GROUP,THUNAR_COLUMN_MIME_TYPE,THUNAR_COLUMN_NAME,THUNAR_COLUMN_OWNER,THUNAR_COLUMN_PERMISSIONS,THUNAR_COLUMN_SIZE,THUNAR_COLUMN_SIZE_IN_BYTES"/>
   <property name="last-details-view-column-order" type="string" value="THUNAR_COLUMN_NAME,THUNAR_COLUMN_SIZE,THUNAR_COLUMN_SIZE_IN_BYTES,THUNAR_COLUMN_MIME_TYPE,THUNAR_COLUMN_GROUP,THUNAR_COLUMN_OWNER,THUNAR_COLUMN_PERMISSIONS,THUNAR_COLUMN_DATE_ACCESSED,THUNAR_COLUMN_DATE_MODIFIED,THUNAR_COLUMN_DATE_CREATED,THUNAR_COLUMN_RECENCY,THUNAR_COLUMN_TYPE,THUNAR_COLUMN_LOCATION,THUNAR_COLUMN_DATE_DELETED"/>
   <property name="misc-folder-item-count" type="string" value="THUNAR_FOLDER_ITEM_COUNT_ALWAYS"/>
@@ -17,8 +17,8 @@
   <property name="misc-text-beside-icons" type="bool" value="true"/>
   <property name="misc-date-style" type="string" value="THUNAR_DATE_STYLE_CUSTOM"/>
   <property name="misc-date-custom-style" type="string" value="%y/%m/%d %H:%M:%S"/>
-  <property name="shortcuts-icon-size" type="string" value="THUNAR_ICON_SIZE_16"/>
-  <property name="tree-icon-size" type="string" value="THUNAR_ICON_SIZE_16"/>
+  <property name="shortcuts-icon-size" type="string" value="THUNAR_ICON_SIZE_24"/>
+  <property name="tree-icon-size" type="string" value="THUNAR_ICON_SIZE_24"/>
   <property name="misc-middle-click-in-tab" type="bool" value="true"/>
   <property name="misc-open-new-window-as-tab" type="bool" value="true"/>
   <property name="misc-full-path-in-tab-title" type="bool" value="true"/>
@@ -31,15 +31,15 @@
   <property name="last-side-pane" type="string" value="ThunarShortcutsPane"/>
   <property name="last-toolbar-item-order" type="string" value="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18"/>
   <property name="last-toolbar-visible-buttons" type="string" value="0,1,1,1,1,0,0,1,1,1,1,1,0,1,1,1,1,1,1"/>
-  <property name="last-splitview-separator-position" type="int" value="769"/>
+  <property name="last-splitview-separator-position" type="int" value="1734"/>
   <property name="last-restore-tabs" type="bool" value="true"/>
   <property name="misc-directory-specific-settings" type="bool" value="true"/>
   <property name="misc-thumbnail-mode" type="string" value="THUNAR_THUMBNAIL_MODE_NEVER"/>
   <property name="last-tabs-left" type="array">
-    <value type="string" value="file:///media/disks/bee-large/gamedev/textures/qgis"/>
-    <value type="string" value="file:///home/jb/Downloads"/>
-    <value type="string" value="file:///media/disks/bee-large/gamedev/maps/naturalearth/10m_cultural/10m_cultural"/>
+    <value type="string" value="file:///home/jb/mps/docs/documents/campusit/final"/>
   </property>
   <property name="last-focused-tab-left" type="int" value="0"/>
   <property name="last-focused-tab-right" type="int" value="0"/>
+  <property name="last-compact-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_100_PERCENT"/>
+  <property name="misc-confirm-close-multiple-tabs" type="bool" value="false"/>
 </channel>

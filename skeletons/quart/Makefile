@@ -2,7 +2,7 @@
 # --- Defaults
 # ------------------------------------------------------------------------------
 # Makefiel setup
-.PHONY: default build start stop clean
+.PHONY: default build start stop connect clean
 default: start
 # Shell setup
 SHELL:=/bin/bash
@@ -28,16 +28,21 @@ usage:
 # --- Default targets
 # ------------------------------------------------------------------------------
 build: stop
-	-mkdir -p keys
-	[[ -f keys/cert.pem ]] || \
+	-mkdir -p app/keys
+	[[ -f app/keys/cert.pem ]] || \
 		openssl req -x509 -newkey rsa:4096 -days 365 -nodes \
-		-out keys/cert.pem -keyout keys/key.pem \
+		-out app/keys/cert.pem -keyout app/keys/key.pem \
 		-subj "/C=DE/ST=Berlin/L=Berlin/O=org/OU=unit/CN=localhost"
 	docker build -t $(IMGNAME) . 
 start: build
-	docker run -p $(LPORT):$(RPORT) -d --rm --name $(CONTNAME) $(IMGNAME)
+	docker run \
+		-p $(LPORT):$(RPORT) \
+		-v `pwd`/app:/opt/quart/skeleton/app \
+		-d --rm --name $(CONTNAME) $(IMGNAME)
 stop:
 	-docker kill $(CONTNAME)
+connect:
+	docker exec -it $(CONTNAME) bash
 clean: stop
 	-docker rm $(CONTNAME)
 	-docker image rm $(IMGNAME)

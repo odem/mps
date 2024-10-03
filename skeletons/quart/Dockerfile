@@ -5,16 +5,16 @@ FROM debian:latest
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && apt-get -y upgrade && apt-get -y install python3 python3-venv pip
 
-# Quart
-ENV APP_NAME=app
+# Quart venv
+ENV APP_NAME=skeleton
 ENV FOLDER_VENV=/opt/quart/$APP_NAME
 RUN mkdir -p $FOLDER_VENV
+RUN [ -d $FOLDER_VENV/.venv ] \
+        || python3 -m venv $FOLDER_VENV/.venv \
+        && $FOLDER_VENV/.venv/bin/pip install --no-cache-dir quart quart-cors
 WORKDIR $FOLDER_VENV
-RUN [ -d .venv ] || python3 -m venv .venv && .venv/bin/pip install --no-cache-dir quart quart-cors
+COPY entrypoint.bash /opt/quart/$APP_NAME
 
-# Code
-COPY app/* ./
-COPY keys/* ./
 
 # RUN from venv
-CMD [ ".venv/bin/python3", "main.py"]
+ENTRYPOINT [ "/opt/quart/skeleton/entrypoint.bash"]

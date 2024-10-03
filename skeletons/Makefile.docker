@@ -1,0 +1,38 @@
+# Default targets
+.PHONY: default build start stop kill exec clean
+default: usage
+
+# Makefile setup
+SHELL:=/bin/bash
+IMGNAME := testimg
+CONTNAME := testcont
+
+# Help
+usage:
+	@echo "make TARGET"
+	@echo "   TARGETS: "
+	@echo "     build: Build the Container"
+	@echo "     start: Start the container"
+	@echo "     stop : Stop the container"
+	@echo "     kill : Kill the container"
+	@echo "     exec : Exec bash"
+	@echo "     clean: Remove container and image"
+	@echo "     usage: Help message"
+	@echo ""
+
+# Targets
+build:
+	docker build -t $(IMGNAME) .
+start: build
+	docker run -d --rm --name $(CONTNAME) $(IMGNAME) tail -f /dev/null
+stop:
+	docker stop $(CONTNAME)
+kill:
+	docker kill $(CONTNAME)
+exec:
+	docker exec -it $(CONTNAME) bash
+clean:
+	-docker kill $(CONTNAME)
+	-docker rm $(CONTNAME)
+	-docker rmi $(IMGNAME)
+

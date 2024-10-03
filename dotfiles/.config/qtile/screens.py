@@ -56,10 +56,10 @@ def create_widget_groupbox():
         inactive=fontYellow,
         urgent_text=fontBlack,
         urgent_border=lightRed,
-        urgent_alert_method='block',
-        font='JetBrainsMono Nerd Font',
-        fontsize=14,
-        highlight_method='line',
+        urgent_alert_method="block",
+        font="JetBrainsMono Nerd Font",
+        fontsize=20,
+        highlight_method="line",
         highlight_color=lightBlue,
         this_current_screen_border=darkBlue,
         other_current_screen_border=darkBlue,
@@ -69,12 +69,12 @@ def create_widget_groupbox():
 
 def create_widget_updater():
     return widget.CheckUpdates(
-        distro='Debian',
+        distro="Debian",
         markup=True,
-        colour_have_updates='ff0000',
-        colour_no_updates='00ff00',
-        display_format='({updates})',
-        no_update_string='(0)',
+        colour_have_updates="ff0000",
+        colour_no_updates="00ff00",
+        display_format="({updates})",
+        no_update_string="(0)",
         execute=f"{tm} --title Update --hold {update}",
     )
 
@@ -82,9 +82,9 @@ def create_widget_updater():
 def create_widget_clock():
     return widget.Clock(
         font="JetBrainsMono Nerd Font",
-        fontsize=12,
+        fontsize=20,
         mouse_callbacks={
-            'Button1': lazy.spawn('gsimplecal'),
+            "Button1": lazy.spawn("gsimplecal"),
         },
         format="%Y-%m-%d %a %H:%M:%S",
     )
@@ -95,38 +95,38 @@ def create_widget_clock():
 ###############################################################################
 def create_widgetbox_graphs():
     return widget.WidgetBox(
-        text_open='[g]',
-        text_closed='[G]',
-        close_button_location='right',
+        text_open="[g]",
+        text_closed="[G]",
+        close_button_location="right",
         widgets=[
-            widget.CPU(format='CPU:{load_percent}%'),
-            widget.CPUGraph(type='line', line_width=1),
+            widget.CPU(format="CPU:{load_percent}%"),
+            widget.CPUGraph(type="line", line_width=1),
             widget.DF(
                 visible_on_warn=False,
-                format='Disk {p}: {uf}{m}/{s}{m}',
+                format="Disk {p}: {uf}{m}/{s}{m}",
             ),
-            widget.HDDBusyGraph(path='/', type='line', line_width=1),
-            widget.SwapGraph(type='line', line_width=1),
+            widget.HDDBusyGraph(path="/", type="line", line_width=1),
+            widget.SwapGraph(type="line", line_width=1),
             widget.Memory(
-                measure_mem='M',
+                measure_mem="M",
                 format="RAM: {MemUsed:.0f}{ms}/{MemTotal:.0f}{ms}",
             ),
-            widget.MemoryGraph(type='line', line_width=1),
+            widget.MemoryGraph(type="line", line_width=1),
         ],
     )
 
 
 def create_widgetbox_tasklist():
     return widget.WidgetBox(
-        text_open='[t]',
-        text_closed='[T]',
-        close_button_location='right',
+        text_open="[t]",
+        text_closed="[T]",
+        close_button_location="right",
         widgets=[
             widget.Sep(),
             widget.TaskList(
                 parse_text=normalize_window_title,
                 margin_x=5,
-                title_width_method='uniform',
+                title_width_method="uniform",
                 padding=1,
                 margin=1,
                 markup=True,
@@ -137,10 +137,10 @@ def create_widgetbox_tasklist():
 
 def create_widgetbox_buttons():
     return widget.WidgetBox(
-        text_open='',
-        text_closed='',
+        text_open="",
+        text_closed="",
         start_opened=True,
-        close_button_location='right',
+        close_button_location="right",
         widgets=[
             widget.Spacer(),
             widget.Sep(padding=10, linewidth=5, size_percent=50),
@@ -148,70 +148,70 @@ def create_widgetbox_buttons():
                 scale=True,
                 filename=icons_static["firefox"],
                 mouse_callbacks={
-                    'Button1': lazy.spawn(ff),
+                    "Button1": lazy.spawn(ff),
                 },
             ),
             widget.Image(
                 scale=True,
                 filename=icons_static["kitty"],
                 mouse_callbacks={
-                    'Button1': lazy.spawn(tm),
+                    "Button1": lazy.spawn(tm),
                 },
             ),
             widget.Image(
                 scale=True,
                 filename=icons_static["thunar"],
                 mouse_callbacks={
-                    'Button1': lazy.spawn(fm),
+                    "Button1": lazy.spawn(fm),
                 },
             ),
             widget.Image(
                 scale=True,
                 filename=icons_static["mumble"],
                 mouse_callbacks={
-                    'Button1': lazy.spawn(mu),
+                    "Button1": lazy.spawn(mu),
                 },
             ),
             widget.Image(
                 scale=True,
                 filename=icons_static["nvim"],
                 mouse_callbacks={
-                    'Button1': lazy.spawn(nv),
+                    "Button1": lazy.spawn(nv),
                 },
             ),
             widget.Image(
                 scale=True,
                 filename=icons_static["gedit"],
                 mouse_callbacks={
-                    'Button1': lazy.spawn(ge),
+                    "Button1": lazy.spawn(ge),
                 },
             ),
             widget.Image(
                 scale=True,
                 filename=icons_static["zoom"],
                 mouse_callbacks={
-                    'Button1': lazy.spawn(zo),
+                    "Button1": lazy.spawn(zo),
                 },
             ),
             widget.Image(
                 scale=True,
                 filename=icons_static["evince"],
                 mouse_callbacks={
-                    'Button1': lazy.spawn(ev),
+                    "Button1": lazy.spawn(ev),
                 },
             ),
             widget.Image(
                 scale=True,
                 filename=icons_static["gimp"],
                 mouse_callbacks={
-                    'Button1': lazy.spawn(gi),
+                    "Button1": lazy.spawn(gi),
                 },
             ),
             widget.Image(
                 scale=True,
                 filename=icons_static["gparted"],
                 mouse_callbacks={
-                    'Button1': lazy.spawn(gp),
+                    "Button1": lazy.spawn(gp),
                 },
             ),
             widget.Sep(padding=10, linewidth=5, size_percent=50),
@@ -221,9 +221,9 @@ def create_widgetbox_buttons():
 
 def create_widgetbox_clipboard():
     return widget.WidgetBox(
-        text_open='[c]',
-        text_closed='[C]',
-        close_button_location='right',
+        text_open="[c]",
+        text_closed="[C]",
+        close_button_location="right",
         widgets=[widget.Clipboard(timeout=0)],
     )
 
@@ -239,10 +239,10 @@ def create_topbar():
         widget.Spacer(),
         widget.Sep(),
         widget.WidgetBox(
-            text_open='[n]',
-            text_closed='[N]',
+            text_open="[n]",
+            text_closed="[N]",
             start_opened=False,
-            close_button_location='right',
+            close_button_location="right",
             widgets=[
                 widget.Net(),
                 widget.ThermalZone(),
@@ -256,7 +256,7 @@ def create_topbar():
 ###############################################################################
 widget_defaults = dict(
     font="JetBrainsMono Nerd Font",
-    fontsize=14,
+    fontsize=20,
     padding=7,
 )
 extension_defaults = widget_defaults.copy()
@@ -269,7 +269,7 @@ class MpsScreens(object):
             Screen(
                 top=bar.Bar(
                     create_topbar(),
-                    20,
+                    40,
                     border_color=barBorderColor,
                     border_width=barBorderWidth,
                     background=barColor,
@@ -279,12 +279,12 @@ class MpsScreens(object):
                 bottom=bar.Bar(
                     [
                         widget.CurrentLayoutIcon(
-                            scale=0.6, fontsize=8, background=darkGray
+                            scale=1, fontsize=18, background=darkGray
                         ),
                         widget.WindowCount(),
                         create_widget_groupbox(),
                         widget.Sep(),
-                        widget.Prompt(prompt='Spawn: '),
+                        widget.Prompt(prompt="Spawn: "),
                         create_widgetbox_buttons(),
                         widget.Spacer(),
                         widget.Sep(),
@@ -297,7 +297,7 @@ class MpsScreens(object):
                         create_widget_updater(),
                         create_widget_clock(),
                     ],
-                    24,
+                    40,
                     border_color=barBorderColor,
                     border_width=barBorderWidth,
                     background=barColor,
@@ -309,7 +309,7 @@ class MpsScreens(object):
             Screen(
                 top=bar.Bar(
                     create_topbar(),
-                    20,
+                    40,
                     border_color=barBorderColor,
                     border_width=barBorderWidth,
                     background=barColor,
@@ -319,7 +319,7 @@ class MpsScreens(object):
                 bottom=bar.Bar(
                     [
                         widget.CurrentLayoutIcon(
-                            scale=0.6, fontsize=8, background=darkGray
+                            scale=1, fontsize=20, background=darkGray
                         ),
                         widget.WindowCount(),
                         create_widget_groupbox(),
@@ -334,7 +334,7 @@ class MpsScreens(object):
                         create_widget_updater(),
                         create_widget_clock(),
                     ],
-                    24,
+                    40,
                     border_color=barBorderColor,
                     border_width=barBorderWidth,
                     background=barColor,

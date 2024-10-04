@@ -1,5 +1,6 @@
 /tools/
 **/__pycache__/
+/dotfiles/.config/KeePass/
 /dotfiles/.config/nvim/lazy-lock.json
 /dotfiles/.config/tmux/plugins
 /dotfiles/.config/dconf/user

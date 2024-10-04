@@ -12,6 +12,10 @@ K.map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><Esc>", { desc = "Save file" }
 K.map({ "i", "v", "n", "s" }, "<A-s>", "<cmd>source %<cr><Esc>", { desc = "Source file" })
 K.map("n", "<A-.>", "<cmd>bd<CR>", { desc = "Close current buffer" })
 
+-- Sessions
+K.map("n", "<leader>ss", "<cmd>mksession ~/last_session.vim<CR>", { desc = "Store session" })
+K.map("n", "<leader>sr", "<cmd>source ~/last_session.vim<CR>", { desc = "Restore session" })
+
 -- Toggle Relativenumbers
 K.map("n", "<leader>#", "<cmd>set rnu!<CR>", { desc = "Toggle line numbers" })
 -- splits

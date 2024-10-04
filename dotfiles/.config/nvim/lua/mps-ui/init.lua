@@ -26,6 +26,6 @@ M.configure = function()
 	require("mps-ui.yank.yank-config")
 
 	-- Keymaps
-	-- require("mps-ui.barbecue.debug-keymaps")
+	require("mps-ui.symbols-outline.symbols-outline-keymaps")
 end
 return M

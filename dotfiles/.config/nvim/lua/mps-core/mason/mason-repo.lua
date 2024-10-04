@@ -30,6 +30,7 @@ local opts = {
 		"mdformat",
 		"json-lsp",
 		"jq",
+		"tree-sitter-cli",
 		"texlab",
 		"latexindent",
 		"lemminx",

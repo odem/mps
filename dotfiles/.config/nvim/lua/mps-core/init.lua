@@ -16,6 +16,7 @@ M.getplugins = function()
 		require("mps-core.luasnip.luasnip-repo"),
 		require("mps-core.comment.comment-repo"),
 		require("mps-core.themes.themes-repo"),
+		require("mps-core.snipe.snipe-repo"),
 	}
 end
 M.configure = function()
@@ -46,4 +47,3 @@ M.configure = function()
 	require("mps-core.vars")
 end
 return M
-

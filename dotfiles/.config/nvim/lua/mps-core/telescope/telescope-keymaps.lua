@@ -15,9 +15,9 @@ K.tmap("n", "<leader>tff", "find_files", "[t]elescope [f]ind [f]iles")
 K.tmap("n", "<leader>tfz", "current_buffer_fuzzy_find", "[t]elescope [f]ind [f]uzzy")
 K.tmap("n", "<leader>tgs", "grep_string", "[t]elescope [g]rep [s]tring")
 K.tmap("n", "<leader>tgl", "live_grep", "[t]elescope [g]rep [l]ive")
-K.tmap("n", "<leader><leader>", "buffers", "Telescope buffers")
+K.tmap("n", "<leader>/", "buffers", "Telescope buffers")
 K.tmap("n", "<leader>?", "current_buffer_fuzzy_find", "Telescope fuzzy buffer")
-K.tmap("n", "<leader>/", "oldfiles", "Telescope recent files")
+K.tmap("n", "<leader><leader>", "oldfiles", "Telescope recent files")
 
 -- Telescope custom filesystem search
 K.tcmap("n", "<leader>tcs/", "find_files_slash", "[tc] [s]earch [/]")
@@ -41,5 +41,3 @@ K.tmap("n", "glg", "diagnostics", "[gt] dia[g]nostics")
 -- Override default lsp bindings
 K.tmap("n", "gd", "lsp_definitions", "[gt] [l]sp [d]efinitions")
 K.tmap("n", "gr", "lsp_references", "[gt] [l]sp [r]eferences")
-
-K.tmap("n", "<leader>td", "diagnostics", "[t]elescope [d]iagnostics")

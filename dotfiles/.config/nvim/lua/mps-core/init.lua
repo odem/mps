@@ -31,6 +31,7 @@ M.configure = function()
 	require("mps-core.luasnip.luasnip-config")
 	require("mps-core.comment.comment-config")
 	require("mps-core.themes.themes-config")
+	require("mps-core.snipe.snipe-config")
 
 	-- Keymaps
 	require("mps-core.keymaps")

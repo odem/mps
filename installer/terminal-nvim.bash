@@ -5,6 +5,7 @@ TOOLS="yarn ruby npm fzf fd-find ripgrep shellcheck xclip xsel luarocks"
 PYTHON_BASE="python3 python3-venv python3-pip"
 PYTHON_EXTRAS="black flake8 pylint mypy python3-neovim python3-pynvim"
 IFS=', ' read -r -a ALL <<<"$REQUIRED $TOOLS $PYTHON_BASE $PYTHON_EXTRAS"
+IFS=', ' read -r -a UNINSTALL <<<"$TOOLS $PYTHON_EXTRAS"
 IFS=', ' read -r -a CARGO <<<"fd-find tree-sitter-cli"
 IFS=', ' read -r -a NPM <<<"neovim"
 # --- Font-URLs ---------------------------------------------------------------
@@ -75,7 +76,7 @@ function do_install() {
     cd /usr/local/bin || exit 1
     sudo ln -s "$NEOVIM_FOLDER"/nvim-linux64/bin/nvim
     cd - || exit 1
-    nvim --headless --startuptime nvim_startup.log +qall
+    # nvim --headless --startuptime nvim_startup.log
 }
 function do_uninstall() {
     # === npm ===
@@ -83,8 +84,8 @@ function do_uninstall() {
     # === cargo ===
     cargo uninstall "${CARGO[@]}"
     # === packages ===
-    sudo -E apt --yes remove "${TOOLS[@]}"
-    sudo -E apt --yes remove "${PYTHON_EXTRAS[@]}"
+    sudo -E apt --yes remove "${UNINSTALL[@]}"
+    # sudo -E apt --yes remove "${PYTHON_EXTRAS[@]}"
     sudo rm -rf /usr/local/bin/nvim
 }
 function do_configure() {

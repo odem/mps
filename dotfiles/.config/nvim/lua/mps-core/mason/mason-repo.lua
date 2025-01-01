@@ -45,7 +45,6 @@ local opts = {
 		"gersemi",
 		"clangd",
 		"clang-format",
-		"csharp-language-server",
 	},
 	automatic_installation = true,
 }

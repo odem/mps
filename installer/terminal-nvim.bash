@@ -75,21 +75,26 @@ function do_install() {
     cd /usr/local/bin || exit 1
     sudo ln -s "$NEOVIM_FOLDER"/nvim-linux64/bin/nvim
     cd - || exit 1
+    nvim --headless --startuptime nvim_startup.log +qall
 }
 function do_uninstall() {
-    # === packages ===
-    sudo -E apt --yes remove "${ALL[@]}"
-    sudo rm -rf /usr/local/bin/nvim
     # === npm ===
     sudo npm uninstall -g "${NPM[@]}"
     # === cargo ===
-    cargo uninstall install "${CARGO[@]}"
+    cargo uninstall "${CARGO[@]}"
+    # === packages ===
+    sudo -E apt --yes remove "${TOOLS[@]}"
+    sudo -E apt --yes remove "${PYTHON_EXTRAS[@]}"
+    sudo rm -rf /usr/local/bin/nvim
 }
 function do_configure() {
-    mkdir -p ~/.config/nvim
+    # mkdir -p ~/.config/nvim
     # === nvim config ===
     cp dotfiles/.NERDTreeBookmarks ~
     cp -r dotfiles/.config/nvim -t ~/.config/
+    rm -rf ~/.local/share/nvim
+    rm -rf ~/.local/state/nvim
+
 }
 # --- Execute task ------------------------------------------------------------
 export DEBIAN_FRONTEND=noninteractive

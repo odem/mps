@@ -330,18 +330,18 @@ local config = function()
 		),
 		single_file_support = true,
 	})
-	-- lspconfig.csharp_ls.setup({
-	-- 	on_attach = on_attach,
-	-- 	capabilities = vscode_capabilities,
-	-- 	filetypes = {
-	-- 		"cs",
-	-- 	},
-	-- 	settings = {},
-	-- 	init_options = {
-	-- 		AutomaticWorkspaceInit = true,
-	-- 	},
-	-- 	single_file_support = true,
-	-- })
+	lspconfig.csharp_ls.setup({
+		on_attach = on_attach,
+		capabilities = vscode_capabilities,
+		filetypes = {
+			"cs",
+		},
+		settings = {},
+		init_options = {
+			AutomaticWorkspaceInit = true,
+		},
+		single_file_support = true,
+	})
 	lspconfig.omnisharp.setup({
 		on_attach = on_attach,
 		capabilities = vscode_capabilities,

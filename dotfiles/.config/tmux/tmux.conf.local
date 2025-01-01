@@ -505,7 +505,7 @@ bind-key -n 'C-x' copy-mode
 
 # find,create and kill session
 bind a command-prompt -p "session abbr:" "run 'tmux switch -t $(tmux ls -F \"##{session_created}:##{session_name}\" | sort -n | grep \':%%\' | head -n 1 | cut -d \':\' -f 2)'"
-bind C command-prompt -p "New Session:" "new-session -A -s '%%'"
+bind C command-prompt -p "New Session:" "new-session -s '%%'"
 bind X confirm kill-session
 
 # vim keys

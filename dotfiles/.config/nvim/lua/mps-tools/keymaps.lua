@@ -35,6 +35,9 @@ end, { desc = "Recent Projects" })
 -- vim-rest-console
 K.map("n", "<A-r>", ":call VrcQuery()<CR>", { desc = "Vrc Query ([r]est)" })
 
+-- dismiss noice
+K.map("n", "<C-m>", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss noice" })
+
 -- Yanky
 K.map("x", "p", "<Plug>(YankyPutAfter)", { desc = "" })
 K.map("x", "P", "<Plug>(YankyPutBefore)", { desc = "" })

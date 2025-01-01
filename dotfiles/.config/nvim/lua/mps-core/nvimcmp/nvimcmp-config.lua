@@ -75,7 +75,7 @@ cmp.setup({
 					luasnip = "⋗",
 					buffer = "Ω",
 					vim_dadbod_completion = "",
-					path = "🖫",
+					path = " ",
 				}
 				item.menu = menu_icon[entry.source.name]
 				return item

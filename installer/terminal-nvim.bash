@@ -11,7 +11,7 @@ IFS=', ' read -r -a NPM <<<"neovim"
 NEOVIM_FOLDER=/opt/mps/tools/nvim
 RUSTUP_FOLDER=/opt/mps/tools/rustup
 LAZYGIT_FOLDER=/opt/mps/tools/lazygit
-NEOVIM_URL=https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-linux64.tar.gz
+NEOVIM_URL=https://github.com/neovim/neovim/releases/download/v0.10.3/nvim-linux64.tar.gz
 LAZYGITLATEST_URL="https://api.github.com/repos/jesseduffield/lazygit/releases/latest"
 LAZYGIT_URL="https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit"
 RUSTUP_URL=https://sh.rustup.rs
@@ -79,7 +79,7 @@ function do_install() {
 function do_uninstall() {
     # === packages ===
     sudo -E apt --yes remove "${ALL[@]}"
-    rm -rf /usr/local/bin/nvim
+    sudo rm -rf /usr/local/bin/nvim
     # === npm ===
     sudo npm uninstall -g "${NPM[@]}"
     # === cargo ===

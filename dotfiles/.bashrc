@@ -51,3 +51,4 @@ export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 #--- Zoxide -------------------------------------------------------------------
 eval "$(zoxide init bash)"
 
+. "$HOME/.cargo/env"

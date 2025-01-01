@@ -61,7 +61,7 @@ local config = function()
 		root_dir = lspconfig.util.root_pattern("package.json", ".git"),
 		single_file_support = true,
 	})
-	lspconfig.tsserver.setup({
+	lspconfig.ts_ls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 		filetypes = {

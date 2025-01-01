@@ -32,7 +32,7 @@ cp -r "$HOMECONFIG"/dconf/* "$REPOCONFIG"/dconf
 cp -r "$HOMECONFIG"/gedit/* "$REPOCONFIG"/gedit
 cp -r "$HOMECONFIG"/gtk-2.0/* "$REPOCONFIG"/gtk-2.0
 cp -r "$HOMECONFIG"/gtk-3.0/* "$REPOCONFIG"/gtk-3.0
-cp -r "$HOMECONFIG"/KeePass/* "$REPOCONFIG"/KeePass
+cp -r "$HOMECONFIG"/dunst/* "$REPOCONFIG"/dunst
 cp -r "$HOMECONFIG"/kitty/* "$REPOCONFIG"/kitty
 cp -r "$HOMECONFIG"/neofetch/* "$REPOCONFIG"/neofetch
 cp -r "$HOMECONFIG"/nvim/* "$REPOCONFIG"/nvim
@@ -43,4 +43,3 @@ cp -r "$HOMECONFIG"/tilda/* "$REPOCONFIG"/tilda
 cp -r "$HOMECONFIG"/tmux/tmux.conf "$REPOCONFIG"/tmux
 cp -r "$HOMECONFIG"/tmux/tmux.conf.local "$REPOCONFIG"/tmux
 cp -r "$HOMECONFIG"/volumeicon/* "$REPOCONFIG"/volumeicon
-cp -r "$HOMECONFIG"/xfce4/* "$REPOCONFIG"/xfce4

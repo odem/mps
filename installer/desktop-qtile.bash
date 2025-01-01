@@ -2,7 +2,7 @@
 # --- Packages ----------------------------------------------------------------
 PYTHON="python3-psutil python3-pip python-dbus-dev python3-pulsectl git"
 PANGO="libpangocairo-1.0-0 python3-xcffib python3-cairocffi"
-DESKTOP="lightdm lightdm-gtk-greeter"
+DESKTOP="lightdm dunst lightdm-gtk-greeter"
 X11="x11vnc tigervnc-standalone-server"
 IFS=', ' read -r -a ALL <<< "$PYTHON $PANGO $X11 $DESKTOP"
 IFS=', ' read -r -a QTILEPIP <<< "xcffib cairocffi"

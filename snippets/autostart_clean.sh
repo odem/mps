@@ -12,12 +12,13 @@ dconf dump / | tee ~/.config/dconf/config.ini
 COMPOSITOR=picom
 NETMON=nm-applet
 VOLMON=volumeicon
+DUNST=dunst
 SCRATCHTERM=tilda
 SYSMON=gnome-system-monitor
 POLKIT=lxpolkit
 MAILTRAY=birdtray
-ALL="$COMPOSITOR $NETMON $VOLMON $SCRATCHTERM $SYSMON $POLKIT $MAILTRAY"
-for comp in $ALL
+ALL="$COMPOSITOR $NETMON $VOLMON $DUNST $SCRATCHTERM $SYSMON $POLKIT $MAILTRAY"
+for comp in "${ALL[@]}"
 do
-    killall $comp
+    killall "$comp"
 done

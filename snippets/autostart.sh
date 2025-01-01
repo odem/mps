@@ -11,8 +11,8 @@ xrandr --output DP-2 --primary --auto --mode 3840x2160 --pos 0x0 --rotate normal
     --output HDMI-0 --mode 1920x1080 --pos 3840x1080 --rotate normal
 
 xset s off &
-#xset -dpms &
-xset dpms 36000 36000 36000 &
+xset -dpms &
+#xset dpms 36000 36000 36000 &
 xset r rate 250 50 &
 setxkbmap de &
 #feh --bg-scale ~/.config/images/wallpaper.jpg &
@@ -22,6 +22,7 @@ dconf load / <~/.config/dconf/config.ini
 
 # Tray apps and daemons
 COMPOSITOR=picom
+DUNST=dunst
 NETMON=nm-applet
 VOLMON=volumeicon
 SCRATCHTERM=tilda
@@ -34,6 +35,7 @@ for comp in "${ALL[@]}"; do
 done
 "$COMPOSITOR" &
 "$NETMON" &
+"$DUNST" &
 "$VOLMON" &
 "$SCRATCHTERM" &
 "$SYSMON" "$POLKIT" &

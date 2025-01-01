@@ -1,7 +1,11 @@
+slash /
+etc /etc
+logs /var/log
+home ~
 .config ~/.config
-docs ~/mps/docs
-mps ~/mps
 nvim ~/.config/nvim
+mps ~/mps
+docs ~/mps/docs
 repo ~/mps/repo
 scratch ~/mps/scratch
 wsp ~/mps/wsp

@@ -9,10 +9,8 @@ from globals import (
     ev,
     ge,
     gp,
-    gi,
     nv,
     fm,
-    zo,
     update,
     barBorderWidth,
     opacityBar,
@@ -37,10 +35,8 @@ icons_static = {
     "nvim": "/usr/share/icons/hicolor/128x128/apps/nvim.png",
     "thunar": "/usr/share/icons/hicolor/128x128/apps/org.xfce.thunar.png",
     "mumble": "/usr/share/icons/hicolor/scalable/apps/mumble.svg",
-    "gimp": "/usr/share/icons/hicolor/256x256/apps/gimp.png",
     "evince": "/usr/share/icons/hicolor/scalable/apps/org.gnome.Evince.svg",
     "gparted": "/usr/share/icons/hicolor/scalable/apps/gparted.svg",
-    "zoom": "/usr/share/pixmaps/application-x-zoom.png",
 }
 
 
@@ -188,23 +184,9 @@ def create_widgetbox_buttons():
             ),
             widget.Image(
                 scale=True,
-                filename=icons_static["zoom"],
-                mouse_callbacks={
-                    "Button1": lazy.spawn(zo),
-                },
-            ),
-            widget.Image(
-                scale=True,
                 filename=icons_static["evince"],
                 mouse_callbacks={
                     "Button1": lazy.spawn(ev),
-                },
-            ),
-            widget.Image(
-                scale=True,
-                filename=icons_static["gimp"],
-                mouse_callbacks={
-                    "Button1": lazy.spawn(gi),
                 },
             ),
             widget.Image(

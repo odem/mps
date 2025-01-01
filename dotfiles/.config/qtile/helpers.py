@@ -1,10 +1,26 @@
 from libqtile import qtile
+from libqtile.core.manager import Qtile
 from libqtile.lazy import lazy
 from libqtile import hook
 from libqtile.log_utils import logger
 
 from globals import wallpapers, startup
 import subprocess
+
+gaming_mode = False
+
+
+def toggle_gaming_mode(qtile: Qtile, gamemode_keys: list):
+    global gaming_mode
+    gaming_mode = not gaming_mode
+    logger.error(f"Switching to: {gaming_mode}")
+    qtile.cmd_spawn(f"notify-send 'Gamemode: {gaming_mode}'")
+    if gaming_mode:
+        for key in gamemode_keys:
+            qtile.ungrab_key(key)
+    else:
+        for key in gamemode_keys:
+            qtile.grab_key(key)
 
 
 ###############################################################################

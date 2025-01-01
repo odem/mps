@@ -11,7 +11,7 @@ class MpsFloats(object):
                 *Floating.default_float_rules,
                 Match(wm_class="ssh-askpass"),  # ssh-askpass
                 Match(wm_class="Tilda"),  # tilda
-                Match(wm_class="Rofi"),  # tilda
+                Match(wm_class="Rofi"),  # Rofi
                 Match(wm_class="Pavucontrol"),  # pavu
                 Match(wm_class="KeePass2"),  # keepass
             ]

@@ -11,13 +11,13 @@ from colors import layoutColorBlack, layoutColorGreen, layoutColorLightRed
 class MpsLayouts(object):
     def init_layouts(self):
         return [
-            Columns(
-                border_focus_stack=layoutColorGreen,
-                border_width=widthBorder,
-                margin=gapsWindow,
-                border_focus=layoutColorLightRed,
-                border_normal=layoutColorBlack,
-            ),
+            # Columns(
+            #     border_focus_stack=layoutColorGreen,
+            #     border_width=widthBorder,
+            #     margin=gapsWindow,
+            #     border_focus=layoutColorLightRed,
+            #     border_normal=layoutColorBlack,
+            # ),
             Max(
                 border_width=widthBorder,
                 margin=gapsWindow,

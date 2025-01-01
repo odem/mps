@@ -1,6 +1,7 @@
 /* --- configuration --- */
 configuration {
 	modi:                       "drun,run,filebrowser,window,ssh";
+    dpi:                        150;
     show-icons:                 true;
     display-drun:               "  Apps";
     display-run:                "  Run";

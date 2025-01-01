@@ -43,24 +43,25 @@ function do_install() {
     mkdir -p ~/mps/venv
     cd ~/mps/venv/ || exit 1
     python3 -m venv nvim
-    nvim/bin/python -m pip install debugpy pynvim
+    source ./nvim/bin/activate
+    pip install debugpy pynvim
+    deactivate
     cd - || exit 1
     # === npm ===
     sudo npm install -g "${NPM[@]}"
     # === lazygit ===
     LAZYGIT_VERSION=$(curl -s "$LAZYGITLATEST_URL" |
         grep -Po '"tag_name": "v\K[^"]*')
-    sudo mkdir -p "$LAZYGIT_FOLDER"
-    sudo chown "$USER":"$USER" -R "$LAZYGIT_FOLDER"
+    mkdir -p "$LAZYGIT_FOLDER"
     curl -o "$LAZYGIT_FOLDER/lazygit.tar.gz" -L \
         "${LAZYGIT_URL}_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
     tar xf "$LAZYGIT_FOLDER"/lazygit.tar.gz -C "$LAZYGIT_FOLDER"
     sudo install "$LAZYGIT_FOLDER"/lazygit /usr/local/bin
     rm -rf "$LAZYGIT_FOLDER"/lazygit.tar.gz #$LAZYGIT_FOLDER/lazygit
     # === Rustup ===
-    sudo mkdir -p "$RUSTUP_FOLDER"
-    sudo wget "$RUSTUP_URL" -O "$RUSTUP_FOLDER"/rustup.sh
-    sudo chmod a+x "$RUSTUP_FOLDER"/rustup.sh
+    mkdir -p "$RUSTUP_FOLDER"
+    wget "$RUSTUP_URL" -O "$RUSTUP_FOLDER"/rustup.sh
+    chmod a+x "$RUSTUP_FOLDER"/rustup.sh
     "$RUSTUP_FOLDER"/rustup.sh -y
     export PATH=$PATH:~/.cargo/bin
     # shellcheck source=/dev/null
@@ -68,9 +69,9 @@ function do_install() {
     cargo install "${CARGO[@]}"
 
     # === nvim ===
-    sudo mkdir -p "$NEOVIM_FOLDER"
-    sudo wget "$NEOVIM_URL" -O "$NEOVIM_FOLDER"/nvim-linux64.tar.gz
-    sudo tar xzvf "$NEOVIM_FOLDER"/nvim-linux64.tar.gz -C "$NEOVIM_FOLDER"
+    mkdir -p "$NEOVIM_FOLDER"
+    wget "$NEOVIM_URL" -O "$NEOVIM_FOLDER"/nvim-linux64.tar.gz
+    tar xzvf "$NEOVIM_FOLDER"/nvim-linux64.tar.gz -C "$NEOVIM_FOLDER"
     cd /usr/local/bin || exit 1
     sudo ln -s "$NEOVIM_FOLDER"/nvim-linux64/bin/nvim
     cd - || exit 1
@@ -87,14 +88,8 @@ function do_uninstall() {
 function do_configure() {
     mkdir -p ~/.config/nvim
     # === nvim config ===
-    cp dotfiles/.NERDTreeBookmarks ~/.config/
+    cp dotfiles/.NERDTreeBookmarks ~
     cp -r dotfiles/.config/nvim -t ~/.config/
-    mkdir -p ~/mps/secrets
-    echo '#!/bin/bash' >~/mps/secrets/chatgpt-token.bash
-    echo 'export OPENAI_API_KEY=""' >>~/mps/secrets/chatgpt-token.bash
-    chmod +x ~/mps/secrets/chatgpt-token.bash
-    sudo chown "$USER":"$USER" -R ~/.config
-    sudo chmod u+w -R ~/.config
 }
 # --- Execute task ------------------------------------------------------------
 export DEBIAN_FRONTEND=noninteractive

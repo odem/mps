@@ -37,28 +37,17 @@ export SHELL=/bin/bash
 export DISPLAY=:0
 export XDG_CONFIG_HOME=$HOME/.config
 export SYSTEMD_PAGER="cat"
-export LC_ALL=de_DE.UTF-8
-export LC_LANG=de_DE.UTF-8
-export LANGUAGE=de_DE.UTF-8
+#export LC_ALL=de_DE.UTF-8
+#export LC_LANG=de_DE.UTF-8
+#export LANGUAGE=de_DE.UTF-8
 export DOTNET_ROOT=$HOME/.dotnet
+export GDK_DPI_SCALE=1.5
+export GDK_SCALE=1.5
+export QT_FONT_DPI=144
+export QT_SCALE_FACTOR=1
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_ENABLE_HIGHDPI_SCALING=1
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
-#--- Tokens -------------------------------------------------------------------
-ASKSCRIPT=~/mps/secrets/chatgpt-token.bash
-[[ -f $ASKSCRIPT ]] && . "$ASKSCRIPT"
 #--- Zoxide -------------------------------------------------------------------
 eval "$(zoxide init bash)"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/jb/anaconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
-# if [ $? -eq 0 ]; then
-# 	eval "$__conda_setup"
-# else
-# 	if [ -f "/home/jb/anaconda3/etc/profile.d/conda.sh" ]; then
-# 		. "/home/jb/anaconda3/etc/profile.d/conda.sh"
-# 	else
-# 		export PATH="/home/jb/anaconda3/bin:$PATH"
-# 	fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<

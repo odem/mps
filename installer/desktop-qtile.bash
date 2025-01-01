@@ -16,7 +16,7 @@ export DEBIAN_FRONTEND=noninteractive
 USER=$(whoami)
 # --- Read opt ----------------------------------------------------------------
 while getopts "a:u:p:" o; do
-    case "${o}" in
+    case "$o" in
         a)
             ACTION=${OPTARG}
             ;;
@@ -35,11 +35,11 @@ function do_install {
     pip3 install --no-cache-dir "${QTILEPIP[@]}" --break-system-packages
     pip install psutil --break-system-packages
     sudo chown "$USER":"$USER" ~
-    sudo mkdir -p $QTILE_FOLDER
-    sudo chown "$USER":"$USER" $QTILE_FOLDER
+    sudo mkdir -p "$QTILE_FOLDER"
+    sudo chown "$USER":"$USER" "$QTILE_FOLDER"
     if [[ "$(which qtile)" == "" ]] ; then
-        git clone $QTILEURL $QTILE_FOLDER
-        cd $QTILE_FOLDER || exit 1
+        git clone "$QTILEURL" "$QTILE_FOLDER"
+        cd "$QTILE_FOLDER" || exit 1
         pip3 install . --break-system-packages
         cd - || exit 1
     fi
@@ -53,21 +53,17 @@ function do_uninstall {
 }
 function do_configure {
     # === config ===
-    #sudo cp $MPS_QTILE_CFG/.xsessionrc ~/.xsessionrc
-    #sudo cp $MPS_QTILE_CFG/.xinitrc ~/.xinitrc
     sudo mkdir -p /usr/share/xsessions
     sudo cp -r dotfiles/.local ~
     sudo cp -r dotfiles/.config/dconf ~/.config
-    sudo cp -r dotfiles/.config/KeePass ~/.config
     sudo cp -r dotfiles/.config/Thunar ~/.config
     sudo cp -r dotfiles/.config/gtk-2.0 ~/.config
     sudo cp -r dotfiles/.config/gtk-3.0 ~/.config
     sudo cp -r dotfiles/.config/xfce4 ~/.config
-    sudo cp $MPS_QTILE_CFG/qtile.desktop /usr/share/xsessions/qtile.desktop
+    sudo cp "$MPS_QTILE_CFG"/qtile.desktop /usr/share/xsessions/qtile.desktop
     sudo sed "s/dummy/$USER/g" -i /usr/share/xsessions/qtile.desktop
     mkdir -p ~/.config/qtile
-    sudo cp $MPS_QTILE_CFG/config.py ~/.config/qtile/config.py
-    #sudo chown "$USER":"$USER" ~/.xsessionrc
+    sudo cp "$MPS_QTILE_CFG"/config.py ~/.config/qtile/config.py
     sudo chown "$USER":"$USER" -R ~
 }
 function listall {

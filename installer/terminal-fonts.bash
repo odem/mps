@@ -5,8 +5,8 @@ IFS=', ' read -r -a ALL <<< "$DEFAULT"
 # --- Font-URLs ---------------------------------------------------------------
 FONTDIR=/opt/mps/tools/fonts
 FONTS_URL_AWESOME=https://use.fontawesome.com/releases/v6.2.1/fontawesome-free-6.2.1-desktop.zip
-FONTS_URL_JETBRAINS=https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
-FONTS_URL_MONOID=https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Monoid.zip
+FONTS_URL_JETBRAINS=https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.2/JetBrainsMono.zip
+FONTS_URL_MONOID=https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.2/Monoid.zip
 FONTS_URL_SYMBOLS=https://github.com/microsoft/vscode-codicons/blob/master/dist/codicon.ttf
 # --- Prepare Environment -----------------------------------------------------
 ACTION=all
@@ -14,7 +14,7 @@ export DEBIAN_FRONTEND=noninteractive
 USER=$(whoami)
 # --- Read opt ----------------------------------------------------------------
 while getopts "a:u:p:" o; do
-    case "${o}" in
+    case "$o" in
         a)
             ACTION=${OPTARG}
             ;;
@@ -37,39 +37,38 @@ function do_uninstall() {
 }
 function do_configure() {
     # === prepare ===
-    sudo mkdir -p $FONTDIR
+    mkdir -p "$FONTDIR"
 
     # === Awesome ===
     if [[ ! -d $FONTDIR/Awesome/ ]] ; then
-        sudo wget $FONTS_URL_AWESOME -O $FONTDIR/Awesome.zip
-        sudo unzip $FONTDIR/Awesome.zip -d $FONTDIR/Awesome/
-        sudo cp $FONTDIR/Awesome/fontawesome-free-6.2.1-desktop/otfs/*.otf \
-            $FONTDIR/Awesome/
-        sudo rm -rf $FONTDIR/Awesome.zip
-        sudo rm -rf $FONTDIR/Awesome/fontawesome-free-6.2.1-desktop/
+        wget "$FONTS_URL_AWESOME" -O "$FONTDIR"/Awesome.zip
+        unzip "$FONTDIR"/Awesome.zip -d "$FONTDIR"/Awesome/
+        cp "$FONTDIR"/Awesome/fontawesome-free-6.2.1-desktop/otfs/*.otf \
+            "$FONTDIR"/Awesome/
+        rm -rf "$FONTDIR"/Awesome.zip
+        rm -rf "$FONTDIR"/Awesome/fontawesome-free-6.2.1-desktop/
     fi
     # === Monoid ===
     if [[ ! -d $FONTDIR/Monoid/ ]] ; then
-        sudo wget $FONTS_URL_MONOID -O $FONTDIR/Monoid.zip
-        sudo unzip $FONTDIR/Monoid.zip -d $FONTDIR/Monoid
-        sudo rm -rf $FONTDIR/Monoid.zip
+        wget "$FONTS_URL_MONOID" -O "$FONTDIR"/Monoid.zip
+        unzip "$FONTDIR"/Monoid.zip -d "$FONTDIR"/Monoid
+        rm -rf "$FONTDIR"/Monoid.zip
     fi
     # === JetBrainsMono ===
     if [[ ! -d $FONTDIR/JetBrainsMono/ ]] ; then
-        sudo wget $FONTS_URL_JETBRAINS -O $FONTDIR/JetBrainsMono.zip
-        sudo unzip $FONTDIR/JetBrainsMono.zip \
-            -d $FONTDIR/JetBrainsMono
-        sudo rm -rf $FONTDIR/JetBrainsMono.zip
+        wget "$FONTS_URL_JETBRAINS" -O "$FONTDIR"/JetBrainsMono.zip
+        unzip "$FONTDIR"/JetBrainsMono.zip \
+            -d "$FONTDIR"/JetBrainsMono
+        rm -rf "$FONTDIR"/JetBrainsMono.zip
     fi
     # === Symbols ===
     if [[ ! -d $FONTDIR/codicon/ ]] ; then
-        mkdir $FONTDIR/codicon/
-        sudo wget $FONTS_URL_SYMBOLS -O $FONTDIR/codicon.ttf
+        mkdir "$FONTDIR"/codicon/
+        wget "$FONTS_URL_SYMBOLS" -O "$FONTDIR"/codicon.ttf
     fi
     # === Deploy ===
     mkdir -p ~/.local/share/fonts
-    sudo cp -r $FONTDIR/* ~/.local/share/fonts
-    sudo chown "$USER":"$USER" ~/.local/share/fonts
+    cp -r "$FONTDIR"/* ~/.local/share/fonts
     fc-cache -f -v
 }
 # --- Execute task ------------------------------------------------------------

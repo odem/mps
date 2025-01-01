@@ -4,7 +4,7 @@
 alias pq='apt search'
 alias pi='sudo apt install'
 alias pd='sudo apt remove'
-alias puu='sudo apt update && sudo apt upgrade'
+alias puu='sudo apt update && sudo apt upgrade && sudo apt autoremove'
 alias cmmi='./configure && make && sudo make install'
 
 # ls
@@ -77,7 +77,7 @@ alias sif='sudo ifconfig'
 alias sifa='sudo ifconfig -a'
 
 # nvim
-alias v='~/mps/secrets/chatgpt-token.bash && nvim'
+alias v='nvim'
 alias sv='sudo nvim'
 # mps
 alias mps="z ~/mps"
@@ -131,6 +131,7 @@ alias tks="tmux kill-session -t "
 # Custom config aliases
 alias cfg-qtile="nvim ~/.config/qtile/config.py"
 alias cfg-nvim="nvim ~/.config/nvim/init.lua"
+alias cfg-kitty="nvim ~/.config/kitty/kitty.conf"
 alias cfg-tmux="nvim ~/.config/tmux/tmux.conf.local"
 alias cfg-ssh="nvim ~/.ssh/config"
 alias cfg-snippets="nvim ~/mps/snippets"

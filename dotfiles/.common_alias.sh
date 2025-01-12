@@ -76,6 +76,9 @@ alias nso='sudo netstat -tulpano |sort -k 4 -n'
 alias sif='sudo ifconfig'
 alias sifa='sudo ifconfig -a'
 
+# kitty icat
+alias icat='kitty +kitten icat --align=center --scale-up'
+
 # nvim
 alias v='nvim'
 alias sv='sudo nvim'

@@ -2,8 +2,8 @@
 # --- Packages ----------------------------------------------------------------
 REQUIRED="git make gcc wget bzip2 curl build-essential lldb libncurses-dev"
 TOOLS="yarn ruby npm fzf fd-find ripgrep shellcheck xclip xsel luarocks"
-PYTHON_BASE="python3 python3-venv python3-pip"
-PYTHON_EXTRAS="black flake8 pylint mypy python3-neovim python3-pynvim"
+PYTHON_BASE="python3 python3-venv python3-pip python3-neovim python3-pynvim"
+PYTHON_EXTRAS="black flake8 pylint mypy chktex mono-mcs cmake-format"
 IFS=', ' read -r -a ALL <<<"$REQUIRED $TOOLS $PYTHON_BASE $PYTHON_EXTRAS"
 IFS=', ' read -r -a UNINSTALL <<<"$TOOLS $PYTHON_EXTRAS"
 IFS=', ' read -r -a CARGO <<<"fd-find tree-sitter-cli"
@@ -45,7 +45,7 @@ function do_install() {
     cd ~/mps/venv/ || exit 1
     python3 -m venv nvim
     source ./nvim/bin/activate
-    pip install debugpy pynvim
+    pip install debugpy pynvim cmake-tidy ruff-lsp vint
     deactivate
     cd - || exit 1
     # === npm ===

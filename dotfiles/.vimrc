@@ -50,27 +50,6 @@ set hidden
 " Status bar 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set laststatus=2
-function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-endfunction
-set statusline=
-set statusline+=%#PmenuSel#
-set statusline+=%{StatuslineGit()}
-set statusline+=%#LineNr#
-set statusline+=\ %f
-set statusline+=%m\
-set statusline+=%=
-set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
-set statusline+=\ %p%%
-set statusline+=\ %l:%c
-set statusline+=\
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Some type specific configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -98,18 +77,6 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" Start NERDTree. If a file is specified, move the cursor to its window.
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-"autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-" Close the tab if NERDTree is the only window remaining in it.
-"autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-" If another buffer tries to replace NERDTree, 
-" put it in the other window, and bring back NERDTree
-"autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-" Open the existing NERDTree on each new tab.
-" autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -135,34 +102,3 @@ nnoremap <n> nzzzv              " Cursor half page down (centered)
 nnoremap <N> Nzzzv              " Cursor half page up (centered)
 nnoremap "<leader>p" "\"_dP     " Keep copy
 tnoremap <Esc> <C-\><C-n>       " Escape terminal 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Background color inactive windows 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Dim inactive windows using 'colorcolumn' setting
-" This tends to slow down redrawing, but is very useful.
-" Based on https://groups.google.com/d/msg/vim_use/IJU-Vk-QLJE/xz4hjPjCRBUJ
-" XXX: this will only work with lines containing text (i.e. not '~')
-" function! s:DimInactiveWindows()
-"   for i in range(1, tabpagewinnr(tabpagenr(), '$'))
-"     let l:range = ""
-"     if i != winnr()
-"       if &wrap
-"         " HACK: when wrapping lines is enabled, we use the maximum number
-"         " of columns getting highlighted. This might get calculated by
-"         " looking for the longest visible line and using a multiple of
-"         " winwidth().
-"         let l:width=256 " max
-"       else
-"         let l:width=winwidth(i)
-"       endif
-"       let l:range = join(range(1, l:width), ',')
-"     endif
-"     call setwinvar(i, '&colorcolumn', l:range)
-"   endfor
-" endfunction
-" augroup DimInactiveWindows
-"   au!
-"   au WinEnter * call s:DimInactiveWindows()
-"   au WinEnter * set cursorline
-"   au WinLeave * set nocursorline
-" augroup END

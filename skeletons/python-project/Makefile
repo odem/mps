@@ -5,9 +5,9 @@ default: usage
 # Makefile setup
 SHELL:=/bin/bash
 
-PROJECT_NAME:=PROCNAME
-PROJECT_AUTHOR:=MYNAME
-PROJECT_EMAIL:=MYNAME@MYDOMAIN
+PROJECT_NAME:=unattend_my_iso
+PROJECT_AUTHOR:=jb
+PROJECT_EMAIL:=foo@bar.baz
 PROJECT_VERSION:=0.0.1
 DIR_VENV?=.venv
 # Help
@@ -45,9 +45,14 @@ build: | update_dummies $(DIR_VENV)
 		python -m build
 install: build
 	source $(DIR_VENV)/bin/activate ; \
-		pip install .
-start: build
-	echo "Start"
+		pip install --editable .
+debugstart: 
+	source $(DIR_VENV)/bin/activate ; \
+		python3 -m src.$(PROJECT_NAME).main
+
+fullstart: build
+	source $(DIR_VENV)/bin/activate ; \
+		$(PROJECT_NAME)
 stop:
 	echo "Stop"
 clean:

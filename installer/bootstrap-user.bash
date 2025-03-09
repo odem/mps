@@ -64,7 +64,7 @@ function do_configure() {
         touch /etc/sudoers.d/"$MPS_USER"
         echo "$MPS_USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/mps
         echo "${MPS_USER}:${MPS_PASS}" | chpasswd
-        echo "de_DE.UTF-8 UTF-8" > /etc/locale.gen
+        echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
         locale-gen
     fi
 }

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO=~/mps/repo/github/odem/mps
+REPO=/opt/mps
 HOMECONFIG=~/.config
 HOMESNIPPETS=~/mps/snippets
 HOMESKELETONS=~/mps/skeletons

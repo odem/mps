@@ -72,6 +72,16 @@ alias diatagged='docker images -a | grep -v "<none>"'
 alias ns='sudo netstat -tulpn |sort -k 4 -n'
 alias nso='sudo netstat -tulpano |sort -k 4 -n'
 
+# iptables
+alias iptl='sudo iptables -L -n -v'
+alias iptln='sudo iptables -L -n -v -tnat'
+
+# bridging
+alias sbs='sudo brctl show'
+
+# routing
+alias srn='sudo route -n'
+
 # ifconfig
 alias sif='sudo ifconfig'
 alias sifa='sudo ifconfig -a'
@@ -147,7 +157,7 @@ alias cfg-alias-common="nvim ~/.common_alias.sh && source ~/.common_alias.sh"
 alias cfg-alias-custom="nvim ~/.custom_alias.sh && source ~/.custom_alias.sh"
 
 # Custom folders aliases
-alias mpsrepo="z ~/mps/repo/github/odem/mps"
+alias mpsrepo="z /opt/mps"
 
 # Include more custom aliases
 . ~/.custom_alias.sh

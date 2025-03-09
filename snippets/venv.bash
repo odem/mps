@@ -34,7 +34,7 @@ if [[ ! -d "$DIR_VENV" ]]; then
     echo "Creating virtual environment..."
     python3 -m venv "$DIR_VENV"
 fi
-source "$DIR_VENV/bin/activate"
+source "$DIR_VENV"/bin/activate
 
 # Install packages
 if [[ "${PACKAGES[*]}" != "" ]]; then

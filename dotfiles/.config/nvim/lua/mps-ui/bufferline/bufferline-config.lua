@@ -50,10 +50,10 @@ bufferline.setup({
 		separator_style = "slope",
 		always_show_bufferline = true,
 		auto_toggle_bufferline = true,
-		hover = {
-			enabled = true,
-			delay = 200,
-			reveal = { "close" },
-		},
+		-- hover = {
+		-- 	enabled = true,
+		-- 	delay = 200,
+		-- 	reveal = { "close" },
+		-- },
 	},
 })

@@ -199,7 +199,7 @@ local config = function()
 		settings = {
 			bashIde = {
 				shellcheckPath = "shellcheck",
-				shellcheckArguments = "-a -C -S info -W 1 -x",
+				shellcheckArguments = "--color=always -S style -W 1 -x",
 				logLevel = "info",
 				includeAllWorkspaceSymbols = true,
 				enableSourceErrorDiagnostics = true,
@@ -451,7 +451,7 @@ local config = function()
 		},
 		settings = {
 			languages = {
-				sh = { shellcheck, shellharden },
+				sh = { shellcheck },
 				lua = { luacheck, stylua },
 				python = { ruff, black },
 				typescript = { eslint_d, prettierd },

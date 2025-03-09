@@ -2,7 +2,7 @@
 # --- Packages ----------------------------------------------------------------
 PYTHON="python3-psutil python3-pip python-dbus-dev python3-pulsectl git"
 PANGO="libpangocairo-1.0-0 python3-xcffib python3-cairocffi"
-DESKTOP="lightdm dunst lightdm-gtk-greeter"
+DESKTOP="lightdm lightdm-gtk-greeter"
 X11="x11vnc tigervnc-standalone-server"
 IFS=', ' read -r -a ALL <<< "$PYTHON $PANGO $X11 $DESKTOP"
 IFS=', ' read -r -a QTILEPIP <<< "xcffib cairocffi"
@@ -59,7 +59,6 @@ function do_configure {
     sudo cp -r dotfiles/.config/Thunar ~/.config
     sudo cp -r dotfiles/.config/gtk-2.0 ~/.config
     sudo cp -r dotfiles/.config/gtk-3.0 ~/.config
-    sudo cp -r dotfiles/.config/xfce4 ~/.config
     sudo cp "$MPS_QTILE_CFG"/qtile.desktop /usr/share/xsessions/qtile.desktop
     sudo sed "s/dummy/$USER/g" -i /usr/share/xsessions/qtile.desktop
     mkdir -p ~/.config/qtile

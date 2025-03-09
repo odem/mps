@@ -5,7 +5,7 @@ WMTOOLS="feh lightdm picom xbacklight "
 TERM="kitty tilda ssh-askpass"
 SOUND="pulseaudio pavucontrol volumeicon-alsa libmpg123-dev"
 ICONS="lxde-icon-theme gnome-extra-icons"
-OSTOOLS="dconf-cli dconf-editor"
+OSTOOLS="dconf-cli dconf-editor dunst"
 GNOME="gnome-system-monitor network-manager-gnome gnome-screenshot"
 TXT="gedit gedit-plugins"
 XORG="xorg xserver-xorg-video-nouveau xserver-xorg-video-vesa xterm"
@@ -19,7 +19,7 @@ export DEBIAN_FRONTEND=noninteractive
 USER=$(whoami)
 # --- Read opt ----------------------------------------------------------------
 while getopts "a:u:p:" o; do
-    case "${o}" in
+    case "$o" in
         a)
             ACTION=${OPTARG}
             ;;
@@ -36,7 +36,7 @@ function do_install() {
     sudo -E apt --yes install "${ALL[@]}"
     sudo update-alternatives --set x-terminal-emulator /usr/bin/kitty
     sudo chsh -s /bin/bash "$USER"
-    sudo service dbus enable
+    sudo service dbus start
 }
 function do_uninstall() {
     # === packages ===
@@ -44,12 +44,12 @@ function do_uninstall() {
 }
 function do_configure() {
     # === copy files ===
-    sudo chown "$USER":"$USER" -R ~
-    sudo chmod u+w -R ~/.config
-    cp -r dotfiles/.config/* ~/.config
     cp dotfiles/.gtkrc-2.0 ~
+    cp -r dotfiles/.config/* ~/.config/
     cp snippets/autostart.sh ~/mps/snippets
     cp snippets/autostart_clean.sh ~/mps/snippets
+    sudo chown "$USER":"$USER" -R ~
+    sudo chmod u+w -R ~/.config
 }
 # --- Execute task ------------------------------------------------------------
 export DEBIAN_FRONTEND=noninteractive

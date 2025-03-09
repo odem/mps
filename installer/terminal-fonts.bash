@@ -40,20 +40,20 @@ function do_configure() {
     rm -rf ~/.local/share/fonts
     mkdir -p "$FONTDIR"
     # === Awesome ===
-    # if [[ ! -d $FONTDIR/Awesome/ ]] ; then
-    #     wget "$FONTS_URL_AWESOME" -O "$FONTDIR"/Awesome.zip
-    #     unzip "$FONTDIR"/Awesome.zip -d "$FONTDIR"/Awesome/
-    #     cp "$FONTDIR"/Awesome/fontawesome-free-6.2.1-desktop/otfs/*.otf \
-    #         "$FONTDIR"/Awesome/
-    #     rm -rf "$FONTDIR"/Awesome.zip
-    #     rm -rf "$FONTDIR"/Awesome/fontawesome-free-6.2.1-desktop/
-    # fi
-    # # === Monoid ===
-    # if [[ ! -d $FONTDIR/Monoid/ ]] ; then
-    #     wget "$FONTS_URL_MONOID" -O "$FONTDIR"/Monoid.zip
-    #     unzip "$FONTDIR"/Monoid.zip -d "$FONTDIR"/Monoid
-    #     rm -rf "$FONTDIR"/Monoid.zip
-    # fi
+    if [[ ! -d $FONTDIR/Awesome/ ]] ; then
+        wget "$FONTS_URL_AWESOME" -O "$FONTDIR"/Awesome.zip
+        unzip "$FONTDIR"/Awesome.zip -d "$FONTDIR"/Awesome/
+        cp "$FONTDIR"/Awesome/fontawesome-free-6.2.1-desktop/otfs/*.otf \
+            "$FONTDIR"/Awesome/
+        rm -rf "$FONTDIR"/Awesome.zip
+        rm -rf "$FONTDIR"/Awesome/fontawesome-free-6.2.1-desktop/
+    fi
+    # === Monoid ===
+    if [[ ! -d $FONTDIR/Monoid/ ]] ; then
+        wget "$FONTS_URL_MONOID" -O "$FONTDIR"/Monoid.zip
+        unzip "$FONTDIR"/Monoid.zip -d "$FONTDIR"/Monoid
+        rm -rf "$FONTDIR"/Monoid.zip
+    fi
     # === JetBrainsMono ===
     if [[ ! -d $FONTDIR/JetBrainsMono/ ]] ; then
         wget "$FONTS_URL_JETBRAINS" -O "$FONTDIR"/JetBrainsMono.zip

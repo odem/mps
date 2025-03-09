@@ -13,7 +13,7 @@ export DEBIAN_FRONTEND=noninteractive
 USER=$(whoami)
 # --- Read opt ----------------------------------------------------------------
 while getopts "a:u:p:" o; do
-    case "${o}" in
+    case "$o" in
         a)
             ACTION=${OPTARG}
             ;;

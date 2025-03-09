@@ -13,6 +13,11 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Operating System :: OS Independent",
 ]
+[project.scripts]
+unattend_my_iso = "DUMMY_NAME.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 #[project.urls]
 #homepage = "https://github.com/yourusername/your-package-name"

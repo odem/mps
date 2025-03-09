@@ -31,13 +31,13 @@ $(DIR_VENV):
 		python3 -m venv $(DIR_VENV) ; \
 	fi
 update_dummies:
-	@find . -type f \( name "*.md" -o -name "*.py" -o -name "*.toml" -o -name "*.cfg" -o -name "*.in" \) \
+	@find . -type f \( -name "*.md" -o -name "*.py" -o -name "*.toml" -o -name "*.cfg" -o -name "*.in" \) \
 		-exec sed -i "s/DUMMY_NAME/$(PROJECT_NAME)/g" {} +
-	@find . -type f \( name "*.md" -o -name "*.py" -o -name "*.toml" -o -name "*.cfg" -o -name "*.in" \) \
+	@find . -type f \( -name "*.md" -o -name "*.py" -o -name "*.toml" -o -name "*.cfg" -o -name "*.in" \) \
 		-exec sed -i "s/DUMMY_AUTHOR/$(PROJECT_AUTHOR)/g" {} +
-	@find . -type f \( name "*.md" -o -name "*.py" -o -name "*.toml" -o -name "*.cfg" -o -name "*.in" \) \
+	@find . -type f \( -name "*.md" -o -name "*.py" -o -name "*.toml" -o -name "*.cfg" -o -name "*.in" \) \
 		-exec sed -i "s/DUMMY_EMAIL/$(PROJECT_EMAIL)/g" {} +
-	@find . -type f \( name "*.md" -o -name "*.py" -o -name "*.toml" -o -name "*.cfg" -o -name "*.in" \) \
+	@find . -type f \( -name "*.md" -o -name "*.py" -o -name "*.toml" -o -name "*.cfg" -o -name "*.in" \) \
 		-exec sed -i "s/DUMMY_VERSION/$(PROJECT_VERSION)/g" {} +
 build: | update_dummies $(DIR_VENV)
 	source $(DIR_VENV)/bin/activate && \
@@ -51,4 +51,4 @@ start: build
 stop:
 	echo "Stop"
 clean:
-	rm -rf build dist
+	rm -rf build dist src/$(PROJECT_NAME).egg-info

@@ -30,6 +30,7 @@ if ! shopt -oq posix; then
 	fi
 fi
 #--- Environment Variable -----------------------------------------------------
+LOCALESTR=en_US.UTF-8
 export PATH=$PATH:~/mps/snippets:~/.local/bin
 export EDITOR=nvim
 export TERM=xterm-kitty
@@ -37,10 +38,10 @@ export SHELL=/bin/bash
 export DISPLAY=:0
 export XDG_CONFIG_HOME=$HOME/.config
 export SYSTEMD_PAGER="cat"
-export LC_ALL=de_DE.UTF-8
-#export LC_LANG=de_DE.UTF-8
-export LANG=de_DE.UTF-8
-export LANGUAGE=de_DE.UTF-8
+export LC_ALL="$LOCALESTR"
+#export LC_LANG="$LOCALESTR"
+export LANG="$LOCALESTR"
+export LANGUAGE="$LOCALESTR"
 export DOTNET_ROOT=$HOME/.dotnet
 export GDK_DPI_SCALE=1.5
 export GDK_SCALE=1.5

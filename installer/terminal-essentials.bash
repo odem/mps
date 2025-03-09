@@ -16,7 +16,7 @@ export DEBIAN_FRONTEND=noninteractive
 USER=$(whoami)
 # --- Read opt ----------------------------------------------------------------
 while getopts "a:u:p:" o; do
-    case "${o}" in
+    case "$o" in
         a)
             ACTION=${OPTARG}
             ;;
@@ -37,7 +37,7 @@ function do_uninstall() {
     sudo -E apt --yes remove "${ALL[@]}"
 }
 function do_configure() {
-    echo "Nothing to configure. All fine..."
+    ./snippets/set_locale.bash
 }
 # --- Execute task ------------------------------------------------------------
 export DEBIAN_FRONTEND=noninteractive

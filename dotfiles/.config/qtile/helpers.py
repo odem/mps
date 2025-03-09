@@ -14,7 +14,8 @@ def toggle_gaming_mode(qtile: Qtile, gamemode_keys: list):
     global gaming_mode
     gaming_mode = not gaming_mode
     logger.error(f"Switching to: {gaming_mode}")
-    qtile.cmd_spawn(f"notify-send 'Gamemode: {gaming_mode}'")
+    if qtile is not None:
+        qtile.cmd_spawn(f"notify-send 'Gamemode: {gaming_mode}'")
     if gaming_mode:
         for key in gamemode_keys:
             qtile.ungrab_key(key)

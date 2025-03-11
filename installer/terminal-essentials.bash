@@ -1,14 +1,14 @@
 #!/bin/bash
 # --- Packages ----------------------------------------------------------------
 ESSENTIALS="git tmux tmuxinator kitty python3 python3-pip lsb-release"
-OS="debconf debconf-utils fontconfig neofetch figlet"
+OS="debconf debconf-utils fontconfig neofetch figlet bsdmainutils"
 PS="psmisc psutils htop bpytop"
 FILES="fd-find fzf bat exa tree ranger ncdu zoxide entr"
 TRANSPORT="ca-certificates curl wget gnupg apt-utils apt-transport-https"
 ARCHIVES="zip unzip bzip2 dtrx"
 BASHUTILS="cowsay fortune fortunes-de cmatrix console-setup bash-completion"
 BUILD="gcc gdb lldb build-essential check flex bison automake"
-NETWORK="net-tools iptables tcpdump iw ssh nmap dnsutils"
+NETWORK="net-tools bind9-dnsutils bridge-utils iptables tcpdump iw ssh nmap dnsutils"
 IFS=', ' read -r -a ALL <<< "$ESSENTIALS $OS $PS $FILES $TRANSPORT $ARCHIVES $BASHUTILS $BUILD $NETWORK"
 # --- Prepare Environment -----------------------------------------------------
 ACTION=all

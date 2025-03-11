@@ -97,10 +97,13 @@ function do_uninstall() {
 function do_configure() {
     # mkdir -p ~/.config/nvim
     # === nvim config ===
+    cd /opt/mps/ || exit 1
+    sudo chown mps:mps -R /opt/mps
     cp dotfiles/.NERDTreeBookmarks ~
     cp -r dotfiles/.config/nvim -t ~/.config/
     rm -rf ~/.local/share/nvim
     rm -rf ~/.local/state/nvim
+    cd - || exit 1
 
 }
 # --- Execute task ------------------------------------------------------------

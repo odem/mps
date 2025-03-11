@@ -98,16 +98,12 @@ function do_configure() {
     # mkdir -p ~/.config/nvim
     # === nvim config ===
     cd /opt/mps/ || exit 1
-    echo "PWD: $(pwd)"
-    cd /opt/mps/ 
-
     sudo chown mps:mps -R /opt/mps
     cp /opt/mps/dotfiles/.NERDTreeBookmarks ~
     cp -r /opt/mps/dotfiles/.config/nvim -t ~/.config/
     rm -rf ~/.local/share/nvim
     rm -rf ~/.local/state/nvim
     cd - || exit 1
-
 }
 # --- Execute task ------------------------------------------------------------
 export DEBIAN_FRONTEND=noninteractive

@@ -77,6 +77,7 @@ function do_install() {
     sudo tar xzvf "$NEOVIM_FOLDER"/nvim-linux64.tar.gz -C "$NEOVIM_FOLDER"
     cd /usr/bin || exit 1
     sudo ln -s "$NEOVIM_FOLDER"/nvim-linux64/bin/nvim
+    cd - || exit 1
     cd /usr/local/bin || exit 1
     sudo ln -s "$NEOVIM_FOLDER"/nvim-linux64/bin/nvim
     cd - || exit 1

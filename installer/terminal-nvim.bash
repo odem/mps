@@ -77,6 +77,7 @@ function do_install() {
     cd /usr/local/bin || exit 1
     sudo ln -s "$NEOVIM_FOLDER"/nvim-linux64/bin/nvim
     cd - || exit 1
+    sudo update-alternatives --set x-terminal-emulator /usr/bin/kitty
     # nvim --headless --startuptime nvim_startup.log
 }
 function do_uninstall() {

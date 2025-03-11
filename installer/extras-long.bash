@@ -1,11 +1,7 @@
 #!/bin/bash
 # --- Packages ----------------------------------------------------------------
-REQUIRED=" bc gimp"
-ARCHIVES="unace unzip arj cabextract"
-ENCODER="lame mencoder"
-WINE="wine winetricks"
 DEVSTUFF="python3-full texlive-full openjdk-17-jdk openjdk-17-jre"
-FULL="$REQUIRED $ARCHIVES $ENCODER $WINE $DEVSTUFF"
+FULL="$DEVSTUFF"
 IFS=', ' read -r -a ALL <<< "$FULL"
 # --- Prepare Environment -----------------------------------------------------
 ACTION=all
@@ -26,9 +22,6 @@ while getopts "a:u:p:" o; do
 done
 # --- Core functions ----------------------------------------------------------
 function do_install() {
-    # === packages ===
-    sudo sed 's/main/main contrib non-free non-free-firmware/g' \
-        -i /etc/apt/sources.list.d/debian.sources
     sudo -E apt update && sudo -E apt upgrade
     sudo -E apt --yes install "${ALL[@]}"
 }

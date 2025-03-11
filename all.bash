@@ -42,4 +42,6 @@ sudo -u "$MPS_USER" ./installer/desktop-essentials.bash
 sudo -u "$MPS_USER" ./installer/desktop-guitools.bash
 sudo -u "$MPS_USER" ./installer/desktop-rofi.bash
 sudo -u "$MPS_USER" ./installer/desktop-qtile.bash
+sudo -u "$MPS_USER" ./installer/desktop-extras.bash
+sudo -u "$MPS_USER" ./installer/extras-spotify.bash
 

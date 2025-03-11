@@ -36,6 +36,7 @@ done
 # --- Core functions ----------------------------------------------------------
 function do_install() {
     sudo -E apt --yes remove neovim
+    sudo rm -rf /usr/bin/nvim /usr/local/bin/nvim
     if [[ "$(which nvim)" != "" ]]; then
         return 0
     fi
@@ -74,6 +75,8 @@ function do_install() {
     mkdir -p "$NEOVIM_FOLDER"
     wget "$NEOVIM_URL" -O "$NEOVIM_FOLDER"/nvim-linux64.tar.gz
     tar xzvf "$NEOVIM_FOLDER"/nvim-linux64.tar.gz -C "$NEOVIM_FOLDER"
+    cd /usr/bin || exit 1
+    sudo ln -s "$NEOVIM_FOLDER"/nvim-linux64/bin/nvim
     cd /usr/local/bin || exit 1
     sudo ln -s "$NEOVIM_FOLDER"/nvim-linux64/bin/nvim
     cd - || exit 1

@@ -23,6 +23,13 @@ done
 # Bootstrap
 ./installer/bootstrap-user.bash -u "$MPS_USER" -p "$MPS_PASS"
 
+# terminal config as root
+sudo -u "root" ./installer/terminal-essentials.bash -a configure
+sudo -u "root" ./installer/terminal-homedir.bash -a configure
+sudo -u "root" ./installer/terminal-fonts.bash -a configure
+sudo -u "root" ./installer/terminal-vim.bash -a configure
+sudo -u "root" ./installer/terminal-nvim.bash -a configure
+
 # terminal
 sudo -u "$MPS_USER" ./installer/terminal-essentials.bash
 sudo -u "$MPS_USER" ./installer/terminal-homedir.bash
@@ -30,12 +37,6 @@ sudo -u "$MPS_USER" ./installer/terminal-fonts.bash
 sudo -u "$MPS_USER" ./installer/terminal-vim.bash
 sudo -u "$MPS_USER" ./installer/terminal-nvim.bash
 
-# terminal config as root as well
-sudo -u "root" ./installer/terminal-essentials.bash -a configure
-sudo -u "root" ./installer/terminal-homedir.bash -a configure
-sudo -u "root" ./installer/terminal-fonts.bash -a configure
-sudo -u "root" ./installer/terminal-vim.bash -a configure
-sudo -u "root" ./installer/terminal-nvim.bash -a configure
 
 # desktop
 sudo -u "$MPS_USER" ./installer/desktop-essentials.bash
@@ -56,6 +57,6 @@ EOF
 sudo update-grub
 
 # Set lightdm background
-WP_LIGHTDM=/opt/mps/dotfiles.config/images/wallpaper/wormhole.jpg
+WP_LIGHTDM=/opt/mps/dotfiles/.config/images/wallpaper/wormhole.jpg
 echo "background=$WP_LIGHTDM" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf
 

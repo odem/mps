@@ -6,6 +6,7 @@ text/plain=nvim.desktop
 application/pdf=org.gnome.Evince.desktop
 application/x-blender=userapp-blender-18OTJ2.desktop
 application/x-executable=org.gnome.gedit.desktop
+image/png=gimp.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox-esr.desktop

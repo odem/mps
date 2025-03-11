@@ -35,6 +35,7 @@ while getopts "a:u:p:" o; do
 done
 # --- Core functions ----------------------------------------------------------
 function do_install() {
+    sudo -E apt --yes remove neovim
     if [[ "$(which nvim)" != "" ]]; then
         return 0
     fi

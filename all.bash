@@ -45,3 +45,17 @@ sudo -u "$MPS_USER" ./installer/desktop-qtile.bash
 sudo -u "$MPS_USER" ./installer/desktop-extras.bash
 sudo -u "$MPS_USER" ./installer/extras-spotify.bash
 
+
+# Set boot splash
+WP_GRUB=dotfiles/.config/images/bootsplash.png
+sudo cp "$WP_GRUB" /boot/grub/bootsplash.png
+sudo chmod 644 /boot/grub/bootsplash.png
+echo 'GRUB_GFXMODE=1280x800' | sudo tee -a /etc/default/grub
+echo 'GRUB_BACKGROUND="/boot/grub/bootsplash.png"' | sudo tee -a /etc/default/grub
+EOF
+sudo update-grub
+
+# Set lightdm background
+WP_LIGHTDM=/opt/mps/dotfiles.config/images/wallpaper/wormhole.jpg
+echo "background=$WP_LIGHTDM" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf
+

@@ -55,29 +55,29 @@ function do_install() {
     # === lazygit ===
     LAZYGIT_VERSION=$(curl -s "$LAZYGITLATEST_URL" |
         grep -Po '"tag_name": "v\K[^"]*')
-    mkdir -p "$LAZYGIT_FOLDER"
-    curl -o "$LAZYGIT_FOLDER/lazygit.tar.gz" -L \
+    sudo mkdir -p "$LAZYGIT_FOLDER"
+    sudo curl -o "$LAZYGIT_FOLDER/lazygit.tar.gz" -L \
         "${LAZYGIT_URL}_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-    tar xf "$LAZYGIT_FOLDER"/lazygit.tar.gz -C "$LAZYGIT_FOLDER"
+    sudo tar xf "$LAZYGIT_FOLDER"/lazygit.tar.gz -C "$LAZYGIT_FOLDER"
     sudo install "$LAZYGIT_FOLDER"/lazygit /usr/local/bin
-    rm -rf "$LAZYGIT_FOLDER"/lazygit.tar.gz #$LAZYGIT_FOLDER/lazygit
+    sudo rm -rf "$LAZYGIT_FOLDER"/lazygit.tar.gz #$LAZYGIT_FOLDER/lazygit
     # === Rustup ===
-    mkdir -p "$RUSTUP_FOLDER"
-    wget "$RUSTUP_URL" -O "$RUSTUP_FOLDER"/rustup.sh
-    chmod a+x "$RUSTUP_FOLDER"/rustup.sh
-    "$RUSTUP_FOLDER"/rustup.sh -y
+    sudo mkdir -p "$RUSTUP_FOLDER"
+    sudo wget "$RUSTUP_URL" -O "$RUSTUP_FOLDER"/rustup.sh
+    sudo chmod a+x "$RUSTUP_FOLDER"/rustup.sh
+    sudo "$RUSTUP_FOLDER"/rustup.sh -y
     export PATH=$PATH:~/.cargo/bin
     # shellcheck source=/dev/null
     source "$HOME/.cargo/env"
-    cargo install "${CARGO[@]}"
+    sudo cargo install "${CARGO[@]}"
 
     # === nvim ===
-    mkdir -p "$NEOVIM_FOLDER"
-    wget "$NEOVIM_URL" -O "$NEOVIM_FOLDER"/nvim-linux64.tar.gz
-    tar xzvf "$NEOVIM_FOLDER"/nvim-linux64.tar.gz -C "$NEOVIM_FOLDER"
+    sudo mkdir -p "$NEOVIM_FOLDER"
+    sudo wget "$NEOVIM_URL" -O "$NEOVIM_FOLDER"/nvim-linux64.tar.gz
+    sudo tar xzvf "$NEOVIM_FOLDER"/nvim-linux64.tar.gz -C "$NEOVIM_FOLDER"
     cd /usr/bin || exit 1
     sudo ln -s "$NEOVIM_FOLDER"/nvim-linux64/bin/nvim
-    cd /usr/local/bin || exit 1
+    sudo cd /usr/local/bin || exit 1
     sudo ln -s "$NEOVIM_FOLDER"/nvim-linux64/bin/nvim
     cd - || exit 1
     sudo update-alternatives --set x-terminal-emulator /usr/bin/kitty

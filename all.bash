@@ -53,7 +53,6 @@ sudo cp "$WP_GRUB" /boot/grub/bootsplash.png
 sudo chmod 644 /boot/grub/bootsplash.png
 echo 'GRUB_GFXMODE=1280x800' | sudo tee -a /etc/default/grub
 echo 'GRUB_BACKGROUND="/boot/grub/bootsplash.png"' | sudo tee -a /etc/default/grub
-EOF
 sudo update-grub
 
 # Set lightdm background

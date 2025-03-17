@@ -98,7 +98,7 @@ function do_configure() {
     # mkdir -p ~/.config/nvim
     # === nvim config ===
     cd /opt/mps/ || exit 1
-    sudo chown mps:mps -R /opt/mps
+    sudo chown $USER:$USER -R /opt/mps
     cp /opt/mps/dotfiles/.NERDTreeBookmarks ~
     cp -r /opt/mps/dotfiles/.config/nvim -t ~/.config/
     rm -rf ~/.local/share/nvim

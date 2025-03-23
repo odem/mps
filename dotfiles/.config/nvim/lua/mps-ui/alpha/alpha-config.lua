@@ -3,7 +3,7 @@ local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 -- Set header
 dashboard.section.header.val = {
-	"                                                                         ",
+	-- "                                                                         ",
 	"                  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                  ",
 	"                  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⠟⠋⠉⠉⠻⢦⣄⠀⠀⠀⠀⠀⠀⠀                  ",
 	"                  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡴⠾⠉⠉⠉⠛⢷⣄⠀⠀⠀⠀⠈⡻⣆⠀⠀⠀⠀⠀⠀                  ",
@@ -74,26 +74,7 @@ end
 -- Set menu
 dashboard.section.buttons.val = {
 	dashboard.button("n", "  >                            New file", ":ene <BAR> startinsert <CR>", {}),
-	dashboard.button(
-		"e",
-		"󱏒  >                            Explore",
-		":NvimTreeToggle<CR> | :wincmd p<CR> | :close<CR>",
-		{}
-	),
-	dashboard.button(
-		"f",
-		"󰈞  >                            Find file",
-		":cd $HOME/mps/wsp | Telescope find_files<CR>",
-		{}
-	),
 	dashboard.button("r", "  >                            Recent", ":Telescope oldfiles<CR>", {}),
-	dashboard.button("h", "  >                            Health", ":checkhealth<CR>", {}),
-	dashboard.button(
-		"s",
-		"  >                            Settings",
-		":e $MYVIMRC | :cd %:p:h | wincmd k | pwd<CR>",
-		{}
-	),
 	dashboard.button("t", "  >                            Terminal", ":ToggleTerm<CR>", {}),
 	dashboard.button("l", "😴 >                            Lazy", ":Lazy! sync<CR>", {}),
 	dashboard.button("m", "󱌣  >                            Mason", ":Mason<CR>", {}),
@@ -149,7 +130,7 @@ local opts = {
 	layout = {
 		{ type = "padding", val = 0 },
 		section.header,
-		{ type = "padding", val = 5 },
+		{ type = "padding", val = 1 },
 		section.hi_top_section,
 		section.hi_middle_section,
 		{ type = "padding", val = 0 },

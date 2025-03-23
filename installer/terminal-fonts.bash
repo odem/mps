@@ -1,6 +1,6 @@
 #!/bin/bash
 # --- Packages ----------------------------------------------------------------
-DEFAULT="fonts-font-awesome fonts-fork-awesome wget unzip"
+DEFAULT="fontconfig fonts-font-awesome fonts-fork-awesome wget unzip"
 IFS=', ' read -r -a ALL <<< "$DEFAULT"
 # --- Font-URLs ---------------------------------------------------------------
 FONTDIR=/opt/mps/tools/fonts

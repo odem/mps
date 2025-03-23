@@ -1,6 +1,6 @@
 #!/bin/bash
 # --- Packages ----------------------------------------------------------------
-REQ="galculator numlockx xclip arandr lxappearance psutils iw xcwd"
+REQ="galculator numlockx xclip arandr lxappearance psutils iw xcwd zoxide"
 WMTOOLS="feh lightdm picom xbacklight "
 TERM="kitty tilda ssh-askpass"
 SOUND="pulseaudio pavucontrol volumeicon-alsa libmpg123-dev"

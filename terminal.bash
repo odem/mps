@@ -28,3 +28,9 @@ sudo -u "root" ./installer/terminal-fonts.bash -a configure
 sudo -u "root" ./installer/terminal-vim.bash -a configure
 sudo -u "root" ./installer/terminal-nvim.bash -a configure
 
+# Optimize
+sudo -u "root" ./installer/optimize-tty.bash
+sudo -u "root" ./installer/optimize-zram.bash
+sudo -u "root" ./installer/optimize-grubmenu.bash
+sudo -u "root" ./installer/optimize-lightdm.bash
+

@@ -1,5 +1,8 @@
 #!/bin/sh
-#
+
+
+MPSDIR="/opt/mps"
+
 # apt
 alias pq='apt search'
 alias pi='sudo apt install'
@@ -42,11 +45,19 @@ alias sbcat='sudo batcat'
 # cp
 alias rp='rsync -arvP --info=progress2'
 
+# diskinfo
+alias fs='df -h | head -n1 ; df -h | tail -n +2 | sort -k1,5'
+alias info-fs='df -h | head -n1 ; df -h | tail -n +2 | sort -k1,5'
+
+# diskinfo
+alias info-zram='sudo zramctl'
+
 # mount
 alias mo='sudo mount'
 alias moa='sudo mount -a'
 alias mu='sudo unmount'
 alias fstab='sudo nvim /etc/fstab'
+alias info-mounts='sudo mount -a'
 
 # git
 alias gs='git status'
@@ -77,20 +88,26 @@ alias diatagged='docker images -a | grep -v "<none>"'
 # network
 alias ns='sudo netstat -tulpn |sort -k 4 -n'
 alias nso='sudo netstat -tulpano |sort -k 4 -n'
+alias info-net='sudo netstat -tulpano |sort -k 4 -n'
 
 # iptables
 alias iptl='sudo iptables -L -n -v'
 alias iptln='sudo iptables -L -n -v -tnat'
+alias info-fw='sudo iptables -L -n -v -tnat'
+alias info-fwnat='sudo iptables -L -n -v -tnat'
 
 # bridging
 alias sbs='sudo brctl show'
+alias info-bridges='sudo brctl show'
 
 # routing
 alias srn='sudo route -n'
+alias info-routes='sudo route -n'
 
 # ifconfig
 alias sif='sudo ifconfig'
 alias sifa='sudo ifconfig -a'
+alias info-nics='sudo ifconfig -a'
 
 # systemd
 alias sdr='sudo systemctl daemon-reload'
@@ -115,6 +132,7 @@ alias tools="z ~/mps/tools"
 alias venv="z ~/mps/venv"
 alias vm="z ~/mps/vm"
 alias wsp="z ~/mps/wsp"
+alias info-mps="ls -la ~/mps/"
 
 # More fancy colors
 if [ -x /usr/bin/dircolors ]; then
@@ -137,18 +155,20 @@ alias qvm_list="quickvm.bash -a list"
 alias qvm_ssh="quickvm.bash -a ssh"
 
 # vpn
-alias vpn-ptp="vpn.bash ptp"
-alias vpn-bridge="vpn.bash bridge"
-alias vpn-state="vpn.bash"
+# alias vpn-ptp="vpn.bash ptp"
+# alias vpn-bridge="vpn.bash bridge"
+# alias vpn-state="vpn.bash"
 
 # public ip
 alias whoamip='echo $(curl -s ifconfig.me)'
+alias info-pubip='echo $(curl -s ifconfig.me)'
 
 # tmux session control
 alias tls="tmux ls"
 alias tas="tmux attach -t "
 alias tns="tmux new -s "
 alias tks="tmux kill-session -t "
+alias info-tmux="tmux ls"
 
 # Custom config aliases
 alias cfg-qtile="nvim ~/.config/qtile/config.py"
@@ -166,7 +186,8 @@ alias cfg-alias-common="nvim ~/.common_alias.sh && source ~/.common_alias.sh"
 alias cfg-alias-custom="nvim ~/.custom_alias.sh && source ~/.custom_alias.sh"
 
 # Custom folders aliases
-alias mpsrepo="z /opt/mps"
+alias mpsrepo="z $MPSDIR"
+alias info-mpsdir="echo $MPSDIR"
 
 # Include more custom aliases
 . ~/.custom_alias.sh

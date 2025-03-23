@@ -42,6 +42,12 @@ alias sbcat='sudo batcat'
 # cp
 alias rp='rsync -arvP --info=progress2'
 
+# mount
+alias mo='sudo mount'
+alias moa='sudo mount -a'
+alias mu='sudo unmount'
+alias fstab='sudo nvim /etc/fstab'
+
 # git
 alias gs='git status'
 alias gss='git status -sb'
@@ -85,6 +91,9 @@ alias srn='sudo route -n'
 # ifconfig
 alias sif='sudo ifconfig'
 alias sifa='sudo ifconfig -a'
+
+# systemd
+alias sdr='sudo systemctl daemon-reload'
 
 # kitty icat
 alias icat='kitty +kitten icat --align=center --scale-up'

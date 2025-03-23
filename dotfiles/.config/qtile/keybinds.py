@@ -43,7 +43,7 @@ keys_f = [
     Key([], "F5", lazy.group["scratchpad"].dropdown_toggle("term")),
     Key([], "F6", lazy.group["scratchpad"].dropdown_toggle("calc")),
     Key([], "F7", lazy.group["scratchpad"].dropdown_toggle("htop")),
-    Key([], "F8", lazy.group["scratchpad"].dropdown_toggle("keepass")),
+    Key([], "F8", lazy.group["scratchpad"].dropdown_toggle("bpytop")),
 ]
 
 

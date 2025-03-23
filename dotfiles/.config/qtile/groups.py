@@ -26,7 +26,7 @@ class MpsGroups(object):
                     Match(wm_class="Gnome-system-monitor"),
                     Match(wm_class="Thunar"),
                 ],
-                layout="monadtall",
+                layout="monadwide",
             ),
             Group(
                 "6",

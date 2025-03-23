@@ -44,17 +44,26 @@ function do_install() {
     sudo -E apt update && sudo -E apt upgrade
     sudo -E apt --yes remove xserver-xorg-video-nouveau
     sudo -E apt --yes install "${ALL[@]}"
+    
+    # Nvidia drivers
+    sudo apt install nvidia-open-kernel-dkms nvidia-driver firmware-misc-nonfree
+    sudo mokutil --sb-state
+    sudo dkms generate_mok
+    sudo mokutil --import /var/lib/dkms/mok.pub
+    sudo mokutil --list-new
 
+    # Lutris
     echo "deb $LUTRIS_DEB /" | sudo tee $LUTRIS_SOURCES
-    curl -fsSL $LUTRIS_KEY | gpg --dearmor \
-        | sudo tee $LUTRIS_KEYFOLDER > /dev/null
+    curl -fsSL $LUTRIS_KEY | gpg --dearmor sudo tee $LUTRIS_KEYFOLDER > /dev/null
     sudo -E apt --yes update
     sudo -E apt --yes install lutris
-
+    
+    # DXVK
     sudo update-alternatives --set x86_64-w64-mingw32-gcc /usr/bin/x86_64-w64-mingw32-gcc-posix
     sudo update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix
     sudo update-alternatives --set i686-w64-mingw32-gcc /usr/bin/i686-w64-mingw32-gcc-posix
     sudo update-alternatives --set i686-w64-mingw32-g++ /usr/bin/i686-w64-mingw32-g++-posix
+
 
     #sudo rm -rf $DXVK_REPODIR
     if [[ ! -d "$DXVK_REPODIR" ]] ; then

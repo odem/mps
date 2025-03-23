@@ -26,6 +26,7 @@ class MpsScratchpad(object):
                     DropDown("term", tm, **cfgPad),
                     DropDown("calc", "galculator", **cfgPad),
                     DropDown("htop", "kitty htop", **cfgPad),
+                    DropDown("bpytop", "kitty bpytop", **cfgPad),
                 ],
             ),
         )

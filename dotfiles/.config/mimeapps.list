@@ -9,6 +9,7 @@ application/x-executable=org.gnome.gedit.desktop
 image/png=gimp.desktop
 application/octet-stream=nvim.desktop
 application/x-raw-disk-image=org.gnome.FileRoller.desktop
+application/vnd.ms-publisher=org.gnome.gedit.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox-esr.desktop
@@ -38,3 +39,4 @@ application/x-raw-disk-image=org.gnome.FileRoller.desktop;
 text/x-readme=org.gnome.gedit.desktop;
 application/x-cd-image=org.gnome.FileRoller.desktop;xfburn.desktop;
 application/xml=org.gnome.gedit.desktop;
+application/vnd.ms-publisher=org.gnome.gedit.desktop;

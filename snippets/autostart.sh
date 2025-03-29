@@ -7,7 +7,7 @@ SNIPPETS=~/mps/snippets
 # Force always
 #xrandr -s 1680x1050 &
 #xrandr -s 1920x1080 &
-xrandr --output DP-1 --primary --auto --mode 3840x2160 --pos 0x0 --rotate normal \
+xrandr --output DP-2 --primary --auto --mode 3840x2160 --pos 0x0 --rotate normal \
     --output HDMI-0 --mode 1920x1080 --pos 3840x1080 --rotate normal 
 
 xset s off &

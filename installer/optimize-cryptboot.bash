@@ -29,7 +29,7 @@ EOF
     printf "\n\n\n" | sudo update-initramfs -u
 }
 move_boot() {
-    HAS_BOOT=$(grep -c "/boot" /etc/fstab)
+    HAS_BOOT=$(grep -c " /boot " /etc/fstab)
     [[ $HAS_BOOT -eq 0 ]] || return 0
     sudo mount -o remount,ro /boot
     sudo cp -axT /boot /boot.tmp
@@ -37,7 +37,7 @@ move_boot() {
     sudo rmdir /boot
     sudo mv -T /boot.tmp /boot
     sudo mount /boot/efi
-    sudo sed "#/boot#d" -i /etc/fstab
+    sudo sed "/ \/boot /d" -i /etc/fstab
     echo "GRUB_ENABLE_CRYPTODISK=y" | sudo tee --append /etc/default/grub
     sudo umount /boot
     sudo update-grub
@@ -46,19 +46,18 @@ move_boot() {
     sudo shutdown -r now
 }
 add_keyfile() {
-    HAS_BOOT=$(grep -c "/boot" /etc/fstab)
+    HAS_BOOT=$(grep -c " /boot " /etc/fstab)
     [[ $HAS_BOOT -gt 0 ]] && return 0
     HAS_KEYFILE=$(grep -c "/keyfile" /etc/crypttab)
     [[ $HAS_KEYFILE -gt 0 ]] && return 0
     sudo dd bs=512 count=4 if=/dev/random of=/keyfile iflag=fullblock
     sudo chmod 0600 /keyfile
-    sudo cryptdetup luksAddKey "$LUKS_PART" /keyfile
+    sudo cryptsetup luksAddKey "$LUKS_PART" /keyfile
     sudo cryptsetup luksDump "$LUKS_PART"
     sudo sed "s# luks,discard\$#/keyfile luks,discard,key-slot=1#g" /etc/crypttab
     echo 'KEYFILE_PATTERN="/keyfile"' | sudo tee --append /etc/cryptsetup-initramfs/conf-hook
     echo UMASK=0077 | sudo tee --append /etc/initramfs-tools/initramfs.conf
     sudo update-initramfs -u -k all
-    stat -L -c "%A %n" /initrd.img
 
 }
 if [[ "$LUKS_VERSION" == "2" ]] ; then

@@ -167,8 +167,11 @@ alias info-pubip='echo $(curl -s ifconfig.me)'
 alias tls="tmux ls"
 alias tas="tmux attach -t "
 alias tns="tmux new -s "
-alias tks="tmux kill-session -t "
+alias tks="tmux kill-server"
+alias tkss="tmux kill-session -t "
 alias info-tmux="tmux ls"
+alias muxme="~/mps/snippets/launch_tmux.bash"
+alias muxme-matrix="~/mps/snippets/launch_tmux.bash 'hm && ho'"
 
 # Custom config aliases
 alias cfg-qtile="nvim ~/.config/qtile/config.py"

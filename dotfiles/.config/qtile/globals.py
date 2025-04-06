@@ -41,6 +41,7 @@ pc = "pavucontrol"
 st = "steam"
 tb = "thunderbird"
 tm = f"{home}/mps/snippets/launch_kitty.bash"
+mux = f"{terminal} {home}/mps/snippets/launch_tmux.bash"
 
 rofilaunch = f"{home}/mps/snippets/rofi-boot-launcher.sh"
 rofiwindows = "rofi -show window"

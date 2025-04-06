@@ -10,6 +10,7 @@ from globals import (
     gp,
     nv,
     fm,
+    mux,
     update,
     barBorderWidth,
     opacityBar,
@@ -30,6 +31,7 @@ from colors import (
 icons_static = {
     "firefox": "/usr/share/icons/hicolor/128x128/apps/firefox-esr.png",
     "kitty": "/usr/share/icons/hicolor/256x256/apps/kitty.png",
+    "tmux": "/usr/share/icons/gnome/256x256/apps/terminal.png",
     "gedit": "/usr/share/icons/gnome/256x256/apps/accessories-text-editor.png",
     "nvim": "/usr/share/icons/locolor/32x32/apps/gvim.png",
     "thunar": "/usr/share/icons/hicolor/128x128/apps/org.xfce.thunar.png",
@@ -143,6 +145,13 @@ def create_widgetbox_buttons():
                 filename=icons_static["firefox"],
                 mouse_callbacks={
                     "Button1": lazy.spawn(ff),
+                },
+            ),
+            widget.Image(
+                scale=True,
+                filename=icons_static["tmux"],
+                mouse_callbacks={
+                    "Button1": lazy.spawn(mux),
                 },
             ),
             widget.Image(

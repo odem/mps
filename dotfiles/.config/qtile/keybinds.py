@@ -24,6 +24,7 @@ from globals import (
     nv,
     a,
     m,
+    mux,
     modctrl,
     modshift,
     mcs,
@@ -113,6 +114,7 @@ keys_static = [
     Key(m, "t", lazy.spawn(randomwp), desc="Randomize wallpaper"),
     Key(m, "v", lazy.spawn(nv), desc="neovim"),
     Key(m, "Return", lazy.spawn(tm), desc="Launch terminal"),
+    Key(modshift, "Return", lazy.spawn(mux), desc="Launch terminal"),
     Key(m, "space", lazy.spawn(rofilaunch), desc="Start rofi"),
     # Media keys for spotify
     Key([], "XF86AudioNext", lazy.spawn(spotifynext), desc="Next song"),

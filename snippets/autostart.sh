@@ -4,18 +4,15 @@
 SNIPPETS=~/mps/snippets
 "$SNIPPETS"/autostart_clean.sh
 
-# Force always
-#xrandr -s 1680x1050 &
-#xrandr -s 1920x1080 &
-xrandr --output DP-2 --primary --auto --mode 3840x2160 --pos 0x0 --rotate normal \
-    --output HDMI-0 --mode 1920x1080 --pos 3840x1080 --rotate normal 
-
+# Setup X
+PRIMARY_DISPLAY=DP-4
+SECONDARY_DISPLAY=HDMI-0
+xrandr --output "$PRIMARY_DISPLAY" --primary --auto --mode 3840x2160 --pos 0x0 --rotate normal \
+    --output "$SECONDARY_DISPLAY" --mode 1920x1080 --pos 3840x1080 --rotate normal 
 xset s off &
 xset -dpms &
-#xset dpms 36000 36000 36000 &
 xset r rate 250 50 &
 setxkbmap de &
-#feh --bg-scale ~/.config/images/wallpaper.jpg &
 
 # dconf settings
 dconf load / <~/.config/dconf/config.ini

@@ -5,7 +5,6 @@ from helpers import normalize_window_title
 from globals import (
     tm,
     ff,
-    mu,
     ev,
     ge,
     gp,
@@ -32,9 +31,8 @@ icons_static = {
     "firefox": "/usr/share/icons/hicolor/128x128/apps/firefox-esr.png",
     "kitty": "/usr/share/icons/hicolor/256x256/apps/kitty.png",
     "gedit": "/usr/share/icons/gnome/256x256/apps/accessories-text-editor.png",
-    "nvim": "/usr/share/icons/hicolor/128x128/apps/nvim.png",
+    "nvim": "/usr/share/icons/locolor/32x32/apps/gvim.png",
     "thunar": "/usr/share/icons/hicolor/128x128/apps/org.xfce.thunar.png",
-    "mumble": "/usr/share/icons/hicolor/scalable/apps/mumble.svg",
     "evince": "/usr/share/icons/hicolor/scalable/apps/org.gnome.Evince.svg",
     "gparted": "/usr/share/icons/hicolor/scalable/apps/gparted.svg",
 }
@@ -71,7 +69,7 @@ def create_widget_updater():
         colour_no_updates="00ff00",
         display_format="({updates})",
         no_update_string="(0)",
-        execute=f"{tm} --title Update --hold {update}",
+        execute=f"kitty {update}",
     )
 
 
@@ -163,13 +161,6 @@ def create_widgetbox_buttons():
             ),
             widget.Image(
                 scale=True,
-                filename=icons_static["mumble"],
-                mouse_callbacks={
-                    "Button1": lazy.spawn(mu),
-                },
-            ),
-            widget.Image(
-                scale=True,
                 filename=icons_static["nvim"],
                 mouse_callbacks={
                     "Button1": lazy.spawn(nv),
@@ -230,6 +221,7 @@ def create_topbar():
                 widget.ThermalZone(),
             ],
         ),
+        create_widgetbox_graphs(),
     ]
 
 
@@ -270,7 +262,6 @@ class MpsScreens(object):
                         create_widgetbox_buttons(),
                         widget.Spacer(),
                         widget.Sep(),
-                        create_widgetbox_graphs(),
                         create_widgetbox_tasklist(),
                         create_widgetbox_clipboard(),
                         widget.Sep(),
@@ -309,7 +300,6 @@ class MpsScreens(object):
                         create_widgetbox_buttons(),
                         widget.Spacer(),
                         widget.Sep(),
-                        create_widgetbox_graphs(),
                         create_widgetbox_tasklist(),
                         create_widgetbox_clipboard(),
                         widget.Sep(),

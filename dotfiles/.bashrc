@@ -32,6 +32,7 @@ fi
 #--- Environment Variable -----------------------------------------------------
 LOCALESTR=en_US.UTF-8
 export PATH=$PATH:~/mps/snippets:~/.local/bin
+export SUDO_ASKPASS=/usr/bin/ssh-askpass
 export EDITOR=nvim
 export TERM=xterm-kitty
 export SHELL=/bin/bash

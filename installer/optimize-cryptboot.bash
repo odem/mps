@@ -7,16 +7,19 @@ LUKS_VERSION=$(sudo cryptsetup luksDump $LUKS_PART \
     | tr -d "\t " | cut -d ":" -f 2)
 
 create_initramfs_breakpoint() {
+    echo "Create initramfs breakpoint"
     sudo sed "/GRUB_CMDLINE_LINUX_DEFAULT/d" -i /etc/default/grub
     echo 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash break=mount"' | sudo tee --append /etc/default/grub
     sudo update-grub
 }
 remove_initramfs_breakpoint() {
+    echo "Remove initramfs breakpoint"
     sudo sed "/GRUB_CMDLINE_LINUX_DEFAULT/d" -i /etc/default/grub
     echo 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"' | sudo tee --append /etc/default/grub
     sudo update-grub
 }
 create_initramfs_hook() {
+    echo "Create initramfs hook"
     cat <<EOF | sudo tee --append /etc/initramfs-tools/scripts/init-premount/run_once.sh
 #!/bin/sh
 printf "$LUKS_PASS\n" | cryptsetup luksConvertKey --pbkdf pbkdf2 "$LUKS_PART"
@@ -26,11 +29,14 @@ cryptsetup luksDump "$LUKS_PART" | grep "Version: "
 rm -rf /etc/initramfs-tools/scripts/init-premount/run_once.sh
 exit
 EOF
-    printf "\n\n\n" | sudo update-initramfs -u
+    sudo chmod +x /etc/initramfs-tools/scripts/init-premount/run_once.sh
+    sudo update-initramfs -u
+    # printf "\n\n\n" | sudo update-initramfs -u
 }
 move_boot() {
+    echo "Move boot dir"
     HAS_BOOT=$(grep -c " /boot " /etc/fstab)
-    [[ $HAS_BOOT -eq 0 ]] || return 0
+    [[ $HAS_BOOT -eq 0 ]] && return 0
     sudo mount -o remount,ro /boot
     sudo cp -axT /boot /boot.tmp
     sudo umount /boot/efi && sudo umount /boot
@@ -46,6 +52,7 @@ move_boot() {
     sudo shutdown -r now
 }
 add_keyfile() {
+    echo "Add keyfile"
     HAS_BOOT=$(grep -c " /boot " /etc/fstab)
     [[ $HAS_BOOT -gt 0 ]] && return 0
     HAS_KEYFILE=$(grep -c "/keyfile" /etc/crypttab)
@@ -65,7 +72,7 @@ if [[ "$LUKS_VERSION" == "2" ]] ; then
     create_initramfs_breakpoint
     create_initramfs_hook
 else
-    echo "$LUKS_VERSION"
+    echo "Luks version is 1"
     remove_initramfs_breakpoint
     move_boot
     add_keyfile

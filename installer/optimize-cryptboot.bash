@@ -26,7 +26,7 @@ printf "$LUKS_PASS\n" | cryptsetup luksConvertKey --pbkdf pbkdf2 "$LUKS_PART"
 printf "YES\n" | cryptsetup convert --type luks1 "$LUKS_PART"
 sleep 3
 cryptsetup luksDump "$LUKS_PART" | grep "Version: "
-rm -rf /etc/initramfs-tools/scripts/init-premount/run_once.sh
+#rm -rf /etc/initramfs-tools/scripts/init-premount/run_once.sh
 exit
 EOF
     sudo chmod a+x /etc/initramfs-tools/scripts/init-premount/run_once.sh
@@ -49,7 +49,7 @@ move_boot() {
     sudo update-grub
     sudo grub-install "$DISK_PART"
     sudo rm -rf /boot.tmp
-    sudo shutdown -r now
+    #sudo shutdown -r now
 }
 add_keyfile() {
     echo "Add keyfile"
@@ -64,8 +64,8 @@ add_keyfile() {
     sudo sed "s# none luks,discard# /keyfile luks,discard,key-slot=1#g" -i /etc/crypttab
     echo 'KEYFILE_PATTERN="/keyfile"' | sudo tee --append /etc/cryptsetup-initramfs/conf-hook
     echo UMASK=0077 | sudo tee --append /etc/initramfs-tools/initramfs.conf
+    rm -rf /etc/initramfs-tools/scripts/init-premount/run_once.sh
     sudo update-initramfs -u -k all
-
 }
 if [[ "$LUKS_VERSION" == "2" ]] ; then
     echo "Luks version is 2"

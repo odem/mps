@@ -29,7 +29,7 @@ cryptsetup luksDump "$LUKS_PART" | grep "Version: "
 rm -rf /etc/initramfs-tools/scripts/init-premount/run_once.sh
 exit
 EOF
-    sudo chmod +x /etc/initramfs-tools/scripts/init-premount/run_once.sh
+    sudo chmod a+x /etc/initramfs-tools/scripts/init-premount/run_once.sh
     sudo update-initramfs -u
     # printf "\n\n\n" | sudo update-initramfs -u
 }
@@ -61,7 +61,7 @@ add_keyfile() {
     sudo chmod 0600 /keyfile
     sudo cryptsetup luksAddKey "$LUKS_PART" /keyfile
     sudo cryptsetup luksDump "$LUKS_PART"
-    sudo sed "s# luks,discard\$#/keyfile luks,discard,key-slot=1#g" /etc/crypttab
+    sudo sed "s# none luks,discard# /keyfile luks,discard,key-slot=1#g" -i /etc/crypttab
     echo 'KEYFILE_PATTERN="/keyfile"' | sudo tee --append /etc/cryptsetup-initramfs/conf-hook
     echo UMASK=0077 | sudo tee --append /etc/initramfs-tools/initramfs.conf
     sudo update-initramfs -u -k all

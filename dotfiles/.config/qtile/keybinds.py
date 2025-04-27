@@ -15,7 +15,6 @@ from globals import (
     spotifystop,
     tm,
     fm,
-    tb,
     ff,
     ap,
     pc,
@@ -33,9 +32,9 @@ from globals import (
 
 keys_f = [
     # Applications + Movement
-    Key(a, "F1", spawn_once(ff), lazy.group["3"].toscreen(), desc="Browser"),
-    Key(a, "F2", spawn_once(tb), lazy.group["7"].toscreen(), desc="Mail"),
-    Key(a, "F3", spawn_once(fm), lazy.group["2"].toscreen(), desc="Files"),
+    Key(a, "F1", spawn_once(mux), lazy.group["1"].toscreen(), desc="Tmux"),
+    Key(a, "F2", spawn_once(fm), lazy.group["2"].toscreen(), desc="Files"),
+    Key(a, "F3", spawn_once(ff), lazy.group["3"].toscreen(), desc="Browser"),
     Key(a, "F4", spawn_once(pc), lazy.group["9"].toscreen(), desc="Sound"),
     Key(a, "F5", spawn_once(lu), lazy.group["8"].toscreen(), desc="Lutris"),
     Key(a, "F6", spawn_once(st), lazy.group["8"].toscreen(), desc="Steam"),

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 
 # Force always
@@ -7,17 +7,25 @@
 #feh --image-bg black
 
 # dconf settings
-dconf dump / | tee ~/.config/dconf/config.ini
+dconf dump / > ~/.config/dconf/config.ini
 
+# Kill tmux sessions
+~/mps/snippets/warden_clean.bash
+tmuxinator stop citmux
+tmuxinator stop scratchpad
+tmux kill-server
+
+# Kill Desktop stuff
 COMPOSITOR=picom
 NETMON=nm-applet
 VOLMON=volumeicon
-SCRATCHTERM=tilda
+#SCRATCHTERM=tilda
 SYSMON=gnome-system-monitor
 POLKIT=lxpolkit
 MAILTRAY=birdtray
-ALL="$COMPOSITOR $NETMON $VOLMON $SCRATCHTERM $SYSMON $POLKIT $MAILTRAY"
-for comp in $ALL
+ALL="$COMPOSITOR $NETMON $VOLMON $SYSMON $POLKIT $MAILTRAY"
+for comp in "${ALL[@]}"
 do
-    killall $comp
+    killall "$comp" 2>&1 /dev/null
 done
+

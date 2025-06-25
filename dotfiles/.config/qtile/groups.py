@@ -4,12 +4,12 @@ from libqtile.config import Group, Match
 class MpsGroups(object):
     def init_groups(self):
         return [
-            Group("1", label="1  ", matches=[], layout="monadtall"),
+            Group("1", label="1 󰆍 ", matches=[], layout="monadtall"),
             Group(
                 "2",
                 label="2  ",
                 matches=[Match(wm_class="Thunar")],
-                layout="treetab",
+                layout="monadtall",
             ),
             Group(
                 "3",
@@ -17,22 +17,22 @@ class MpsGroups(object):
                 matches=[Match(wm_class="Firefox-esr")],
                 layout="max",
             ),
-            Group("4", label="4 󰦖 ", matches=[], layout="monadtall"),
+            Group("4", label="4  ", matches=[], layout="columns"),
             Group(
                 "5",
                 spawn="gnome-system-monitor",
-                label="5 󰨇 ",
+                label="5  ",
                 matches=[
                     Match(wm_class="Gnome-system-monitor"),
                     Match(wm_class="Thunar"),
                 ],
-                layout="monadwide",
+                layout="monadtall",
             ),
             Group(
                 "6",
-                label="6 󰍺 ",
+                label="6 󰍹 ",
                 matches=[Match(wm_class="qemu")],
-                layout="monadtall",
+                layout="column",
             ),
             Group(
                 "7",

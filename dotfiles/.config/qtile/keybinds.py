@@ -1,9 +1,10 @@
+import subprocess
+
 from libqtile.config import Key
 from libqtile.lazy import lazy
-from helpers import to_urgent, spawn_once, toggle_gaming_mode
+from helpers import to_urgent, spawn_once
 from globals import (
     startup,
-    randomwp,
     rofipower,
     rofilaunch,
     rofiwindows,
@@ -13,38 +14,41 @@ from globals import (
     spotifyprev,
     spotifyplay,
     spotifystop,
+    citmux,
+    display_reset,
     tm,
     fm,
+    tb,
     ff,
     ap,
     pc,
     lu,
     st,
     nv,
+    zo,
+    gi,
     a,
     m,
-    mux,
     modctrl,
     modshift,
     mcs,
 )
 
 
-keys_f = [
-    # Applications + Movement
-    Key(a, "F1", spawn_once(mux), lazy.group["1"].toscreen(), desc="Tmux"),
-    Key(a, "F2", spawn_once(fm), lazy.group["2"].toscreen(), desc="Files"),
-    Key(a, "F3", spawn_once(ff), lazy.group["3"].toscreen(), desc="Browser"),
-    Key(a, "F4", spawn_once(pc), lazy.group["9"].toscreen(), desc="Sound"),
-    Key(a, "F5", spawn_once(lu), lazy.group["8"].toscreen(), desc="Lutris"),
-    Key(a, "F6", spawn_once(st), lazy.group["8"].toscreen(), desc="Steam"),
-    Key(a, "F7", spawn_once(ap), lazy.group["9"].toscreen(), desc="Music"),
-    Key([], "F4", lazy.group["scratchpad"].dropdown_toggle("pavu")),
-    Key([], "F5", lazy.group["scratchpad"].dropdown_toggle("term")),
-    Key([], "F6", lazy.group["scratchpad"].dropdown_toggle("calc")),
-    Key([], "F7", lazy.group["scratchpad"].dropdown_toggle("htop")),
-    Key([], "F8", lazy.group["scratchpad"].dropdown_toggle("bpytop")),
-]
+@lazy.function
+def enable_keybinds(qtile):
+    lazy.reload_config()
+    keys.append(Key(m, "i", lazy.reload_config()))
+    keys.append(Key(m, "o", disable_keybinds()))
+
+
+@lazy.function
+def disable_keybinds(qtile):
+    keys = []
+    qtile.cmd_spawn('notify-send "My Custom Function" "Hello from Qtile!"')
+    subprocess.run("echo 'AAA' > /home/jb/kbtest.txt", shell=True, check=False)
+    # keys.append(Key(m, "i", lazy.reload_config()))
+    # keys.append(Key(m, "o", disable_keybinds()))
 
 
 keys_static = [
@@ -110,25 +114,35 @@ keys_static = [
     Key(a, "Tab", lazy.spawn(rofiwindows), desc="Launcher widget"),
     Key(m, "p", lazy.spawn(keepasslauncher), desc="Keepass"),
     Key(m, "Print", lazy.spawn(screenshot), desc="Screenshot"),
-    Key(m, "t", lazy.spawn(randomwp), desc="Randomize wallpaper"),
+    # Key(m, "t", lazy.spawn(randomwp), desc="Randomize wallpaper"),
     Key(m, "v", lazy.spawn(nv), desc="neovim"),
     Key(m, "Return", lazy.spawn(tm), desc="Launch terminal"),
-    Key(modshift, "Return", lazy.spawn(mux), desc="Launch terminal"),
     Key(m, "space", lazy.spawn(rofilaunch), desc="Start rofi"),
+    Key(m, "t", lazy.spawn(citmux), desc="Launch citmux"),
+    Key(modshift, "D", lazy.spawn(display_reset), desc="Reset displays"),
+    # Applications + Movement
+    Key(a, "F1", spawn_once(ff), lazy.group["3"].toscreen(), desc="Browser"),
+    Key(a, "F2", spawn_once(tb), lazy.group["7"].toscreen(), desc="Mail"),
+    Key(a, "F3", spawn_once(fm), lazy.group["2"].toscreen(), desc="Files"),
+    Key(a, "F4", spawn_once(pc), lazy.group["9"].toscreen(), desc="Sound"),
+    Key(a, "F5", spawn_once(lu), lazy.group["8"].toscreen(), desc="Lutris"),
+    Key(a, "F6", spawn_once(st), lazy.group["8"].toscreen(), desc="Steam"),
+    Key(a, "F7", spawn_once(ap), lazy.group["9"].toscreen(), desc="Music"),
+    Key(a, "F8", spawn_once(gi), lazy.group["4"].toscreen(), desc="Gimp"),
+    Key(a, "F9", spawn_once(zo), lazy.group["7"].toscreen(), desc="Zoom"),
     # Media keys for spotify
     Key([], "XF86AudioNext", lazy.spawn(spotifynext), desc="Next song"),
     Key([], "XF86AudioPrev", lazy.spawn(spotifyprev), desc="Prev song"),
     Key([], "XF86AudioPlay", lazy.spawn(spotifyplay), desc="Play/pause song"),
     Key([], "XF86AudioStop", lazy.spawn(spotifystop), desc="Stop song"),
     Key(m, "i", lazy.reload_config(), desc="Enable keybinds"),
-    Key(m, "o", lazy.function(toggle_gaming_mode, keys_f), desc="Toggle gaming mode"),
+    Key(m, "o", lazy.function(disable_keybinds), desc="Disable keybinds"),
 ]
 
 
 class MpsKeybinds:
     def init_keybinds(self, groups):
         keys = keys_static
-        keys.extend(keys_f)
         for group in groups:
             keys.append(Key(m, group.name, lazy.group[group.name].toscreen()))
             keys.append(

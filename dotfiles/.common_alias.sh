@@ -1,13 +1,10 @@
-#!/bin/sh
-
-
-MPSDIR="/opt/mps"
-
+#!/bin/bash
+#
 # apt
 alias pq='apt search'
 alias pi='sudo apt install'
 alias pd='sudo apt remove'
-alias puu='sudo apt update && sudo apt upgrade && sudo apt autoremove'
+alias puu='sudo apt update && sudo apt upgrade'
 alias cmmi='./configure && make && sudo make install'
 
 # ls
@@ -45,19 +42,8 @@ alias sbcat='sudo batcat'
 # cp
 alias rp='rsync -arvP --info=progress2'
 
-# diskinfo
-alias fs='df -h | head -n1 ; df -h | tail -n +2 | sort -k1,5'
-alias info-fs='df -h | head -n1 ; df -h | tail -n +2 | sort -k1,5'
-
-# diskinfo
-alias info-zram='sudo zramctl'
-
-# mount
-alias mo='sudo mount'
-alias moa='sudo mount -a'
-alias mu='sudo unmount'
-alias fstab='sudo nvim /etc/fstab'
-alias info-mounts='sudo mount -a'
+# Battery
+alias battery='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
 
 # git
 alias gs='git status'
@@ -85,38 +71,42 @@ alias dirm="docker image rm"
 alias dia="docker images -a"
 alias diatagged='docker images -a | grep -v "<none>"'
 
+# ps
+alias psag="ps aux | grep "
 # network
 alias ns='sudo netstat -tulpn |sort -k 4 -n'
 alias nso='sudo netstat -tulpano |sort -k 4 -n'
-alias info-net='sudo netstat -tulpano |sort -k 4 -n'
-
-# iptables
-alias iptl='sudo iptables -L -n -v'
-alias iptln='sudo iptables -L -n -v -tnat'
-alias info-fw='sudo iptables -L -n -v -tnat'
-alias info-fwnat='sudo iptables -L -n -v -tnat'
-
-# bridging
-alias sbs='sudo brctl show'
-alias info-bridges='sudo brctl show'
-
-# routing
-alias srn='sudo route -n'
-alias info-routes='sudo route -n'
 
 # ifconfig
 alias sif='sudo ifconfig'
 alias sifa='sudo ifconfig -a'
-alias info-nics='sudo ifconfig -a'
+alias sifab='sudo ifconfig -a | grep --color=never ^br'
+alias sifap='sudo ifconfig -a | grep --color=never ^tap'
+alias sifan='sudo ifconfig -a | grep --color=never ^tun'
+alias sifar='sudo ifconfig -a | grep --color=never -Ev "^(br|tap|tun)"'
+alias lip='sudo ip -4 addr show scope global | awk '\''/^[0-9]/ {if (iface) {print iface " " (ips ? ips : "No IP");} iface=$2; ips=""; next} /inet / {ips = (ips ? ips ", " : "") $2} END {if (iface) print iface " " (ips ? ips : "No IP")}'\'' | sort'
+alias lipa='sudo ip addr | awk '\''/^[0-9]/ {if (iface) {print iface " " (ips ? ips : "No IP");} iface=$2; ips=""; next} /inet / {ips = (ips ? ips ", " : "") $2} END {if (iface) print iface " " (ips ? ips : "No IP")}'\'' | sort'
 
-# systemd
-alias sdr='sudo systemctl daemon-reload'
+# iptables
+alias iptl='sudo iptables -L -vn '
+alias iptln='sudo iptables -L -t nat -vn '
+alias iptla='sudo iptables -L -vn ; echo "" ; sudo iptables -L -t nat -vn '
 
-# kitty icat
-alias icat='kitty +kitten icat --align=center --scale-up'
+# bridge
+alias sbs='sudo brctl show'
+
+# routing
+alias srn='sudo route -n'
+
+# systemctl
+alias scstatus='sudo systemctl status '
+alias scstart='sudo systemctl start '
+alias scstop='sudo systemctl stop '
+alias screstart='sudo systemctl restart '
+alias screload='sudo systemctl daemon-reload'
 
 # nvim
-alias v='nvim'
+alias v='~/mps/secrets/chatgpt-token.bash && nvim'
 alias sv='sudo nvim'
 # mps
 alias mps="z ~/mps"
@@ -132,7 +122,6 @@ alias tools="z ~/mps/tools"
 alias venv="z ~/mps/venv"
 alias vm="z ~/mps/vm"
 alias wsp="z ~/mps/wsp"
-alias info-mps="ls -la ~/mps/"
 
 # More fancy colors
 if [ -x /usr/bin/dircolors ]; then
@@ -154,30 +143,28 @@ alias qvm_stop="quickvm.bash -a stop"
 alias qvm_list="quickvm.bash -a list"
 alias qvm_ssh="quickvm.bash -a ssh"
 
+# xset
+alias xx="xset r rate 250 50"
+
 # vpn
-# alias vpn-ptp="vpn.bash ptp"
-# alias vpn-bridge="vpn.bash bridge"
-# alias vpn-state="vpn.bash"
+alias vpn-ptp="vpn.bash ptp"
+alias vpn-bridge="vpn.bash bridge"
+alias vpn-state="vpn.bash"
 
 # public ip
 alias whoamip='echo $(curl -s ifconfig.me)'
-alias info-pubip='echo $(curl -s ifconfig.me)'
 
 # tmux session control
 alias tls="tmux ls"
 alias tas="tmux attach -t "
 alias tns="tmux new -s "
-alias tks="tmux kill-server"
-alias tkss="tmux kill-session -t "
-alias info-tmux="tmux ls"
-alias muxme="~/mps/snippets/launch_tmux.bash"
-alias muxme-matrix="~/mps/snippets/launch_tmux.bash 'hm && ho'"
+alias tks="tmux kill-session -t "
 
 # Custom config aliases
 alias cfg-qtile="nvim ~/.config/qtile/config.py"
 alias cfg-nvim="nvim ~/.config/nvim/init.lua"
-alias cfg-kitty="nvim ~/.config/kitty/kitty.conf"
 alias cfg-tmux="nvim ~/.config/tmux/tmux.conf.local"
+alias cfg-kitty="nvim ~/.config/kitty/kitty.conf"
 alias cfg-ssh="nvim ~/.ssh/config"
 alias cfg-snippets="nvim ~/mps/snippets"
 alias cfg-skeletons="nvim ~/mps/skeletons"
@@ -188,9 +175,34 @@ alias cfg-zshrc="nvim ~/.zshrc && source ~/.zshrc"
 alias cfg-alias-common="nvim ~/.common_alias.sh && source ~/.common_alias.sh"
 alias cfg-alias-custom="nvim ~/.custom_alias.sh && source ~/.custom_alias.sh"
 
+
+# mount
+alias smountall='sudo mount -a'
+alias smount='sudo mount'
+alias sdf='sudo df -h | pee "head -n 1" "tail -n +2" | sort'
+alias sdfa='sudo df -ah | pee "head -n 1" "tail -n +2" | sort'
+
+# Lock screen
+alias lock="physlock"
+
 # Custom folders aliases
-alias mpsrepo="z $MPSDIR"
-alias info-mpsdir="echo $MPSDIR"
+alias mpsrepo="z /opt/mps"
 
 # Include more custom aliases
 . ~/.custom_alias.sh
+
+
+
+# Testing
+each_line() {
+  cmd_prefix="$1"
+  cmd_trail="$2"
+
+  while IFS= read -r line; do
+    if [[ -z "$cmd_trail" ]]; then
+      eval "$cmd_prefix \"$line\""
+    else
+      eval "$cmd_prefix \"$line\" $cmd_trail"
+  fi
+  done
+}  

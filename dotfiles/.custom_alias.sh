@@ -4,6 +4,34 @@
 # Alias variables
 # NOTE: Expand when defined, not when used!
 # NOTE: Consider escaping
-alias vt="NVIM_APPNAME=nvim-tests nvim"
+# REPODIR=/home/jb/mps/repo/github/nuromedia/design-daas
+# BACKENDDIR=$REPODIR/backend
+# WEBDIR=$BACKENDDIR/web
+# NOWEBDIR=$BACKENDDIR/noweb
+# INSTDIR=$BACKENDDIR/installer/
+# ISODIR=$INSTDIR/iso
+# Directories
+# alias dir-nuro="z $REPODIR"
+# alias dir-backend="z $BACKENDDIR"
+# alias dir-inst="z $INSTDIR"
+# alias dir-web="z $WEBDIR"
+# alias dir-noweb="z $NOWEBDIR"
+# alias dir-iso="z $ISODIR"
+# Service control
+#alias srv-demo="z $WEBDIR ; make demo"
+#alias srv-serve="z $WEBDIR ; make serve"
+# Other
+#alias vq="z $WEBDIR ; source .venv/bin/activate ; nvim daas_web/quart_app.py && deactivate && zz"
+#alias nuromux="tmuxinator stop nuro ; tmuxinator start nuro"
+#alias vt="NVIM_APPNAME=nvim-tests nvim"
 
+# ISODIR=~/mps/repo/gitlab/unattended-iso-install
+ISODIR=~/mps/disks/ext2TB/unattended-iso-install
+alias dir-iso="z $ISODIR"
 
+alias viso="z $ISODIR ; nvim Makefile && zz"
+
+#cit
+alias start-citmux="tmuxinator start citmux"
+alias stop-citmux="tmuxinator stop citmux"
+alias cfg-citmux="tmuxinator edit citmux"

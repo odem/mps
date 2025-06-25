@@ -175,4 +175,3 @@ vim.opt.termguicolors = true
 vim.g.navic_silence = true
 
 vim.o.lazyredraw = false
--- vim.o.fasttty = true

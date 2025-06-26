@@ -27,26 +27,22 @@ mcs = [mod, "control", "shift"]
 ###############################################################################
 # Variables and default commandlines
 ###############################################################################
+home = os.path.expanduser("~")
 terminal = "kitty"
 ap = "spotify"
 ev = "evince"
-ff = "firefox"
+ff = "firefox-esr"
 fm = "thunar"
 ge = "gedit"
-gi = "gimp"
-gp = "sudo gparted"
+gp = f"{home}/mps/snippets/launch_gparted.bash"
 lu = "lutris"
-nv = "kitty nvim"
-mu = "mumble"
+nv = f"{terminal} nvim"
 pc = "pavucontrol"
 st = "steam"
 tb = "thunderbird"
-tm = "kitty"
-citmux = "kitty tmuxinator start citmux"
-display_reset = "bash -c 'xset dpms force off ; xset dpms force on ; sleep 3'"
-zo = "zoom"
+tm = f"{home}/mps/snippets/launch_kitty.bash"
+mux = f"{terminal} {home}/mps/snippets/launch_tmux.bash"
 
-home = os.path.expanduser("~")
 rofilaunch = f"{home}/mps/snippets/rofi-boot-launcher.sh"
 rofiwindows = "rofi -show window"
 rofipower = f"{home}/mps/snippets/rofi-boot-powermenu.sh"
@@ -55,7 +51,7 @@ keepasslauncher = f"keepass2 {home}/mps/secrets/Database.kdbx"
 randomwp = f"{home}/mps/snippets/randomize_wp.bash"
 startup = f"{home}/mps/snippets/autostart.sh"
 cleanup = f"{home}/mps/snippets/autostart_clean.sh"
-update = "sudo apt update && sudo apt upgrade"
+update = f"{home}/mps/snippets/launch_updates.bash"
 opacityBar = 1
 barBorderWidth = 2
 resizeAmount = 30

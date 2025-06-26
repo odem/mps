@@ -1,7 +1,7 @@
 #!/bin/bash
 # Construct Prompt
 
-HOMEHOST=ontherun
+HOMEHOST=hive
 HOST=$(hostname)
 
 PS1="\
@@ -27,7 +27,7 @@ elif [[ \$DISTRO == "Debian" ]]; then \
 \$(if [[ \$USER == "root" ]]; then \
     printf \"\\${CPref}\\${BIRed}\\${CSuf}\"; else\
     printf \"\\${CPref}\\${BIGreen}\\${CSuf}\"; fi)\
- \
+ >\
 \001${Color_Off}\002 "
 # Check color prompt
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then

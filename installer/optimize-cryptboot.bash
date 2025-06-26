@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LUKS_PART=/dev/vda3
+LUKS_PART=/dev/vda4
 LUKS_PASS=diskpass
 LUKS_VERSION=$(sudo cryptsetup luksDump $LUKS_PART \
     | grep "Version: " \
@@ -67,13 +67,20 @@ add_keyfile() {
     rm -rf /etc/initramfs-tools/scripts/init-premount/run_once.sh
     sudo update-initramfs -u -k all
 }
+
+echo "LUKS_VERSION: $LUKS_VERSION"
+sleep 5
 if [[ "$LUKS_VERSION" == "2" ]] ; then
     echo "Luks version is 2"
     create_initramfs_breakpoint
     create_initramfs_hook
+elif [[ "$LUKS_VERSION" == "1" ]] ; then
+    if [[ ! -f /keyfile ]] ; then
+        echo "Luks version is 1"
+        remove_initramfs_breakpoint
+        move_boot
+        add_keyfile
+    fi
 else
-    echo "Luks version is 1"
-    remove_initramfs_breakpoint
-    move_boot
-    add_keyfile
+    echo "Unknown Error! Could not detect luks version: $LUKS_VERSION"
 fi

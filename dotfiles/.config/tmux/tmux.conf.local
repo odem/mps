@@ -256,7 +256,7 @@ tmux_conf_theme_right_separator_sub="|"
 #     - #{username_ssh}
 #tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} #(ping -c 1 1.1.1.1 >/dev/null 2>&1 && printf '✔' || printf '✘')"
 tmux_conf_theme_status_left=" ❐ #S "
-tmux_conf_theme_status_right=" Continuum: #{continuum_status} #{prefix}#{mouse}#{pairing}#{synchronized}#{cpu_fg_color}#{cpu_icon}#{gpu_medium_fg_color}#{gpu_icon}#{ram_fg_color}#{ram_icon} |#{root}#{username}#{root}|@#{hostname} #{prefixed}"
+tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized} #{cpu_fg_color}#{cpu_icon}#{gpu_fg_color}#{gpu_icon}#{ram_fg_color}#{ram_icon} |#{root}#{username}#{root}|@#{hostname} "
 
 # status left style
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_5,$tmux_conf_theme_colour_10,$tmux_conf_theme_colour_18"
@@ -301,13 +301,13 @@ tmux_conf_theme_synchronized_attr="none"
 # battery bar symbols
 tmux_conf_battery_bar_symbol_full="◼"
 tmux_conf_battery_bar_symbol_empty="◻"
-tmux_conf_battery_bar_symbol_full="♥"
-tmux_conf_battery_bar_symbol_empty="·"
+#tmux_conf_battery_bar_symbol_full="♥"
+#tmux_conf_battery_bar_symbol_empty="·"
 
 # battery bar length (in number of symbols), possible values are:
 #   - auto
 #   - a number, e.g. 5
-tmux_conf_battery_bar_length="5"
+tmux_conf_battery_bar_length="auto"
 
 # battery bar palette, possible values are:
 #   - gradient (default)
@@ -446,12 +446,9 @@ set -g @open-S 'https://www.google.com/search?q='
 set -g @plugin 'tmux-plugins/tmux-yank'
 
 set -g @plugin 'tmux-plugins/tmux-cpu'
-# set -g @plugin 'tmux-plugins/tmux-resurrect'
-# set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @continuum-restore 'on'
-set -g @continuum-save-interval '30'
-set -g @continuum-boot-options 'kitty'
-set -g @continuum-boot 'on'
 set -g @tmux-resurrect-strategy-nvim 'sessions'
 
 set -g @cpu_low_fg_color "#[fg=$tmux_conf_theme_colour_2]" # background color when cpu is low
@@ -472,7 +469,6 @@ set -g visual-bell off
 set -g visual-silence off
 setw -g monitor-activity off
 set -g bell-action none
-set -g xterm-keys on
 
 #  modes
 setw -g clock-mode-colour colour5

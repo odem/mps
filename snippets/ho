@@ -1,4 +1,4 @@
 #!/bin/bash
-SAYING=$(fortune)
-cowsay "$SAYING"
+SAYING=$(/usr/games/fortune de)
+/usr/games/cowsay "$SAYING"
 echo ""
